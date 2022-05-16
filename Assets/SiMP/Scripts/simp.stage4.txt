@@ -1,0 +1,34 @@
+<#> strict(none)
+pattern {
+	bgm {
+		1	simp.4.mima
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 2
+		
+
+<!> announce
+phase 0
+	saction 0
+		stage-announce
+		shift-phase
+
+##Mima. Mima
+<!> endboss
+phase 0
+	saction 0
+		boss simp.mima
+		shift-phase
+
+##8
+<!> announce
+phase 0
+	saction 0
+		stage-deannounce
+		shift-phase
+
+
+
+

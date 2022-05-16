@@ -1,0 +1,57 @@
+script
+place l1 mokou
+place r1 aya
+sl mokou
+sr aya
+srce cry
+. `Ayayayaya, if only my wings weren't flammable...`
+z
+slce happy
+. `Let's hear that again, eh? What are you going to do on your journalistic integrity, kid?`
+z
+src
+. `On my journalistic integrity, I'll, uh... share some unpublished information that should help you resolve this incident.
+This is for the, uh, public interest, alright?`
+z
+. `I actually never made it to the shrine. There was an overpowering aura emanating from it. Something like an aura of death.`
+z
+srce angry
+. `That energy-- I'm sure that gaudy god is behind it. The bad weather incident was a game to her, but if she were serious, I suppose this is what it'd be like...`
+z
+slce worry
+. `The bad weather incident? There was someone behind it? I heard it was just bad weather.`
+z
+srce worry
+. `We never published this information. We wanted to avoid public panic, or something like that. So listen closely.`
+z
+. `There's a hidden god in Gensoukyou. She has the power to infect the backside of literally anything. Some time ago, she made all the seasons go out of whack by infecting the fairies.`
+z
+slce _
+. `Hmm, this is useful information. I'd better prepare a few Moebius strips. What's she called?`
+z
+srce angry
+. `Take this! My final piece of evidence!
+Her name is--`
+z
+srce cry
+. `...uh, sorry, I can't remember.`
+z
+slce worry
+. `What do you mean you can't remember?
+Isn't it your job to remember these things?`
+z
+src
+. `Well, normally I write this stuff down, but I burned all my notebooks on this incident to avoid any information leaking.`
+z
+. `So the only people who know her name now are the people who were personally involved in the incident.`
+z
+slc
+. `Well, I guess this was good enough information, even with the holes. In exchange, I'll give you a small gift.`
+z
+slce happy
+. `I'll have you invited to the after-party. Reimu won't be there, but she will be one door over.
+Have fun chewing on that.`
+z
+src
+. `No... I'm bad at riddles!`
+z

@@ -1,0 +1,18 @@
+pattern { }
+phase 0
+	paction 0
+		position 0 0
+		sync strip-red/w <2;:> gsr {
+			t	2
+			rpp	<10>
+		} s null
+		sync strip-green/w <1;:90> gsr {
+			bank	<1;:>
+			t	2
+			rpp	<10>
+		} s null
+		sync strip-purple/w <1;:90> gsr {
+			bank0	<1;:>
+			t	2
+			rpp	<10>
+		} s null

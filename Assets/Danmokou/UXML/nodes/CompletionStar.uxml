@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="CompletionStar.uss" />
+    <ui:VisualElement style="width: 320px; height: 200px; background-image: none; flex-direction: row; justify-content: center;">
+        <ui:Label text="[" name="LBracket" class="bracket" />
+        <ui:VisualElement name="Star" style="width: 200px;" />
+        <ui:Label text="]" name="RBracket" class="bracket" />
+    </ui:VisualElement>
+</ui:UXML>

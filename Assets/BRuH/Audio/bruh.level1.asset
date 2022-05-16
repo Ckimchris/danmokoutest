@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3d462728373fa4db771cd7986b7536, type: 3}
+  m_Name: bruh.level1
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: b3c5bd16d854aba47b55544c6a608a77, type: 3}
+  key: bruh.level1
+  title: level1
+  volume: 0.2
+  pitch: 1
+  stopOnPause: 0
+  loop: 1
+  loopSeconds: {x: 11.73, y: 67.39}
+  startWithTime: 0

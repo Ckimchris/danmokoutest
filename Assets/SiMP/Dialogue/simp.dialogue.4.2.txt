@@ -1,0 +1,17 @@
+script
+place l1 kaguya
+place r1 keine
+sr keine
+sl kaguya
+. `Keine!`
+z
+srce surprise
+. `Kaguya? What are you doing here?`
+z
+slce happy
+. `You're a bit too busy to be frolicking around.
+I'll keep our guest entertained in your stead.`
+z
+srce happy
+. `Thanks. I'll see you at Eientei.`
+z

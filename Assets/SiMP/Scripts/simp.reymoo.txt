@@ -1,0 +1,132 @@
+<#> strict(none)
+pattern { 
+	boss simp.reymoo
+	bgm {
+		1 simp.5.stage
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 4
+	
+	
+!!{ me reimu
+
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t red pink
+	rgba 0.9 0.9 0.9 0.9
+	1.5 2 0 0.5
+!}
+
+
+## 1
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 1
+		dialogue simp.dialogue.5.3
+		shift-phase
+#}
+
+
+##2
+<!> type spell :simp.boss.reymoo.dice #{
+<!> root 0 2.5
+<!> hpi 23000 2
+phase 33
+    paction 0
+	pool-control gcircle-* allowdelete false
+	pool-control gcircle-* allowcull false
+	event playerinvuln 240
+	gtr {
+		wt	lerpt 0 3 7s 6s _
+		wait-child
+		rpp <180>
+	} saction 0 :3
+		$power1
+		wait 1.5
+		sync laser-black/ <-5.1;5:> gsr { root zero } laser roffset
+			px logsumshiftt -0.5 6.7 (* 1.2 t) (* -1.4 t)
+		0 14 { straight -90 s 1.5 }
+	
+!!{ q + 6 dc
+	sync gcircle-* <> gsr2 6 <> {
+		root zero
+		color { pink/b pink/ pink/w red/b red/ red/w }
+		p this
+	} gsr2 * $q $q <> {
+		p add
+	} s :: {
+		q	$q
+		fi	p1
+		fmul	if <(&fi, 3) 1 -1
+		nfmul	* -1 &fmul
+		sfi	if <(&fi, 3) &fi (- &fi 3)
+		i1	* (// p2 &q)  / &q - &q 1
+		i2	* (mod &q p2) / &q - &q 1
+		s	7.2
+		hs	/ &s 2
+		stp	/ &s &q	
+		px	* &hs &fmul
+		py	* &hs &fmul
+		pz	* &hs &fmul
+		stp1x	* &nfmul if =(&sfi, 1) 0 &stp
+		stp1y	* &nfmul if =(&sfi, 1) &stp 0
+		stp1z	0
+		stp2x	0
+		stp2y	* &nfmul if =(&sfi, 0) &stp 0
+		stp2z	* &nfmul if =(&sfi, 0) 0 &stp
+		x	+ + &px * &i1 &stp1x * &i2 &stp2x
+		y	+ + &py * &i1 &stp1y * &i2 &stp2y
+		z	+ + &pz * &i1 &stp1z * &i2 &stp2z
+		ts	+ /(-(1, cos t), +(1, t)) *  ^(t, 1.02) / atanr2(t, 3) hpi
+	} nroffset tp qrotate
+	        pxyz * 10 &ts * 8 &ts 30
+			pxyz &x &y &z
+#}
+
+
+## 3
+<!> type timeout :simp.boss.reymoo.wind #{
+<!> root 0 0
+phase 30
+	paction 0
+		sync gdlaser-*/ <> gsr2c 6 {
+			color { red pink }
+		} laser null 1.5 _ {
+			dsfx
+			s 0.5
+			stagger 0.24
+			dynamic polar 
+				* 2 t
+				+ * (- -11 * 2 dc) &lt sine 2.1 (+ 14 * 2 dc) + * 1.1 &lt t
+		}
+		$power1
+	paction 1.5
+!!{ arpt + dc 2
+		async amulet-* <> gcr2 (lerpt 0 6 300 200) _ angle / 360h $arpt {
+			p this
+			color { pink/b red/ }
+			sfx x-fire-burst-1
+		} gsr2c $arpt {
+		} gsr {
+			t 11
+			bindArrow
+			frv2		rxy * pm1 p * 0.136 (- &aixd 3) * 0.11 &aiyd
+		} s tprot cx 0.8
+#}
+
+
+## 4
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 2 io-sine cy 0
+		dialogue simp.dialogue.5.4
+		move-target 2 in-sine cy 10
+		shift-phase
+#}
+
+

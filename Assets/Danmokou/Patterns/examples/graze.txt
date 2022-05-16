@@ -1,0 +1,25 @@
+pattern {}
+phase 0
+	paction 0
+		shift-phase-to 2
+		
+		
+phase 0
+	paction 0
+		position 0 2
+			async glaser-red/w <-2> gsr2 2 <4> { target a Lplayer } laser null 2 100 { } 
+
+phase 0
+    paction 0
+        position 0 2
+			async _ <> gcr2 60 _ <> {
+			} valueitem
+			async gem-green/ <0.5;:> gcr2 24 0 <12h> {
+				sfx x-fire-burst-1
+			} gsr2c 12 {
+			} s tprot cx 3
+			
+            async ellipse-blue* <-1> gcr2 0.4 _ <> {} gsr2 2 <2> {
+				color { /w /b }
+				target a Lplayer
+			} s tprot cx 6

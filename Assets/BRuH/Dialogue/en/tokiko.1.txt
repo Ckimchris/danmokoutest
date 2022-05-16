@@ -1,0 +1,65 @@
+script
+place l1 kasen
+place r1 tokiko
+sle kasen _
+sre tokiko _
+.z `On the dead branch
+ a crow settles--
+ autumn evening`
+slce surprise
+.z `Geh! Not another one!`
+srce angry
+.z `Excuse me? Another one? I assure you, comrade, there is only one of me.`
+slce surprise
+.z `Oh, you speak normally.`
+srce worry
+.z `So do you. But for some reason, that doesn't surprise me. `
+slce worry
+.z `Well, you see, there was someone here earlier who was trying quite pathetically to speak in entirely haiku. And--`
+srce surprise
+.z `Really?! Someone else who appreciates haiku in this godforsaken land?! Where?!`
+slc
+.z `I wouldn't say they appreciated it. Seems like they were forcing it, if anything.`
+srce cry
+.z `Aww...`
+slce happy
+.z `But, you know, I like to think that I have a decent knowledge of haiku. I was the one who suggested bringing back this festival, after all. So let me suggest this translation:`
+
+.z `Upon a withered branch
+ a crow alights;
+ autumn's end.`
+srce surprise
+.z `"Autumn's end"?! Definitely a nonstandard reading, but I think I get the idea. `
+srce _
+.z `I hear that some big-name youkai are planning to overthrow the Lunarians. If they succeed in shooting down the moon, Gensoukyou would fall straight into a dark "winter".`
+.z `But the trees will grow back quickly, never having truly died. And the "spring" that follows the fall of the moon would be the most beautiful spring ever for us youkai. `
+slce _
+.z `Is a dark winter so bad? After all,`
+.z `for the sake
+ of a shooting star
+ a night exists`
+srce happy
+.z `Brilliantly put. Only against the night is it that one can gaze at the stars. And only by getting lost in winter is it that one can appreciate the spring that follows.`
+srce _
+.z `What do you say, comrade? We have some time before the on-stage recitals start. Want to have a little poetry contest right here?`
+slce happy
+.z `You think you can compete with me?
+<i>Someone who doesn't even know the Road of Reconsideration shouldn't be confident in haikai.</i>`
+srce _
+.z `Bashou, huh? I haven't been down the Road of Reconsideration, but he also said this:
+<i>Haikai ought to be written by a child three feet tall.</i>`
+srce surprise
+.z `Ah!`
+slce surprise
+.z `I didn't know you viewed yourself like that, little devil. You look to be at least a four-foot tall teenager to me. `
+srce cry
+.z `You got me...`
+srce angry
+.z `But that doesn't count! We haven't started yet!`
+slce happy
+.z `Of course. I'm just offering you the option to give up now. `
+src
+.z `No way am I giving up in a poetry contest! Let's get this ball rolling! Three, two, one, go!`
+
+
+

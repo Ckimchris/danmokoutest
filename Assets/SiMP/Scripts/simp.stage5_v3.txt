@@ -1,0 +1,269 @@
+<#> warnprefix
+pattern { bgm {
+	2  simp.5.stage
+	7	_
+} }
+phase 0
+	paction 0
+		shift-phase-to 1
+		
+
+##1 Kasen
+<!> midboss
+phase 0
+	saction 0
+		boss simp.kasen2
+		shift-phase
+
+##2
+<!> announce
+phase 0
+	saction 0
+		stage-announce
+		shift-phase
+
+
+
+!{ a1(y 2)
+summonr null(cy(5))
+	movewrap~ 2.5 1 goy(%y) 5 gootherside(%y - 0.5)
+		async fireball-blue/b <> gcr3 (80 / dl) 6s <> {
+			delay(lerpd(60, 0))
+			while(onscreen(loc) & < y 3.5)
+			sfx x-fire-small-1
+		} target Lplayer gsr2 3 <40> {
+			center
+		} s rvelocity px(lerpt(0, 0.4, 4.2, 3.5))
+	{ hp 180 }
+!}
+
+
+!{ a2(lr)
+gcr { 
+	times(7)
+	wait(30)
+} summonr dipup3(%lr, 1.3 * t)
+	async gpather-blue/w <> gcr2 (70 / dl) _ <> {
+		while onscreen loc
+		sfx x-fire-tech-6
+		delay(rand(0, 30))
+	} target Lplayer pather 0.5 0.25 rvelocity px
+		lerpt3(0, 0.2, 0.4, 0.7, 5, 1, lerpd(4, 6))
+		{ s 1.5 }
+	{ hp 100 }
+!}
+
+!{ a4(y 2.5)
+summonr null(cy(5))
+	movewrap~~ 2.6 1 goy(%y) 3 goside(%y - 0.5)
+		paction 0.7 :2
+			async triangle-teal* <> gsr2 2 <> {
+				p this
+				sfx x-fire-burst-2
+				color { /b / }
+			} gsr2c(30 * dl) {
+			} s rvelocity px(2.5 + 0.3 * p)
+			async star-red* <> gcr3 120 5s <> {
+				delay 0.8s
+				while onscreen loc
+				sfx x-fire-burst-1
+			} {
+				gsr2c(d3d2 + 5) {
+					resetcolor
+					color amulet-black/
+					offset(rx(0.8))
+					target a Lplayer
+				} gsrf (9 + 2 * dc) rxy(-0.15 * &aixd, 0.05 * &aiyd) {
+					bindArrow
+				} s tprot px lerpt 0.3 0.7 2 3.4
+			
+				gsr2c(dl * 24) {
+					offset(aphi(&times) * &pi)
+				} gsr2 2 <> {
+					color { /b / }
+					p this
+				} simple tprot px
+					lerpt 0.5 1 4 (2 + 1.4 * p)
+					{ dir (pm1 p * starrot2) }
+			}
+	{ hp 900 }
+!}
+
+##Unused
+!{ a3(y 2.5)
+summonr null(cy(5))
+	movewrap 1.1 goy(%y) 3 goside(%y - 1)
+		async amulet-*/ <> gcr3 72 8s <10c> {
+			sfx x-fire-burst-2
+			color { red black }
+			p this
+		} gsr2c(12 * dl) {
+		} gsr2 7 <1.4> {
+		} s polar(
+			1.8 * t,
+			pm1 p * (-0.5 * p + lssht(-0.2, 1, 36 * t, 18 * t)))
+	{ hp 1800 }
+!}
+
+
+!{ a5(lr)
+summonr crossup(%lr, 1.7 * t)
+	async triangle-black/w <> gir3 (140) _ <> {
+		while onscreen loc
+	}  {
+		gsr2 1 <> {
+			color scircle-red/b
+			aimed
+			sfx x-fire-burst-3
+			p this
+		} s tprot px lerpt(0.6, 1.1, 2.5, 2)
+		gcr2 8 (3 + d3d1) <> {
+			sfx x-fire-star-2
+		} gsr2 2 <1.5;:> {
+			center
+			bindLR
+		} gsr2c(dl * 14) {
+			bank a(-90 + 10 * &lr)
+		} s polar(2.7 * t, 6 * &lr * t)
+	}
+	{ hp 1000 }
+!}
+
+!{ l(x -2.7)
+<%x%;:>
+!}
+!{ r(x 2.7)
+<%x%;:>
+!}
+!!{ lr 2.7
+!!{ w 5.4
+
+##3
+<!> stage
+phasej 74 0 #{
+	paction 0
+		async tfairy <;1:> $a2(1)
+		_ 2 async tlfairy <1.4;:> $a4
+		_ 5 async tfairy <;1:> $a2(-1)
+		_ 6 async tlfairy <> $a5(1)
+	paction 4
+		async tfairy <;2:> $a2(-1)
+		_ 2 async tlfairy <> gsr {
+			t(2)
+			spread(rx($w))
+			center
+		} $a4
+	paction 4
+		async tlfairy <> $a5(-1)
+		_ 1.4 async tfairy $l gcr2 30 5 <0.5;:> {
+			p this
+		} $a1(1.5 + 0.4 * p)
+		_ 4 async tlfairy $r $a4
+		_ 6 async tfairy <;1:> $a2(1)
+	paction 2
+		async tlfairy <> $a4
+		async tfairy <> gcr2 30 5 <> {
+			p this
+		} gsr2 2 <> {
+			spread(rx(6 - 1 * p))
+			center
+		} $a1(0.3 + 0.4 * p)
+	paction 3
+		async tfairy <;2:> $a2(1)
+		async tfairy <;1:> $a2(-1)
+		_ 2 async tlfairy <> $a4(1.5)
+	paction 4
+		async tlfairy <> $a5(1)
+		async tlfairy <> $a5(-1)
+		_ 1 async tfairy <> gcr2 30 5 <> {
+			p this
+		} $a1(0.7 + 0.6 * p)
+	paction 4
+		async tlfairy <> $a5(1)
+		async tfairy <> $a2(-1)
+	paction 2
+		async tlfairy <> $a5(1)
+		async tlfairy $r $a4(2)
+	paction 4
+		async tlfairy <> $a5(-1)
+		async tfairy $l gcr2 30 5 <> {
+			p this
+		} $a1(2 - 0.6 * p)
+	paction 3
+		async tlfairy $r $a4(2.5)
+		async tlfairy <-1.8;:> $a4(2)
+	paction 4
+		async tlfairy <> $a5(1)
+		async tlfairy <> $a4
+	paction 4
+		async tlfairy <> $a5(-1)
+		async tlfairy <-1.9;:> $a4
+	paction 2
+		async tfairy <;0.2:> $a2(-1)
+	paction 2
+		_ 1 async tfairy <;2:> $a2(1)
+		_ 1 async tfairy <;0:> $a2(-1)
+		async tlfairy <> $a5(1)
+		async tlfairy <> $a5(-1)
+		
+		
+		
+		
+#}
+
+	
+##4 
+<!> stage
+phase 14 #{
+	paction 0
+		async tfairy <;6:> gir2 5s 2 <> {
+			bindLR
+			p this
+		} gcr2 15 9 <> {
+			spread(rx(&lr * 6.2))
+			center
+		} gsr {
+			start rv2.ry +=f rand -0.5 1
+		} summon
+			tprot py eased out-sine 2 -2.7
+			phase 4
+				end
+					poof
+				finish
+					sync gcircle-*/ <> gsr2c(sqrt(dl) * 18) {
+						colorf { pink red } pmz1 &lr
+						target a Lplayer
+					} gsr2 15 <> { 
+						p this
+					} s tprot px(1.2 + 0.21 * p)
+			{ hp 150 drops3(3, 3, 3) }
+#}
+
+
+##5 Reymoo
+<!> midboss
+phase 0
+	saction 0
+		boss simp.reymoo
+		shift-phase
+
+
+## 6. Reimu
+<!> endboss
+phase 0
+	saction 0
+		boss simp.reimu
+		shift-phase
+
+
+##7
+<!> announce
+phase 0
+	paction 0
+		stage-deannounce
+		lifetoscore 1000000
+	paction 1
+		shift-phase
+
+
+

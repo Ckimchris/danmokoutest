@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94335465055a404498dd05058aa17e4, type: 3}
+  m_Name: SiMP Summonables
+  m_EditorClassIdentifier: 
+  prefabs:
+  - groupTitle: keine ex
+    prefabs:
+    - name: keine
+      prefab: {fileID: 5188976871280437473, guid: 3f74c05d54dfae94ab79f9fa4ea75188,
+        type: 3}
+  - groupTitle: namecards
+    prefabs:
+    - name: namecard-seija
+      prefab: {fileID: 6996511313717563879, guid: a97dd7c2bd40d814dad07fc7d86572f7,
+        type: 3}
+    - name: namecard-aya
+      prefab: {fileID: 6996511313717563879, guid: f1bf8dbba6da37649a730e6bb8c4ea06,
+        type: 3}
+    - name: namecard-kaguya
+      prefab: {fileID: 6996511313717563879, guid: ae442c2f8043e594796008b3f4366e77,
+        type: 3}
+    - name: namecard-keine
+      prefab: {fileID: 6996511313717563879, guid: fceaa20a91c84074386c9df344286d74,
+        type: 3}
+    - name: namecard-mima
+      prefab: {fileID: 6996511313717563879, guid: f20549663544233438e2d7bd4019e92e,
+        type: 3}
+    - name: namecard-mokou
+      prefab: {fileID: 6996511313717563879, guid: 6a668b3bd3598a74ca392ea72eca89bb,
+        type: 3}
+    - name: namecard-shinki
+      prefab: {fileID: 6996511313717563879, guid: 6ab190164fa2edc41b24ea76bd9737c4,
+        type: 3}
+    - name: namecard-yukari
+      prefab: {fileID: 6996511313717563879, guid: aec0bf21c1274a74f99482a0408c6438,
+        type: 3}
+    - name: namecard-kasen
+      prefab: {fileID: 6996511313717563879, guid: e74ec7ea22d2c9b40801d0a95aee976e,
+        type: 3}
+    - name: namecard-reimu
+      prefab: {fileID: 6996511313717563879, guid: f6c186a06b4b5d6428b58405a082d402,
+        type: 3}

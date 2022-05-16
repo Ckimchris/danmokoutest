@@ -1,0 +1,48 @@
+script
+place l1 kasen
+place r1 sagume
+sle kasen _
+sre sagume _
+.z `...`
+slce worry
+.z `I get the sense that I've seen you before. Where are you from?`
+src
+.z `A tiger on his bath robe
+ howling--
+ twentieth-night moon`
+slce surprise
+.z `Ah, I see, you're that amanojaku-like Lunarian goddess. I had heard that your power forced you to stay silent, but you've found a brilliant workaround, haven't you?`
+slce worry
+.z `Well, not that impressive considering how long you've had to figure one out.`
+src
+.z `The old pond:
+ A frog jumps in,--
+ The sound of the water`
+slce surprise
+.z `Sorry, I'm not that well-versed in parsing allegory. Can you make it a bit more, uh, understandable?`
+srce worry
+.z `...The old moon:
+ A fox jumps on,--
+ The sound of change`
+slce _
+.z `I see. We were all thinking that the Lunarians weren't taking the invasion incident seriously, given that they didn't even have the Watatsukis sally out.`
+.z `But I guess you all really were spooked by the nine-tails. Enough for the silent goddess to start chatting up strangers.`
+.z `Well, that doesn't matter. More importantly, why are you here?`
+srce _
+.z `Chrysanthemum's scent
+ all round, climbing through the dark
+ at festival time`
+slce worry
+.z `You want to participate the festival?`
+src
+.z `(*nod*)`
+slce angry
+.z `I doubt that. I know all about how you Lunarians hate Earth art. You call it "impure" and all that jazz.`
+.z `At the end of the day, you're probably a mole. I'm not letting you pass. Go back to the moon and take this little haiku with you:`
+slce happy
+.z `in this group of people
+ admiring the full moon
+ not one beautiful face`
+
+
+

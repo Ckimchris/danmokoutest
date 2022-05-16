@@ -1,0 +1,35 @@
+script
+place l1 kasen
+place r1 kurokoma
+sle kasen _
+sre kurokoma _
+.z `Howdy. S'been a while.`
+slce worry
+.z `...Who are you?`
+srce worry
+. `Ya don't remember me, buddy?`
+wait(0.5)
+.cn `Huh, I musta mixed ye up with an old fren a mine. `
+slce _
+.z `Can I ask who? It's strange knowing there's a doppleganger of me out there.`
+src
+.z `Out there? I dunno about that, pardner. She's prolly lawng dead. `
+srce _
+.z `This poetry festival y'all got runnin'? She loved it. Ev'ry year that oni would dress up like a human an' recite her own poems smack dab'n the middle'v the human village.`
+slce worry
+srce worry
+.z `But she disappear'd a thousan' years ago. And y'all above ground stoppt holdin' this festival about then too. `
+srce happy
+.z `I dunno why y'all decided to bring it back, but I'm thinkin' that, off-chance she's still alive n' kickin', she'll prolly show up here.`
+slc
+.z `Ah, that's pretty unfortunate. But, uh, reasons or not, you need to have a poem to join the poetry festival. Can you recite one for me?`
+srce surprise
+. `Re-recite? Tha's a bit...`
+srce angry
+.c `
+Ahem! If I beat ya in a fistfight, I ain't gotta recite nothing!`
+z
+slce surprise
+.z `What? There's no rule like that.`
+src
+.z `Dialogue's meanin'less! Come at me, doppelganger!`

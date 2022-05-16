@@ -1,0 +1,173 @@
+#Container {
+    flex-direction: row;
+    width: 100%;
+    flex-grow: 1;
+    height: 2160px;
+    padding-left: 480px;
+    padding-right: 480px;
+}
+
+.column {
+    width: 60px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    flex-grow: 1;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-right-width: 0;
+    border-left-width: 0;
+    padding-top: 90px;
+    padding-bottom: 60px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.column.nopad {
+    padding: 0 0 0 0;
+}
+
+.columnList {
+    width: 100%;
+    height: 100%;
+}
+
+.column.columnWide {
+    background-color: rgba(0, 0, 0, 0);
+    flex-grow: 1.8;
+}
+
+.shotHeader {
+    -unity-font-definition: url('/Assets/Danmokou/Fonts/Unity SDF Assets/Odibee-CorpSt-Joint SDF.asset');
+    font-size: 180px;
+    color: rgb(255, 255, 255);
+    -unity-text-align: upper-center;
+    margin-top: 60px;
+    margin-bottom: -60px;
+}
+
+#Wrapper {
+    width: 100%;
+    height: 2160px;
+}
+
+.column.w40 {
+    flex-grow: 2;
+}
+
+.column.w60 {
+    flex-grow: 3;
+}
+
+.columnWide {
+}
+
+.w60 {
+}
+
+.w40 {
+}
+
+.column.padLeft {
+    padding-left: 150px;
+}
+
+.padLeft {
+}
+
+.w60 {
+}
+
+.w40 {
+}
+
+.column.wd08 {
+    flex-grow: 0.8;
+}
+
+.w80 {
+}
+
+.w20 {
+}
+
+.column.wd5 {
+    flex-grow: 5;
+}
+
+.column.wd2 {
+    flex-grow: 2;
+}
+
+.columnWide {
+}
+
+.w40 {
+}
+
+.w60 {
+}
+
+.column.wd4 {
+}
+
+.wd5 {
+}
+
+.wd2 {
+}
+
+.wd08 {
+}
+
+.wd2 {
+}
+
+.wd2 {
+}
+
+.header {
+    -unity-font-definition: url('/Assets/Danmokou/Fonts/Unity SDF Assets/Odibee-CorpSt-Joint SDF.asset');
+    font-size: 140px;
+    color: rgb(255, 255, 255);
+    -unity-text-align: upper-center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 40px;
+}
+
+.unity-scroller {
+    width: 32px;
+}
+
+.unity-slider {
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 100%;
+}
+
+.unity-base-slider__tracker {
+    width: 100%;
+}
+
+.unity-base-slider__dragger {
+    width: 100%;
+    background-color: rgb(153, 153, 153);
+}
+
+.unity-base-slider__dragger:hover {
+    background-color: rgb(187, 187, 187);
+}
+
+.unity-base-slider__dragger:active {
+    background-color: rgb(238, 238, 238);
+}
+
+.unity-scroller__high-button {
+    display: none;
+}
+
+.unity-scroller__low-button {
+    display: none;
+}

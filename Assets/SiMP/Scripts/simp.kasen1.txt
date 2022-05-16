@@ -1,0 +1,247 @@
+<#> strict(none)
+pattern { 
+	boss simp.kasen
+	bgm {
+		2 simp.1.kasen
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 6
+	
+	
+!!{ me kasen
+
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t red pink
+	green
+	1.5 2 0 0.5
+!}
+
+
+## 1
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 1
+		dialogue simp.dialogue.1.3
+		shift-phase
+#}
+
+
+## 2
+<!> bosscutin
+<!> type non :simp.boss.kasen.platinum #{
+<!> hp 15000
+<!> root 0 1.5
+phase 27
+    paction 0
+		async gcircle-*/w <0.5;:> gir2 (/ 150 ^ dl 0.2) _ <> { 
+			p this
+			color { red green }
+			sfx x-fire-burst-1
+		} gcr2	10 (+ 4 dc) angle * pm1 p 2.3h {
+        } gsr2c * dl 20 {
+        } s polar
+			pivot t 1.5
+				sine 3 2 t
+				* t lerpd(-3, -3.6)
+			* pm1 p + 90 * -2.4 t
+		async gdlaser-*/b <> gcr2 lerpt 0 2 640 lerpd(600, 480) _ <> {
+			color { red green }
+			delay 1s
+		} gsr2c + dc 3 {
+			target a Lplayer
+		} laser null 1.5 0.5 {
+			sfx2 x-laser-fire	x-laser-on
+		}
+		laser-control persist {{ gdlaser-* }} sm onlyonce & > &lt 1.5 offscreen loc
+			async sakura-*/w <-0.5;:> gcr2 36 2 <> {
+				offset(angle(rand(0, 360)))
+				color { red green }
+				sfx	x-fire-burst-2
+				p this
+			} gsr2c + 6 dc {
+				offset(angle(* p / 180 &times))
+				##face d
+				##target a Lplayer
+			} s polar
+				* 1.3 t
+				0
+#}
+
+
+##3
+<!> type timeout :simp.boss.kasen.500 #{
+<!> root 0 0
+phase 30
+    paction 0
+		pool-control {{ sakura-* }} allowcull false
+		pool-control {{ sakura-* }} allowdelete false
+		sync sakura-** <> gsr2 7 <> {
+			color { red green }
+			bindItr layer
+		} gsr2 2 <> {
+			color { /w / }
+			bindLR
+!!{ rep * ^ dl 1 24
+		} gsr2c $rep {
+			p this
+		} s polar
+!!{ per 7
+			lerpsmooth out-sine 0 5 t 0 (+ * 0.9 &layer sine $per 0.45 + t + * * 1h $per() &layer *(/ $per $rep, p))
+			* &lr * 8 t
+!!{ crep + 4 * 2 dc
+		async gdlaser-*/ <-90> gcr2 12 $crep a / 360 $crep {
+			target a Lplayer
+			p	this
+			color { red green }
+		} laser null 2 999 {
+			sfx2 x-laser-fire x-laser-on
+			rotate 0 * 13 (+ t * 12f p)
+		}
+#}
+
+
+##4
+<!> type non :simp.boss.kasen.cudgel #{
+<!> hpi 11000 4
+<!> hpbar 0.3
+<!> root 0 2.3
+phase 32
+	paction 0
+		bullet-control persist gcircle-yellow* batch > t 1 {
+			sm _
+				async gpather-yellow/ <> gsr {
+					face derot
+					target a Lplayer
+					sfx x-fire-tech-6
+				} pather 0.5 0.3 rvelocity px lerp(0.2, 0.6, - t lerpd(0.5, 0), 3, lerpd(6, 9)) { }
+			softcull cwheel-yellow/w _
+		}
+		async gcircle-yellow/w <> gir2 (/ 300 ^ dl 0.5) _ <360h> {
+		} gcr2 6 18 <12h> {
+			sfx x-fire-loop-1
+		} gsr2c 5 {
+		} s rvelocity px lerpt(0.1, 0.7, 4, 0)
+		
+		async sakura-red/ <> gcr2 150 _ <> {
+			sfx x-fire-burst-1
+			delay 2s
+		} gsr2c(* dl 15) {
+			offset(* &pi aphi(&times))
+		} gsr2 (+ 4 d3d1) <2> {
+			center
+		} s rvelocity px 2
+		async sakura-green/w <> gcr2 50 _ <> {
+			sfx x-fire-small-1
+			delay 2s
+		} gsr2c(* dl 24) {
+		 offset(* &pi aphi(&times))
+		} s rvelocity px(3.2)
+		
+		gtr {
+			wt 4s _
+			wait-child
+			preloop lr =f pm1 t
+		} move-target 2 io-sine pxy * &lr brand 0.5 1 brand 2.1 2.5
+
+#}
+
+## 5
+<!> type non :simp.boss.kasen.flower #{
+<!> hpi 13000 3
+<!> hpbar 0.4
+<!> root 0 2
+phase 28
+	paction 0
+		$power1
+	paction 1.5
+		async sakura-* <0.4;:> gir2 0 2 <> { 
+			p this 
+			color { green/ red/w }
+		} gcr {
+			wtd	dl 8 _
+			frv2	angle /i (^ dl 0.7) + * 0.5 t  (* pm1mod p  +(* 4 t, * 3 softmod 6 t))
+			sfx x-fire-loop-1
+		} gsr2c 5 {
+		} s tprot lerpt 0.5 0.8 cx 3 px + 1.6 * lerpd(2, 2.8) p
+		gtr {
+			wt 240 _
+			wait-child
+			preloop lr =f pm1 t
+		} move-target 2 io-sine pxy * &lr brand 0.8 1.5 brand 1.8 2.2
+#}
+
+
+## 6
+<!> type final :simp.boss.kasen.stonecradle #{
+<!> hpi 18000 4
+<!> root 0 0.5
+phase 36
+	paction 0
+		pool-control sakura-* allowcull false
+		pool-control sakura-*/w allowdelete false
+		bullet-control persist scircle-red/w batch > t + 3 * 0.26 p {
+			sm _ 
+				sync gdlaser-red/ <-10;:> gsr2 1 <60> {
+					center
+					target a Lplayer
+					face d
+				} laser null 1.5 0.5 { length 30 dsfx s 0.7 }
+			softcull cwheel-red/w _
+		}
+		gtr {
+			wt	1 _
+			wait-child
+			target a Lplayer
+			rpp <360h>
+			preloop lr =f pm1 t
+		} saction 0
+!!{ rpt + 3 dc
+			sync sakura-* <> gsr2 4 aphi $rpt {
+				p this
+				preloop layer =f p
+			} gsr2c $rpt {
+				p add
+			} guideempty .1 p { pl loc pd dir } { }
+				tprot px * lerpt 1.4 3 1 0
+					+ 0.3 * 0.8 p1 {
+	!!{ angle * pm1 &layer logsumshiftt -0.03 3.5 * 120 t 0
+					gsr2c(+ 4 dc) { 
+						preloop a =f [&rv2].a
+					} gsr2 2 <> {
+						p add
+						color { green/w green/b }
+					} simple dtpoffset pl pd p1 rx
+							logsumshiftt 4 (+ - 4.9 * 0.4 &layer * 1 p2) 0.35 * - 1.2 * 0.4 p2 t
+							$angle
+						{ dir2(rotatev @ pd p1 cossindeg + &a $angle) }
+				}
+	!!{ rpt ceil * 16 dl
+			async scircle-red/w <30> gir2 0 1 <> { } gcr2 / 200 -- $rpt $rpt angle (/ 300 $rpt) {
+				sfx x-fire-burst-2
+				p this
+			} s tprot px lerpt 0.2 2 3.6 0
+			wait 8.5
+			$power1
+			move-target 1 io-sine pxy * &lr 0.8 y
+			wait 0.5
+			bullet-control once sakura-* softcull cwheel-green/ _
+			bullet-control once empty.1 cull _
+#}
+
+
+## 7
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 0
+		dialogue simp.dialogue.1.4
+		move-target 2 in-sine cy 10
+		shift-phase
+#}
+
+

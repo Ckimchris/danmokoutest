@@ -1,0 +1,46 @@
+script
+place l1 mima
+place r1 shinki
+sl mima
+sr shinki
+srce cry
+.z `What?! To think you so easily defeated me when I was using an entire 69% of my power...`
+slce worry
+.z `Are you going to use 100% or are we done?`
+srce worry
+.z `Due to, uh, extenuating circumstances, I suppose I have no choice but to save my true form for another day. This isn't over yet, Mima!`
+slc
+.z `You know, I kind of suspected this when we first met, but looking at the way you title and don't title your cards... you're kind of chuuni, aren't you?`
+srce angry
+.z `N-no way! I'm too old to be a chuuni!`
+slc
+.z `Like, do you think it's clever to title your nonspells "Unnamed Card"?
+Well, maybe it's clever, but only a chuuni would do that.`
+.z `And, please, stop with the "eight million". Can't you come up with at least one other number with some proverbial meaning? There are a lot of proverbs out there, you know.`
+src
+.z `And what about you? I hear you've been calling yourself God of the Eighty-Sixth Crescent Moon.`
+.z `You stole that idea from my eight million, didn't you? Eight-ee-six? You think people don't know how to use calculators these days?`
+slce surprise
+.z `What?! Was it that obvious?!`
+src
+.z `Your naming game isn't even chuuichi level. I won't recognize your godhood until you come up with a better title!`
+.z `And are you even a god in the first place? The guardian of the barrier said that you were really a ghost who liked to play pretend.`
+slce worry
+.z `Wait, wait. When did you talk to Reimu?`
+srce worry
+.z `Actually, right after you, uh, visited Makai, she came by to complain about my demons invading Gensoukyou.`
+slce surprise
+.z `Ah... I knew I was forgetting something!`
+srce worry
+.z `In fact, that reminds me. I heard of someone in Gensoukyou by the name of Princess of Seven Fates, or something. I still can't figure that name out.`
+.z `I was planning to go find them after conquering Gensoukyou.`
+slce worry
+.z `Yeah, that's a good one. Real head-scratcher, and it even sounds solid.`
+slce surprise
+.z `Oh, but in fact, I know that person. I can set up a meeting.`
+slce happy
+.z `That is, after you sign here on the dotted line.`
+srce worry
+.z `Let's see... "Legal Notice for the Transfer of Title 'God of Makai'"... `
+.z `Well, I guess this is the most peaceful solution, isn't it?`
+

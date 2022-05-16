@@ -1,0 +1,58 @@
+script
+place l1 mima
+sle mima worry
+.z `Someone's here.`
+place r1 yukari
+setstandopacity yukari 0
+fadestandin yukari 1
+sr yukari
+.z `I've been looking for you. You're the missing variable, aren't you?`
+slce _
+. `Greetings, mortal. I am--  `
+slce worry
+.c `
+Wait, what did you call me?`
+z
+src
+.z `The vengeful spirit sealed away in the Hakurei shrine. The root cause of the last incident. The god of the eighty-sixth crescent moon. It's all you, isn't it?`
+srce worry
+.z `I suspected there was something Keine wasn't telling me. The last incident wrapped up too cleanly for only Mokou and Seija to have participated.`
+srce _
+.z `I guess it was you she was hiding. This little facade worked perfectly in drawing you out.`
+slce _
+.z `A god is nothing more than a name. That the minor gods of this land have lost their names to history and are in the process of losing too their control thereover... it's a shame, honestly.`
+.z `I, though, have no intention of suffering that fate.`
+.z `I am Mima, the god of the countless stars. (lie) Ten years ago, Reimu used the hidden abilities of the yin-yang orbs to steal my power, before sealing me away in the Hakurei Shrine. (lie)`
+.z `I lent my aid to Mokou in order to reclaim that power. Now that it's all come back to me, even she is nothing more than a stone tossed by the incessant currents that are my true strength.`
+srce worry
+.z `I see...`
+srce _
+.z `Well, I got what I wanted out of this incident.`
+srce happy
+.z `And you've really helped out Mokou by killing her. My follow-up will be a lot more effective now.`
+.z `Also, the final boss is someone with whom I'm pretty sure you have a score to settle. So I'll leave the rest to you.`
+srce _
+.z `We'll speak more later. But I hope that we can be allies. My teacher and I are planning to shatter the false skies, after all. You certainly have an interest in that.`
+slce worry
+.z `You're leaving? You haven't even introduced yourself yet.`
+srce surprise
+.z `Oh, sorry, I forgot. I'm Y--`
+slce surprise
+.z `Ah, wait. I remember you now.`
+srce worry
+.z `You... remember me?`
+slce worry
+.z `Yes. You were a lot more secretive back in those days, though.`
+slce _
+.z `They called you... Yes, yes. Shikumo Midori. (Why are you lying about this?) "The Verdant Fog Overlooking Funeral Prayer".`
+srce angry
+.z `You know, I wasn't planning on fighting you or anything.
+But I can't forgive that insult.`
+.z `My name is Yakumo! "Innumerable clouds", not "clouds of death"! Yukari! "Purple", not "green"!`
+.z `I <b>hate</b> the color green! Teal is fine. Yellow is fine. But green is absolutely unacceptable! I wouldn't wear green if my life depended on it!`
+.z `Now that it's come to this, I have no choice. I'll kill you, take your power, and use it to clean up this incident myself.`
+slce _
+.z `Hmm? A mere youkai wants to play at being a god? Aren't your ambitions a bit too high for your station?`
+.z `I'd heard that the youkai here had grown long teeth in my absence, but to think it was this bad!`
+.z `No matter. I haven't eaten a youkai in a long time. I wonder how you taste...`
+

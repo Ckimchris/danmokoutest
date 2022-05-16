@@ -1,0 +1,90 @@
+script
+place r1 kaguyaf
+sr kaguyaf
+place l1 mokou
+sl mokou
+slc
+. `And the culprit is...`
+z
+slce surprise
+place r1 kaguya
+.cn `Kaguya? What?`
+z
+sr kaguya
+srce happy
+namecard namecard-kaguya
+. `You thought it was Reisen, but it was me! Kaguya!`
+z
+slce worry
+. `Eirin's part of the operation, isn't she? Why did she have you come out here? And where's the rabbit?`
+z
+srce worry
+. `I don't know about an operation... Eirin just asked me to collect some rare poisonous mushrooms and to absolutely not be seen...`
+z
+srce happy
+. `And Reisen is serving as guine-- excuse me, Tewi made her eat something weird, so she's resting at Eientei.`
+z
+slce angry
+. `That damn pharmacist should put herself in others' shoes sometimes.`
+z
+slce _
+. `Well, if you had attacked Yukari like that, you probably would have gotten killed. Count yourself lucky you ran into me.`
+z
+srce happy
+. `That's just the risk of picking mushrooms here, right? Even now, she might appear out of thin air and murder us both.
+Could you call that lover's suicide, technically?`
+z
+slce worry
+. `That... probably won't happen. Not today, anyways.`
+z
+slce _
+. `As it turns out, I'm working with Keine, Eirin, Yukari, and a few more people on a conspiracy to save Gensoukyou.`
+z
+.`I don't know why Eirin hasn't told you about this. But you should know.`
+z
+. `The Hakurei shrine is going to explode. And if Reimu gets involved, it's going to get worse.`
+z
+. `It's something to do with those weird orbs she always carries around. They've been corrupted.`
+z
+. `For any of this to work, we need to put Reimu out of commission. I assume those mushrooms are for some kind of poison.`
+z
+srce cry
+. `So you and Reisen get to do incident resolution before me? I feel left out now. `
+z
+slce worry
+. `You're too lazy to do incident resolution.`
+z
+srce angry
+. `I'm not lazy, I'm busy! Busy playing video games! 
+But I could spare enough time for one incident every fourteen months or so.`
+z
+slce _
+. `In that case, why not just take the next job from the real rabbit?`
+z
+srce happy
+. `That's it! I can even bribe her with some time off.`
+srce worry
+.cn `Oh, I shouldn't keep you any longer. I need to get back to Eientei. I'll ask Eirin for the details.`
+z
+slc
+. `In that case, when you're there, tell Eirin this:
+"Because you didn't explain the context behind this mushroom-gathering trip, I nearly incapacitated Mokou and threw the whole plan into chaos."`
+z
+srce happy
+. `Is that how it is? Were my imitation danmaku that difficult for you to dodge? You've lost your edge.`
+z
+slce angry
+. `Don't act so damn haughty when people are trying to help you!
+I just want her to stop leaving you out of the loop. Because it causes problems for me. That's all.`
+z
+srce worry
+. `If you say so...
+Oh, also, are we still on for day after tomorrow?`
+z
+slce _
+. `As long as this incident is resolved by then.
+Well, I still want to go fishing today, so I'm planning to clean it all up within a few hours.`
+z
+srce happy
+. `Awesome! See you soon, then!`
+z

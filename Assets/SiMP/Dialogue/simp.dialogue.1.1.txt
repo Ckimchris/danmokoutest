@@ -1,0 +1,47 @@
+script
+place l1 mokou
+place r1 aya
+sl mokou
+sr aya
+srce happy
+. `Ayaya~? Who do we have here? If it isn't my favorite miko! What a coincidence it is running into you out here in the middle of nowhere!`
+z
+slce worry
+. `...Who are you talking to?`
+z
+srce surprise
+namecard namecard-aya
+. `Quoi? Fujiwara?! Where's Reimu?`
+z
+slc
+. `What makes you think Reimu would be out here in the middle of nowhere?`
+z
+srce angry
+. `Don't try to hide it, Fujiwara! I know there's an incident going on!
+Keine, the hermit, et tu aussi... how long are you going to stonewall my investigation?`
+z
+srce special
+. `But, if it's you going to the hermit's place instead of Reimu, that's actually pretty newsworthy, isn't it? Ayayaya, this is a scoop!`
+z
+slce happy
+. `All the worse for you that it's me. Unlike Reimu, I don't have anything to tell you.`
+z
+src
+. `Really~?`
+z
+slce _
+. `Don't push your luck, little crow. I still have yakitori to prepare for next week's event at the mountain shrine.`
+z
+srce worry
+. `Yakitori, c'est le cas?`
+z
+slce angry
+. `Got it? Then scram. Go buy some new crayons while you're waiting for the news to drop.`
+z
+srce angry
+. `That's it! I've had it with you! 
+To think that you'd try to scare away me, an honest journalist, with threats and insults! If I lie down here, I wouldn't be fit to be chief editor of the Bunbunmaru!`
+z
+. `On my journalistic integrity, I will beat this story out of you!
+Prepare yourself, witness!`
+z

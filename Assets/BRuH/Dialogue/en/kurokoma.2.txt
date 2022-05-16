@@ -1,0 +1,30 @@
+script
+place l1 kasen
+place r1 kurokoma
+sre kurokoma cry
+sle kasen worry
+.z `So, do you have a poem or not?`
+src
+.z `I... I do, but it's kinda embarrassin'.`
+srce worry
+.z `This' by Milton, ya know? Real big shot overseas. This' like, a eulogy for a dead fren'. Here goes.`
+.z `Weep no more, woeful shepherds, weep no more,
+For Ibaraki, your sorrow, is not dead,
+Sunk though she be beneath the wat'ry floor;`
+slce surprise
+src
+.z `So sinks the day-star in the ocean,
+and yet anon repairs his drooping head,`
+.z `and tricks his beams, and with new spangled ore
+flames in the forehead of the mornin' sky:
+So Ibaraki sunk low, but mounted high--`
+slce worry
+.z `That's enough. You can pass.`
+src
+.z `Aw, you're gonna make me say all that and not e'en lemme do the best line? "But that one-handed oni at the door--"`
+slc
+.z `Well, uh, this poem holds a lot of personal meaning for me as well, so I'd like to hear you recite it in full on stage.`
+src
+.z `I-if ya say so...`
+
+

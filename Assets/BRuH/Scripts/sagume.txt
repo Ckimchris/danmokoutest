@@ -1,0 +1,142 @@
+<#> strict(none)
+pattern {
+	boss bruh.sagume
+	bgm {
+		1 bruh.level1
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 4
+	
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	lerp 0 1 t purple (rgb 1 1 1)
+	purple
+	1.5 2 0 0.5
+!}
+
+!!{ me sagume
+
+## 1
+<!> challenge introdialogue
+<!> dialogue #{
+<!> root 0 1
+phase 0
+	saction 0
+		dialogue sagume.1
+		shift-phase
+#}
+
+<!> challenge destroy
+<!> challenge within 3
+<!> challenge destroytimed 25
+<!> challenge novertical
+<!> type spell `Cycle and Epicycle, Orb in Orb`
+<!> hpi 18000 5
+<!> root 0 2
+phase 37 #{
+	paction 0
+		gtr2 2s _ <> {
+			wait-child
+			bindLR
+		} move-target 3 io-sine pxy (* &lr rand 0.8 1.2) (rand 1.7 2.1)
+		async lightning-*/ <> gcr2 4s _ <> {
+			color { purple black }
+			sfx x-lightning
+		} gsr2c 12 {
+			target a Lplayer
+		} pather 1 1 tprot px lerpt3 0 0.3 1.2 1.6 5 1 4
+			{ }
+		async _ <> gcr {
+			wt	 lerpt 0 5 180 320 _
+			root	cxy 0 5
+			color	{ purple black yellow }
+			p	this
+			preloop {
+				rv2.rx =f  * 3.8 rangemodh + t 3
+			}
+			sfx	x-fire-burst-3
+		} guideempty .1 p { eloc loc } { } 
+			tprot py + lerpt 0.2 1 -3 0 brand -1.2 -0.8 {
+				colorr sun-*/b simple nroffset @ eloc p { scale 0.3 }
+				inode nroffset @ eloc p
+					async amulet-*/w <;-0.1:;:30> gcr2 80 _ a * pm1 p -3 {
+						delay 0.7s
+						while > y -4.5
+						colorf { purple black yellow } p
+					} gsr2c 6 {
+					} s tprot cx 1.4
+				colorr lcircle-*/w gsr2c 6 { } simple offset 
+					rx
+						0.7
+						* * pm1 p -50 + t * 2h p
+					@ eloc p
+					{ scale 0.5 dir * pm1 p * 300 t }
+			}
+		
+	
+#}
+
+
+<!> challenge survive
+<!> challenge without 6
+<!> challenge within 7
+<!> challenge alwaysfocus
+<!> challenge destroy
+<!> type spell `Form of a Wing Scattered Away`
+<!> hpi 11000 2
+<!> root 3 3
+phase 32 #{
+	paction 0
+		pool-control circle-* allowcull false
+		sync circle-black* <> loc0 gsr {
+!!{ wl 9
+!!{ ww 7
+			tmmod	$ww
+		} gsr {
+			tmmod	$wl
+		} gsr {
+			tmmod	2
+		} gsr {
+			clip = &pi 1
+			colorf { /w / } if (> + (pma $ww { $wl 2 }) (pm $wl 2) 7) 0 1
+		} s nroffset :: {
+			px	pma $ww { $wl 2 }
+			py	pm $wl 2
+			plr	pm1 pm 2 1
+		} + lbeh $me tp qrotate py -10 wings1 $ww $wl 1.5
+		
+!!{ r 3
+!!{ rn -3
+		gtr2 0.5s _ <> {
+			wait-child
+			p this
+		} saction 0
+			$power1
+			wait 1.5
+			~ async gpather-purple/w <0;:> gcr3 2.4 2s <> {
+			} gsr {
+				bank0 angle * 12.1p &pi
+			} pather 1 1 tprot px lerpt3 0 0.2 0.8 1.4 5 1.3 4.6 { }
+			~ async gpather-black/w <0;:> gcr3 1.5 2s <> {
+				sfxfif  { x-fire-tech-6 x-fire-tech-8 }  p divby 18 t
+			} gsr {
+				bank0 angle * -15 &pi
+			} pather 1 0.25 tprot px lerpt 0.6 1 5 2 { }
+			move-target 2 elinear pxy (if < (mod 4 p) 2 $rn $r) (if (| divby 4 p divby 4 ++ p) $r $rn)
+#}
+
+
+## 3
+<!> challenge enddialogue
+<!> dialogue #{
+<!> root 0 0
+phase 0
+	saction 0
+		dialogue sagume.2
+		shift-phase
+#}
+
+

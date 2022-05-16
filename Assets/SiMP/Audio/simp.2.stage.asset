@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3d462728373fa4db771cd7986b7536, type: 3}
+  m_Name: simp.2.stage
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: d1646ebfc8b76dd43bea9235375aa606, type: 3}
+  key: simp.2.stage
+  trackPlayLocation: Yukari
+  title: Building a World Upon the Unsaid
+  musicRoomDescription:
+    useReference: 1
+    reference: simp.music.stage2
+    hardcoded:
+      en: 
+      jp: 
+  volume: 0.16
+  pitch: 1
+  stopOnPause: 0
+  loopMode: 2
+  loopSeconds: {x: 2, y: 110}
+  startWithTime: 0
+  musicRoomRequirement: campaigncompleted(simp.main)
+  showInMusicRoom: 1

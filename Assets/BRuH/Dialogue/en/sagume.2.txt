@@ -1,0 +1,38 @@
+script
+place l1 kasen
+place r1 sagume
+sle kasen _
+sre sagume cry
+.z `Damn it! This is way too hard!`
+slce worry
+.z `Run out of haiku already?`
+srce angry
+.z `Look, I don't know what your deal is, or what the deal is with this "poetry festival". And you're right, we hate Earth art. But I know about the plot to stage a second lunar invasion!`
+.z `What are you fools even thinking?! Do you even know how strong our defenses are?!`
+slc
+.z `I don't, could you explain them to me?`
+src
+.z `...No, I can't. You're real cheeky, aren't you?`
+slce happy
+.z `It's a joke.`
+slce _
+.z `Anyways, you can rest easy. While it is true that there's a plot to attack the moon, that has nothing to do with the festival.`
+slce happy
+.z `Well, I guess poetry could possibly be used to spearhead a united front to go to war against the moon. You know, war poetry stuff.`
+src
+.z `Ha! Are you kidding? There's no way some stupid poems could bring you factional youkai together for more than three seconds. You all--`
+srce surprise
+.z `...`
+slce worry
+.z `Is it alright for you to be saying things like that?`
+srce worry
+.z `Well, I'm just stating the impossible. I can't overturn reality or anything.`
+srce angry
+.z `Whatever. I can't be arsed with this any more. `
+.z `Spring passes
+ and the birds cry out-- tears
+ in the eyes of fishes`
+slce surprise
+.z `Wait, what does that haiku have to do with anything?!`
+src
+.z `It means goodbye, kid.`

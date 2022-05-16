@@ -1,0 +1,777 @@
+<#> strict(none)
+pattern { 
+	boss simp.shinki
+	bgm {
+		2 simp.ex.shinki
+	}
+	set-ui-from 2
+}
+phase 0
+	paction 0
+		shift-phase-to 4
+	
+
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t purple rgba 0.9 0.9 0.9 0.9
+	red
+	1.5 2 0 0.5
+!}
+!!{ color3 { black purple red }
+
+!!{ me shinki
+
+## 1
+<!> showlives 0
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 1
+		dialogue simp.dialogue.ex.5
+		shift-phase
+#}
+
+##2 -- non with rotating ellipse
+<!> bosscutin
+<!> type non :simp.boss.shinki.uc1 #{
+<!> root 0 2
+<!> hp 13000
+phase 26
+	paction 0
+!!{ rpt 3
+!!{ ra * p / 360 $rpt
+		sync _ <> gsr2 $rpt <> {
+			root zero
+			p this
+			colorf $color3 p
+		} guideempty .1 p { pl loc } { } nroffset + Lbeh $me :: { 
+				ang + $ra * 160p t
+			} rotate * 18 t pxy
+				cosine 360 1.6 &ang
+				sine 360 0.5 &ang	{
+					colorr lightning-*/w pather 0.5 0.3 nroffset @ pl p { 
+						high 
+						s 3 
+						smooth
+						sm	async fireball-*/b <> gcr2dr ^ dl 0.75 4 _ <5p> {
+									sfx x-fire-loop-1
+									delay 2
+									start rv2.a +=f $ra
+									face v
+									colorf $color3 p
+								} s tprot px * lerpt 0 0.3 0.125 1 (+ 2.8 * 0.8 p)
+					}
+					colorr sun-*/ simple nroffset @ pl p { scale 0.4 }
+			}
+		gtr {
+			wt	240 _
+			wait-child
+			bindLR
+		} move-target 2.5 io-sine pxy * &lr rand 1.2 1.5 rand 1.7 2.2
+#}
+
+
+##3 -- TEMPERATURE
+<!> type timeout :simp.boss.shinki.creation #{
+<!> root 0 2
+phase 33
+	paction 0
+		sync danger <;6:> gsr2 3 <3.2;:> { center root zero } summonsup tpnrot py lerp3 2 2.5 3 3.5 t -4 0 2 stall
+		bullet-control PERSIST lcircle-* FLIPX> xmax _
+        bullet-control PERSIST lcircle-* FLIPX< xmin _
+        bullet-control PERSIST lcircle-* FLIPY> 4 _
+        bullet-control PERSIST lcircle-* FLIPY< -4 _
+		bullet-control persist lcircle-purple/ batch & > t 1.5 relcirc $me circ <0;0;1> {
+			time 100 _
+			SFX x-bubble _
+			restyle lcircle-red/w _
+		}
+		bullet-control persist lcircle-red/w batch > t 105 {
+			time 4 _
+			restyle lcircle-purple/ _
+		}
+        async gdlaser-red/w <> iparent this gsr2c 3 { } laser polar
+                1.73205
+                * -50 t
+            1.7 99 { 
+				dsfx
+				length 3
+				rotate 150 * -50 t
+				s 0.4
+			}
+        async gdlaser-purple/w <> iparent this gsr2c 3 { } laser polar
+                1.73205
+                * -50 t
+            1.7 99 { 
+				length 2.598 ## sqrt(3^2 - 1.5^2)
+				rotate 180 * -50 t
+				s 0.4
+			}
+        async lcircle-purple/ <> gcr2 60 8 <0;-1:0> {
+			sfx x-metal
+			root cy 4.5
+		} gsr2 * dl 27 <> {
+		} randomx xmin xmax randomy -1 0 simple
+            tprot switch 1.5 zero
+                lerpback 100 101 104 105 t
+					rx 0.12 brand 0 360
+					rotate brand -50 50 stopsampling 100.5 vhome 1.5 Lplayer
+            { scale(- 0.5 cosine 5 0.2 (-m t 100)) dir(* 400 * brandpm1 t) }
+        _ 1 move _ tpnrot vhome lerpt 0 25 0.3 0.6 Lplayer
+
+#}
+
+
+## 4 -- non with backwards circle
+<!> type non :simp.boss.shinki.uc2 #{
+<!> root 0 2
+<!> hp 13000
+phase 25
+	paction 0
+!!{ rpt 3
+!!{ ra * p / 360 $rpt
+		sync _ <> gsr2 $rpt <> {
+			root zero
+			p this
+			colorf $color3 p
+		} guideempty .1 p { pl loc } { } nroffset + Lbeh $me :: { 
+				ang + $ra * -202p t
+			} rx 1.4 &ang	{
+					colorr lightning-*/w pather 0.5 0.3 nroffset @ pl p { 
+						high 
+						s 3 
+						smooth
+						sm	async fireball-*/b <> gcr2dr ^ dl 0.75 4 _ <12p> {
+									sfx x-fire-loop-1
+									delay 2
+									start rv2.a +=f $ra
+									face v
+									colorf $color3 p
+								} s tprot px * lerpt 0 0.3 0.125 1 (+ 3 * 0.4 p)
+					}
+					colorr sun-*/ simple nroffset @ pl p { scale 0.4 }
+			}
+		gtr {
+			wt	240 _
+			wait-child
+			bindLR
+		} move-target 2 io-sine pxy * &lr rand 0.6 1 y
+#}
+
+
+##5 cheetos
+<!> type spell :simp.boss.shinki.cheetos #{
+<!> root 0 2.5
+<!> hpi 11000 5
+phase 34
+	paction 0
+		async gdlaser-red/ <> gcr2 /i ^ dl 0.6 (lerpt 0 25 190 140) _ <> {
+			delay 180
+		} {
+			gsr {
+				root cy 6
+				target rx Lplayer
+			} laser null 1.35 0.15 {
+				dsfx
+				straight -90
+				s 2
+				hueshift(* -40 t)
+			}
+			gsr {
+				root cx -6
+				target ry Lplayer
+			} laser null 1.35 0.15 {
+				dsfx
+				s 2
+				hueshift(* -40 t)
+			}
+		}
+		$power1
+		async fireball-black/ <90> gcr2 20 _ <> {
+			frv2	a sine 70 6 t
+		} gsr2 30 <> {
+			spread <280>
+			center
+		} s tprot cx 5
+		async pather-*/ <0;:-90> gcr2 /i ^ dl 0.6 lerpt 0 30 120 86 _ <> {
+			delay 1.5s
+			preloop rv2.rx =f + 0.1 * 0.1 softmod 3 t
+			color { red purple }
+			sfx	{ x-fire-tech-6 x-fire-tech-8 }
+			frv2	a * 110 rangesoftmod 1 t
+		} pather 1 0.8 tpnrot
+			* lerpt3 0.1 0.4 0.7 1 9 2 6
+				ss 1.5 truerotatelerprate lerpt(1, 1.5, 120, 60) rotify cx 1
+					ss 1.7 vhome 1 Lplayer
+			{ high s 12 }
+
+#}
+
+
+##6 -- non with 3d x rotating circle
+<!> type non :simp.boss.shinki.uc3 #{
+<!> root 0 2
+<!> hp 14000
+phase 27
+	paction 0
+!!{ rpt 3
+!!{ ra * p / 360 $rpt
+		sync _ <> gsr2 $rpt <> {
+			root zero
+			p this
+			colorf $color3 p
+		} guideempty .1 p { pl loc } { } nroffset + Lbeh $me :: { 
+				ang + $ra * 100p t
+			} tp qrotate px + 120 * 20 rangesoftmod 1 / t 5 rx 1.4 &ang	{
+					colorr lightning-*/w pather 0.5 0.3 nroffset @ pl p { 
+						high 
+						s 3 
+						smooth
+						sm	async fireball-*/b <> gcr2dr ^ dl 0.75 7 _ <12p> {
+									sfx x-fire-loop-1
+									delay 2
+									##start rv2.a +=f $ra
+									face v
+									colorf $color3 p
+								} gsr2c 2 {
+								} s tprot px * lerpt 0 0.3 0.125 1 (+ 3 * 0.7 p)
+					}
+					colorr sun-*/ simple nroffset @ pl p { scale 0.4 }
+			}
+		gtr {
+			wt	180 _
+			wait-child
+			bindLR
+		} move-target 2 io-sine pxy * &lr rand 1 1.2 y
+#}
+
+
+##7 grid
+<!> type spell :simp.boss.shinki.purity #{
+<!> root 1.5 2.5
+<!> hpi 22000 5
+phase 36 
+	paction 0
+		gtr {
+			delay 7s
+			wt	3s _
+			wait-child
+			bindLR
+		} move-target 3 io-sine pxy * &rl rand 0.8 1 y
+!!{ spd 0.7
+!!{ dx /i  ^ dl 0.55 0.65
+!!{ dt * 1s / $dx $spd
+		async lcircle-red/w <> gcr2 $dt _ <> {
+		} { 
+			gsr2 30 ry $dx {
+				center
+				root cx 4
+			} simple tprot * lerpt 0 1 3 1 px neg $spd
+			    { scale(lerpt 0 1 1 0.42) dir(* 400 t) }
+			gsr2 30 rx $dx {
+				color lcircle-purple/w
+				center
+				root cy 5
+			} simple tprot  * lerpt 0 2.5 3 1 py neg $spd
+			    { scale lerpt 0 2 1 0.42 dir * -400 t }
+		}
+		async gdlaser-*/ <> gcr2 (lerpt 0 7 320 240) _ <> {
+			color { black }
+		} {
+			gsr2 5 <1.5;:> {
+				center
+				root cy 6
+				target rx Lplayer
+			} laser null 1.6 0.2 {
+				dsfx
+				straight -90
+				s 3.5
+			}
+			gsr2 5 <;1.5:> {
+				center
+				root cx -6
+				target ry Lplayer
+			} laser null 1.8 0.2 {
+				s 3.5
+				dsfx
+			}
+		}
+#}
+
+
+##8 -- non with double summon on rotating ellipse
+<!> type non :simp.boss.shinki.uc4 #{
+<!> root 0 2
+<!> hpi 16000 3
+phase 32
+	paction 0
+!!{ rpt 3
+!!{ ra * p / 360 $rpt
+		sync _ <> gsr2 $rpt <> {
+			root zero
+			p this
+			colorf $color3 p
+		} guideempty .1 p { pl loc } { } nroffset + Lbeh $me :: { 
+				ang + $ra * 170p t
+			} rotate * 18 t pxy
+				cosine 360 1.6 &ang
+				sine 360 1.2 &ang	{
+					colorr lightning-*/w pather 0.5 0.3 nroffset @ pl p { 
+						high 
+						s 3 
+						sm	async fireball-** <0> gcr2dr ^ dl 0.8 6 _ <0.8p> {
+									sfx x-fire-loop-1
+									delay 2
+									face v
+									colorf $color3 p
+								} gsr2 3 <40> {
+									center
+									color { /b / /w }
+									p add
+								} s tprot px * lerpt 0 0.3 0.125 1 (+ 2 * 0.5 p1)
+					}
+					colorr sun-*/ simple nroffset @ pl p { scale 0.4 }
+			}
+		gtr {
+			wt	3s _
+			wait-child
+			bindLR
+		} move-target 2 io-sine pxy * &lr 0.6 y
+#}
+
+
+
+##9 -- almost okuu
+<!> type spell :simp.boss.shinki.growth #{
+<!> root 0 2
+<!> hpi 26000 4
+phase 37
+	paction 0
+		pool-control { { star-* sun-* lstar-* } } cullrad 10
+		gtr {
+			delay 3s
+			wt	5s _
+			wait-child
+			bindLR
+		} move-target 5 io-sine pxy * &lr rand 1.4 1.7 y
+		timer restart pt
+!!{ dx	2.1
+!!{ spd	lerp 0 27 timersec(pt) 0.45 0.7
+		async _ <> gcr2 * pred10 (> t 1) * 0.866s / $dx $spd _ <> {
+			color	{ red purple }
+			p	this
+			preloop layer =f t
+			sfx	x-fire-burst-3
+			frv2 rx * * 0.25 $dx pm1 t
+		} gsr2 8 rx $dx {
+			root py if >(&pi, 1) 4 (- 4 * * (- 2 &pi) 0.866 $dx)
+			center
+			maxt 8
+			p mod
+		} guideempty .1 p { eloc loc } { } 
+			tprot py neg $spd {
+!!{ rpt 60
+				colorr lcircle-*/w simple nroffset @ eloc p
+				    { scale  0.9 dir * pm1 &layer * -400 t }
+				colorr lcircle-*/ gsr2c 60 { } gsr {
+					clip < mod 30 &pi lerp(0, 4, dc, 22, 9)
+				} simple offset 
+					rx
+						1.4
+						* * pm1 &layer -70 + t * 2h p
+					@ eloc p
+					{ scale 0.4 dir * pm1 &layer * 60 t }
+			}
+
+#}
+
+
+##10 -- jimmy neutron
+<!> type non :simp.boss.shinki.uc5 #{
+<!> root 0 2
+<!> hpi 13000 2
+phase 30
+	paction 0
+!!{ rpt 3
+!!{ ra * p / 360 $rpt
+		sync _ <> gsr2 $rpt <> {
+			root zero
+			p this
+			colorf $color3 p
+		} guideempty .1 p { pl loc } { } nroffset + Lbeh $me :: { 
+				ang + $ra * 250p t
+			} tp qrotate pz + * 30 t * 60 p qrotate px 80 rx 2 &ang	{
+					colorr lightning-*/w pather 1 0.7 nroffset @ pl p { 
+						high 
+						s 2
+						smooth
+						sm	async fireball-** <> gcr2dr ^ dl 0.8 6 _ <2.4p> {
+									sfx x-fire-loop-1
+									delay 2
+									start rv2.a +=f $ra
+									##face v
+									colorf $color3 p
+								} gsr2c 3 {
+									color { /b / /w }
+								} s tprot px * lerpt 0 0.3 0.125 1 (+ 2.3 * 0.5 p)
+					}
+					colorr sun-*/ simple nroffset @ pl p { scale 0.4 }
+			}
+		gtr {
+			wt	60 _
+			wait-child
+			bindLR
+		} move-target 3 io-sine pxy * &lr rand 1.2 1.4 rand 1.8 2.2
+#}
+
+
+##11
+<!> type spell :simp.boss.shinki.recitation #{
+<!> root 0 0
+<!> hpi 28000 8
+phase 42
+	paction 0
+		pool-control gcircle-black/b allowdelete false
+		$power1
+		~ async gdlaser-red/b <;1.2:> gir2 0 2 <2.4;:> {
+			center
+			root zero
+			bindLR
+		} { 
+			color lcircle-red/b simple nroffset lbeh $me
+			    { scale(+ 1.2 sine 2p 0.4 + 1p t) dir(* 360 * &lr t) }
+!!{ lwper 3.6p
+!!{ wvper 1.2
+!!{ l2t 19s
+			gcr2 $l2t 2 <> {
+				p this
+			} laser nroffset lbeh $me 1.5  + 3 * 999 p { dsfx rotate -90 * p sine $lwper * &rl 5 timersec(pt) }
+		}
+		~ async gdlaser-purple/b <;-1:>  gir2 0 2 <4.2;:> {
+			center
+			root zero
+			bindLR
+		} { 
+			color lcircle-purple/b simple nroffset lbeh $me
+			    { scale(+ 1.2 sine 2p 0.4 t) dir(* 360 * &lr t) }
+			gcr2 $l2t 2 <> {
+				p this
+			} laser nroffset lbeh $me 1.5 + 3 * 999 p { dsfx rotate -90 * p sine $lwper * &lr 13 timersec(pt) }
+		}
+	paction 1.5
+		sfx x-boom
+		draiko 2 4
+		move-target 1 out-sine cy 2
+		timer restart pt
+		sync gcircle-black/b <> loc0 gsr {
+!!{ wl 12
+!!{ ww 12
+!!{ wper1 1.9
+!!{ wper2 1.5
+!!{ wperf if < dh 1 1.9 1.5
+			tmmod	$ww
+		} gsr {
+			tmmod	$wl
+		} gsr {
+			clip		< * 1.2 p1m $wl p2m $wl
+			tmmod	2
+			alternate if < dh 1 0 1
+		} {
+			s nroffset :: {
+				px	pma $ww { $wl 2 }
+				py	pm $wl 2
+				plr	pm1 pm 2 1
+			} + lbeh $me tp wings1 $ww $wl $wper1
+			s nroffset :: {
+				px	pma $ww { $wl 2 }
+				py	pm $wl 2
+				plr	pm1 pm 2 1
+			} + lbeh $me tp wings1 $ww $wl $wper2
+		}
+		
+		
+!!{ rpt 24
+		async lcircle-*/ <> gcr2 * 1s $wperf _ <> {
+			delay * 1s $wperf
+			p this
+		} {
+			gsr2 3 <40> {
+				clip < timersec(pt) 9
+				target a Lplayer
+				center
+				resetcolor
+				color scircle-red/w 
+				sfx x-fire-burst-2
+			} s tprot cx 1.6
+			gsr2 2 <> {
+				sfx	x-fire-burst-1
+				frv2	a * p / 360h $rpt
+				color { red purple }
+				bindLR
+			} gsr2c $rpt { 
+				root pxy * &lr -2 2.2
+			} simple tprot cx 2.4
+			    { scale(+ + 1.4 * 0.13 dc sine 1 0.5 + * 1h p / t 2.5) dir(* &lr * 300 t) }
+		}
+		
+		async arrow-red/ <-101> gir2 0 2 <> {
+			start rv2.a +=f * dl 5
+			bindLR
+		} gcr2 8 _ <> {
+			root pxy * &lr -1.2 3.2
+			frv2	a * 12 rangesoftmod 1 + 2 / timersec(pt) $wvper
+		} gsr2 3 a lerpsmooth out-sine 0 2 timersec(pt) 180 45 {
+			center
+			start rv2.a =f flipxpmmod &lr [&rv2].a
+		} gsr { clip & = &pi 1 < timersec(pt) 2 } s tprot cx 7
+		 async arrow-purple/ <-88> gir2 0 2 <> {
+			start rv2.a +=f * dl 5
+			bindLR
+		} gcr2 8 _ <> {
+			root pxy * &lr -2.1 1
+			frv2	a * 12 rangesoftmod 1 / timersec(pt) $wvper
+		} gsr2 3 a lerpsmooth out-sine 0 2 timersec(pt) 180 60 {
+			center
+			start rv2.a =f flipxpmmod &lr [&rv2].a
+		} gsr { clip & = &pi 1 < timersec(pt) 2 }  s tprot cx 6
+		
+#}
+
+
+## 12
+<!> type spell :simp.boss.shinki.gyate #{
+<!> root 0 2.5
+<!> hpi 15000 8
+phase 40
+	paction 0
+		async lcircle-*/ <> gcr {
+			wait(/i dl lerp(0, 13, timersec(phaset), 27, 18))
+			times(_)
+		} gsr2 2 <> {
+			frv2(angle(* &lr * &pi 13h))
+			color({ red purple })
+			bindLR
+		} gsr2c 5 {
+		} simple(rvelocity(rx(lerpt3(0.5, 0.8, 1.4, 1.6, 4, 0.4, 1), lerpt(1.6, 2, 0, * &lr -50))), {
+			dir(* 400 t)
+			scale( + 0.8 sine(2p, 0.3, t))
+		})
+		
+!!{ incr /i ^ dl 0.5 1.2
+		async lightning-black/ <> gcr {
+			sfx x-lightning
+			wait(/i ^ dl 0.3 lerp(0, 15, timersec(phaset), 160, 100))
+			times(_)
+			root(cy(5))
+			frv2(rx(* $incr modh(t)))
+		} gsr {
+			times( / 8 $incr)
+			rv2incr(rx($incr))
+			center
+		} pather 0.5 0.5 rvelocity(py(lerpt(0.3, 1, -5, -1.3))) { high }
+	
+		gtr {
+			wait(5s)
+			times(_)
+			preloop {
+				ang =f if(= t 0, -90, + -90 * pm1(t) lerpt(0, 5, 12, 20))
+			}
+		} {
+			timer restart wingt
+			sfx x-lockon
+	!!{ timeToPt 3
+			sync mulaser-red/b rot(-4, 0, &ang) safelaser(+ 2 $timeToPt, { high })
+			async triangle-black/b angle(+ &ang 180) gcr {
+				wait(lerp(0, 0.05, abs(- 1 / timersec(wingt) $timeToPt), 48, 1))
+				times(_)
+				for(* 1.2s $timeToPt)
+				p this
+				preloop curve =f lerp(0.05, 0.1, abs(- 1 / timersec(wingt) $timeToPt), 0, 1)
+				sfx x-fire-loop-1
+			} gsr {
+				times(2)
+				frv2(angle(* * (/ 180 $timeToPt) pm1(t) timersec(wingt)))
+			} s roffset(pxy(* 3 t, sine(2, * &curve 0.3, + t * 2h p)))
+		}
+
+#}
+
+
+## 13
+<!> type final :simp.boss.shinki.final #{
+<!> root 0 2.2
+<!> hp 52000
+phase 100
+!{ hpr(v)
+	> hpratio $me %v
+!}
+!!{ hp1 (& $hpr(.9) < timersec(phaset) 10)
+!!{ hp2 (& $hpr(.65) < timersec(phaset) 35)
+!!{ hp3 (& $hpr(.4) < timersec(phaset) 60)
+	paction 0
+		pool-control circle-black/b allowdelete false
+		sync circle-black/b <> loc0 gsr {
+!!{ wl 14
+!!{ ww 10
+			tmmod	$ww
+		} gsr {
+			tmmod	$wl
+		} gsr {
+			clip		< * 1.7 p1m $wl p2m $wl
+			tmmod	2
+		} s nroffset :: {
+			px	pma $ww { $wl 2 }
+			py	pm $wl 2
+			plr	pm1 pm 2 1
+		} + lbeh $me rotate * 5 &plr tp wings1 $ww $wl 1.5
+		_ 0.75 sync circle-black/b <> loc0 gsr {
+!!{ wl 14
+!!{ ww 10
+			tmmod	$ww
+		} gsr {
+			tmmod	$wl
+		} gsr {
+			clip		< * 1.7 p1m $wl p2m $wl
+			tmmod	2
+		} s nroffset :: {
+			px	pma $ww { $wl 2 }
+			py	pm $wl 2
+			plr	pm1 pm 2 1
+		} + lbeh $me rotate * -10 &plr tp wings1 $ww $wl 1.5
+	
+		timer restart pt
+!!{ rpt * ^ dl 0.8 20
+		async lcircle-*/w <> gcr2 90 _ a / 360h $rpt {
+			bindLR
+			sfx x-fire-burst-2
+			color { red purple }
+		} gsr2c $rpt {
+		} gsr2 4 <> {
+			p this
+		} simple polar
+			+ * -0.18 - p 2 * 1.7 t
+			* &lr * 15 t
+			{ scale 0.5 dir * &lr * -400 t }
+			
+!!{ rpt 40
+		async lcircle-*/b <> gcr2 /i ^ dl 0.6 160 _ aphi $rpt {
+			color { red purple }
+			bindLR
+			p this
+		} gsr2c $rpt { 
+			clip $hp1
+		} simple tprot cx 1.2
+		    { scale(+ lerpd(1, 1.3) sine 1 .6 + * 0.05 p / timersec(pt) 2) dir(* &lr * 300 t) }
+		
+		gtr {
+			while not $hp1
+		} $power1
+		gtr {
+			while not $hp3
+		} $power1
+			
+		async gdlaser-*/b <> gir2 /i ^ dl 0.6 220 _ <> {
+			color $color3
+		} gcr2 10 6 <> {
+			clip $hp2
+			target a Lplayer
+			p this
+		} gsr2 2 <> {
+			bindLR
+			##frv2	a * &lr * 15 p
+		} gsr {
+			clip & = p 0 = &pi 0
+		} laser null 1 0.3 { 
+			high
+			dsfx 
+			rotate 0 lerpsmooth out-sine 0 1 t 0 * &lr * 18 p 
+		}
+	
+	
+		!!{ rpt 3
+!!{ ra * p / 360 $rpt
+		sync _ <> gsr2 $rpt <> {
+			root zero
+			p this
+			colorf $color3 p
+		} guideempty .1 p { pl loc } { } nroffset + Lbeh $me :: { 
+				ang + $ra * -100p t
+			} rx 1.1 &ang	{
+					colorr lightning-*/w pather 0.5 0.3 nroffset @ pl p { 
+						##high
+						s 3 
+						smooth
+						sm	async fireball-*/ <140> gcr2dr dl 8 _ <0p> {
+									delay 2
+									face v
+									colorf $color3 p
+								} gsr { clip $hp3 } s tprot px lerpt 0.2 0.4 0 2.5
+					}
+					colorr lcircle-*/ simple nroffset @ pl p
+					    { scale(1.6) dir(* 400 t) }
+			}
+
+#}
+
+
+## 14
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 0
+		dialogue simp.dialogue.ex.6
+		move-target 2 in-sine cy 10
+		shift-phase
+#}
+
+
+///
+
+##8 -- non with nested circle rotation and some extra fire. drop if you have extra
+<!> type non `Unnamed Card 4` #{
+<!> root 0 2.2
+<!> hpi 12000 2
+phase 26
+	paction 0
+!!{ srpt * dl 20
+		async scircle-*/w <> gcr2 (lerpt 0 7 150 80) _ a / 360h $srpt {
+			sfx x-fire-burst-1
+			color $color3
+		} gsr2c $srpt {
+		} s tprot px lerpt 0 0.7 4 2
+!!{ rpt 3
+!!{ ra * p / 360 $rpt
+		sync _ <> gsr2 $rpt <> {
+			root zero
+			p this
+			colorf $color3 p
+		} guideempty .1 p { pl loc } { } nroffset + Lbeh $me :: { 
+				ang + $ra * -170p t
+				subang	* 100p t
+			} + rx 0.8 &ang
+				pxy
+					cosine 360 2 &subang
+					sine 360 0.8 &subang
+			{
+					colorr lightning-*/w pather 0.5 0.5 nroffset @ pl p { 
+						high 
+						s 2
+						sm	async fireball-*/b <-70> gcr2dr dl 2 _ <0> {
+									sfx x-fire-loop-1
+									delay 2
+									face v
+									colorf $color3 p
+								} s tprot px * lerpt 0 0.3 0.125 1 (+ 2.8 * 0.6 p)
+					}
+					colorr sun-*/ simple nroffset @ pl p { scale 0.4 }
+			}
+		gtr {
+			wt	180 0
+			wait-child
+			bindLR
+			p this
+		} move-target 2 io-sine pxy * &lr + 1 * 0.4 modh p  y
+#}
+
+

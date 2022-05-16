@@ -1,0 +1,424 @@
+<#> strict(none)
+pattern { 
+	boss simp.reimu
+	bgm {
+		1 simp.5.reimu
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 7
+	
+	
+!!{ me reimu
+
+!!{ reimuc1 { red black }
+
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 red
+	rgba 0.9 0.9 0.9 0.9
+	1.5 2 0 0.5
+!}
+!{ 
+power1long()
+sync powerup1 <> powerup x-powerup-1
+	witha 0.9 lerp 0 3.7 t red rgb 1 1 1
+	3 5
+!}
+
+
+##1
+<!> bosscutin
+<!> type non :simp.boss.reimu.sssc #{
+<!> hpi 15000 3
+<!> roott 3 0 2
+phase 32
+	paction 0
+		bullet-control persist amulet-black/ restyleeffect amuletreimu-black/w cwheel-black/b > t 2.5
+		bullet-control persist amulet-red/ restyleeffect amuletreimu-red/w cwheel-red/b > t 2.5
+		gtr {
+			wt lerpt 0 5 90 0 _
+			wait-child
+			p this
+			rpp <5c>
+		} saction 0 :3
+			sync amulet-** <;0.67:180> gsr2c 5 {
+					sfx x-fire-burst-1
+					colorf { red black } p
+!!{ rpt floor * ^ dl 0.65 16
+!!{ dx / 4 $rpt
+				} gsr2 $rpt rx $dx {
+					p this
+					center
+				} gsr2 2 <> { 
+					color { / /b }
+					p add
+				} s tprot lerpt 0.6 1.3
+					py lerpt 0 2 0 -2
+					rx
+						+ -2.5 * 0.3 p2
+						atan2 (* 0.7 pm1 p2)  * * $dx (- p1 / $rpt 2) if (= p2 1) 1 (lerpt 2.3 2.7 1 -0.8) 
+			~ _ 2.5
+				sfx x-transform-2
+			move-target 1 io-sine pxy (* pm1 p + 0.5 * 0.02 p) y
+#}
+	
+
+##2
+<!> type spell :simp.boss.reimu.apollo #{
+<!> hpi 22000 3
+<!> root 0 2
+phase 37
+    paction 0
+		shake 2 3 smooth smod-010 / x 3
+		$power1long
+		async x-boom <> gcr2 24 10 <> . sfx
+		pool-control { { amulet-* } } allowcull false
+		gtr {
+			delay 3s
+			wt 6s _
+			p this
+		} move-target 2 io-sine pxy * pm1 p brand 0.5 0.8 brand 1.8 2.2
+		async amulet-*/w <1;8:> gir2 (lerpt 0 4 340 280) _ <15> {
+			p this
+			color { red black }
+		} { 
+			gcr2 3 15 <> { delay 5.8s sfxif x-transform-1 divby 3 t } noop
+			gcr2 3 12 rot 0 0.5 * 1.2 pm1 p1 {
+				preloop rv2.rx =f * 1 pm1 p1
+				p add
+			} gsr2c * dl 14 { 
+			} s tprot lerp3 2 4.5 5.5 6.1 t
+				cy -1.3
+				cy -3.5
+				polartoxy
+					1.5
+					+ -90 * mp1 p1 (+ 60 * 2.5 p2)			
+		}
+		bullet-control persist amulet-black/w restyleeffect amuletreimu-black/b cwheel-black/ > t 5.8
+		bullet-control persist amulet-red/w restyleeffect amuletreimu-red/b cwheel-red/ > t 5.8
+		
+#}
+	
+
+##3
+<!> type non :simp.boss.reimu.centripetal #{
+<!> hpi 10000 7
+<!> root 0 1.9
+phase 32
+	paction 0
+		$power1
+    paction 1.5
+		async scircle-*/w <1;:60> gir2 /i ^ dl 0.25 (clamp 110 _ linear 160 -10 t) _ <> {
+				postloop rv2.a =f + 60 * 20h mod 1p t
+			} {
+				gcr2dr ^ dl 0.2 8 12 <22> {
+					sfxif	x-bubble even t
+				} gsr {
+					p this
+					t	2
+					postloop rv2.a =f - 180 [&rv2].a
+					color	{ red black }
+				}  s polar
+					logsumshiftt 1 2 * 1 t * 3 t
+					* pm1mod p logsumshiftt -0.3 3 * 16 t * 8 t
+			}
+		gtr {
+			wait-child
+			wt 160 _
+			p this
+		} move-target 2 io-sine pxy (* pm1 p brand 1 1.3) brand 1.5 2
+!!{ rpt * 20 dl
+		async amulet-*/w <;:90> gir2 180 _ aphi $rpt {
+			root py 2
+			sfx x-fire-burst-2
+		} { 
+			gcr { delay 1.1s sfx x-transform-1 } noop
+			gsr {
+				t 2
+				p this
+				color { red black }
+			} gsr2c $rpt . s polar
+				+ -1 logsumshiftt -1 0.9 * 4.8 t * 0.4 t
+				* pm1mod p logsumshiftt -0.1 1 * 200 t * 3 t
+		}
+		bullet-control persist amulet-red/w restyleeffect amuletreimu-red/w cwheel-red/ > t 1.1
+		bullet-control persist amulet-black/w restyleeffect amuletreimu-black/w cwheel-black/ > t 1.1
+#}
+
+
+##4
+<!> type spell :simp.boss.reimu.breakingwheel #{
+<!> hpi 18000 3
+<!> root 0 1
+phase 36
+	paction 0
+		pool-control amuletreimu-* allowdelete false
+		pool-control amuletreimu-* allowcull false
+!!{ lrpt + 3 dc
+!!{ amuletRpt 10s
+		gtr {
+			wt $amuletRpt _
+		} {
+			bullet-control once amuletreimu-* softcull cwheel-red/ _
+			$power1
+		}
+		async gdlaser-red/ <> iparent this gsr2c $lrpt {
+			p this
+		} laser null 1 1 {
+			repeat
+			dsfx
+			rotate 0 * 10 t
+			sm		async amuletreimu-red/ <> gcr2 $amuletRpt _ <> {
+							delay 1.5s
+						}	gsr2 70 <> {
+							rootadjust lbeh $me
+							p add
+						} gsr { 
+							onlaser * 0.25 &pi 
+							start {
+								rt =v2 rv2topolar &rv2
+								rv2 =rv zero
+							}
+						} s polar
+							[&rt].x
+							+ [&rt].y * pm1 p1 * pm1 // p2 3 lssht 0.2 0.9 0 * 42 t
+		}
+		move _ nroffset pxy sine 5p 1.3 t sine 5 0.5 t
+		async gdlaser-black/ <> idelay 4s gsr2c $lrpt {
+			root cxy 0 1
+		} laser nroffset pxy sine 5pp -1 t sine 5p -0.4 t 1 1h {
+			repeat
+			dsfx
+			rotate 0 * -7 t
+		}
+				
+
+#}
+
+
+##5
+<!> type non :simp.boss.reimu.ssss #{
+<!> hpi 14000 3
+<!> root 0 2
+phase 31
+	paction 0
+		bullet-control persist amulet-black/ restyleeffect amuletreimu-black/w cwheel-black/b > t 2.1
+		bullet-control persist amulet-red/ restyleeffect amuletreimu-red/w cwheel-red/b > t 2.1
+		async gdlaser-*/ <> gcr2 lerpt 0 1 360 300 _ <> {
+			delay 2s
+			p this
+		} gsr2 36 <;.75:> {
+				root pxy -6 [Lplayer].y
+				center
+				colorf { red black } + &pi t
+			} laser null lerp(0, 3, p, 1.5, 1) 1 { dsfx }
+		gtr {
+			wt lerpt(0, 5, 90, 0) _
+			wait-child
+			p this
+			rpp <5c>
+		} saction 0 :3
+			sync amulet-** <;0.67:180> gsr2c 5 {
+					sfx x-fire-burst-1
+					colorf { red black } p
+!!{ rpt floor * ^ dl 0.7 18
+!!{ dx / 4 $rpt
+				} gsr2 $rpt rx $dx {
+					p this
+					center
+				} gsr2 2 <> { 
+					color { / /b }
+					p add
+				} s tprot lerpt 0.6 1.3
+					py lerpt 0 2 0 -2
+					* if (= p2 1) 1 (lerpt 2 2.4 1 -1.2) rx
+						+ -2.5 * 0.5 p2
+						atan2 (* 0.7 pm1 p2)  * $dx (- p1 / $rpt 2)
+			~ _ 2.1
+				sfx x-transform-2
+			move-target 1 io-sine pxy (* pm1 p + 0.5 * 0.015 p) y
+#}
+
+
+##6
+<!> type timeout :simp.boss.reimu.avaricious #{
+<!> root 0 2
+phase 37
+	paction 0
+		gtr {
+			delay 30
+			wt	lerpt 0 3 2.4s 1s _
+			wait-child
+			p this
+		} saction 0
+			~ _ 0.5 $power1
+			crosshair crosshair lerpsmooth(out-sine, 0, 59, t, loc, Lplayer) 0.5 1.5 ploc 0
+			~ async amulet-black* <> gcr {
+				times(90)
+				wait(/ 0.5s &times)
+				root @0 ploc
+				start rv2.a =f atan - @0 ploc loc
+				preloop rv2.rx =f * 15 (-- / t &times)
+			} gsr2 2 <180> {
+				clip < mod 10 &pi - 7 * 0.5 dc
+				bank <>
+				color { / /w }
+				p this
+			} gsr2 2 <> {
+				p add
+			} gsr2 2 angle - 140 * 40 &pi {
+				center
+			} s tprot px * lerp -0.3 0.5 (- t * 1.1 p2) 0 1
+				+ 1.4 * 0.7 p1
+			move-target 0.5 out-sine @0 ploc
+!!{ rpt * dl 22
+			async amuletreimu-red* <0.5;:> gcr2 60 3 angle / 360h $rpt { 
+				p this
+				sfx x-fire-burst-1
+			} { 
+				gsr2c $rpt {
+					color /b
+				} s tprot px lerpt .2 .5 3 2.2
+				gsr2c $rpt {
+					color /
+				} s tprot px lerpt 1 1.3 dsine 2.2 1.2 t -3.4
+			}
+
+#}
+
+
+!{ innerfire(method, color, n, ct, angd, angoff)
+	gsr {
+		color %color
+		root Lplayer
+		p	this
+		t	%ct
+		preloop	rv2 =rv rot 
+										%method 4 %n + %angoff * %angd t
+										0
+										* t %angd
+	} s tprot lerpin 0 2 rotate
+			* %n + %angoff *  %angd p
+			cx 0.8
+!}
+!{ polyfire(color, n, ct, angoff)
+$innerfire(regpoly, %color%, %n%, %ct%, / 360 %ct, %angoff%)
+!}
+!{ starfire(color, n, ct, angoff)
+$innerfire(reg2star, %color%, %n%, %ct%, / 720 %ct%, %angoff%)
+!}
+			
+##7
+<!> type final :simp.boss.reimu.final #{
+<!> root 0 3
+<!> hp 50000
+phase 100
+!{ hpr(v)
+	> hpratio $me %v
+!}
+!!{ hp1 (& $hpr(.8) < timersec(phaset) 20)
+!!{ hp2 (& $hpr(.6) < timersec(phaset) 40)
+!!{ hp3 (& $hpr(.35) < timersec(phaset) 65)
+    paction 0
+		pool-control scircle-* allowcull false
+		pool-control scircle-* allowdelete false
+		sync sun-red/b <> s null
+		
+		gtr {
+			while not $hp1
+		} saction 0 :3
+			$power1
+			wait 1.5
+	!!{ zrpt + 5 * 0.5 dc
+			async _ <;:> gir2 0 2 <360h> {
+				preloop lr =f pm1 t
+				color { red black }
+			} gcr {
+			} gsr2c $zrpt {
+				p this
+			} {
+	!!{ rot * &lr * (+ 7 * 1.5 &lr, t)
+				colorr zonelaser-*/b safelaser _ { rotate 0 $rot }
+	!!{ crpt 11
+				colorr scircle-*/b gsr2 $crpt <> {
+					p add
+				} simple polar
+	!!{ per + 45 * 3 &lr
+					lerpsmooth out-sine 0 5 t 0 * 5 ++ sine $per 1 (+ + t (* p2 / $per $crpt) (* p1 * 1h $per))
+					$rot
+					{ scale 0.67 }
+			}
+	
+!!{ lrpt round + 4 * 0.5 dc
+		gtr {
+			wt	240 _
+			rpp	angle / 360h $lrpt
+			p	this
+		} { 
+	!!{ prpt 4
+			sync gdlaser-*/b <0.98;:> gsr2c $lrpt {
+				clip | $hp2 (& = mod 2 p 0 $hp3)
+				colorf { red black } p
+			} laser null 4 0 { }
+			async lightning-* <1;:> gir {
+				sfx x-lightning
+				clip | $hp2 (& = mod 2 p 0 $hp3)
+				colorf { red* black* } p
+			} gcr2 12 $prpt <> { 
+				p add 
+				color { /w /b } 
+			} gsr2c $lrpt {
+			} pather 1.2 1.2 tprot 
+					pxy
+						1.5
+						dsine 0.7 0.2 +(t, * p2 / 0.7 $prpt)
+					{ high }
+			sync x-boom <> gsr {
+				clip not (= 0 mod 8 p)
+			} {
+!!{ rpt4		* 4 ceil * 12 dl
+				sfx
+				$polyfire(amulet-red/w, 4, $rpt4, 0)
+				$polyfire(amulet-red/b, 4, $rpt4, 45)
+				$polyfire(amulet-red/, 8, $rpt4, 0)
+			}
+			sync x-boom <> gsr {
+				clip not (= 2 mod 8 p)
+			} {
+!!{ rpt5	* 20 ceil * 2 dl
+				sfx
+				$polyfire(amulet-black/w, 5, $rpt5, -90)
+				$starfire(amulet-black/, 5, * 2 $rpt5, -90)
+			} sync x-boom <> gsr {
+				clip not (= 4 mod 8 p)
+			} {
+!!{ rpt3	* 4 ceil * 12 dl
+				sfx
+				$polyfire(amulet-red/w, 3, $rpt3, 0)
+				$polyfire(amulet-red/b, 3, $rpt3, 60)
+				$polyfire(amulet-red/, 6, $rpt3, 0)
+			}
+			sync x-boom <> gsr {
+				clip not (= 6 mod 8 p)
+			} {
+				sfx
+				$polyfire(amulet-black/w, 5, $rpt5, -90)
+				$starfire(amulet-black/, 5, * 2 $rpt5, -90)
+			}
+		
+		}	
+#}
+
+## 8
+#{
+phase 0
+	saction 0
+		dbossexplode lerp(0, 1, t, red, rgb 1 1 1) red
+		position 0 20
+		wait 5
+		shift-phase
+#}
+

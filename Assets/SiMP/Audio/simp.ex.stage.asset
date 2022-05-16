@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3d462728373fa4db771cd7986b7536, type: 3}
+  m_Name: simp.ex.stage
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: c0f84fdc20d237544a1d47e6e15060a7, type: 3}
+  key: simp.ex.stage
+  trackPlayLocation: Stage EX
+  title: Listen, Sariputra
+  musicRoomDescription:
+    useReference: 1
+    reference: simp.music.stageex
+    hardcoded:
+      en: 
+      jp: 
+  volume: 0.2
+  pitch: 1
+  stopOnPause: 0
+  loop: 1
+  loopSeconds: {x: 9.4, y: 132.82}
+  startWithTime: 0
+  musicRoomRequirement: campaigncompleted(simp.ex)
+  showInMusicRoom: 1

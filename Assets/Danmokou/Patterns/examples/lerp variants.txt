@@ -1,0 +1,8 @@
+pattern { }
+phase 10
+    paction 0
+        position 0 2
+            async ellipse-purple/w <1;:180> gcr2 20 _ <;:5> { } s tp-rot rotatelerprate 45 cx 2 cy 1
+            async ellipse-red/w <1.01;:180> gcr2 20 _ <;:5> { } s tp-rot rotatelerppercent 0.5 cx 2 cy 1
+            async ellipse-yellow/w <1.02;:180> gcr2 20 _ <;:5> { } s tp-rot truerotatelerprate 45 cx 2 cy 1
+            async ellipse-green/w <1.02;:180> gcr2 20 _ <;:5> { } s tp-rot truerotatelerppercent 0.5 cx 2 cy 1

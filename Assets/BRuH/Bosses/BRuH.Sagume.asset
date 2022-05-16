@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: BRuH.Sagume
+  m_EditorClassIdentifier: 
+  boss: {fileID: 6003014192476353498, guid: 6b90e209cad5e3c4a94428bf2be705e0, type: 3}
+  localizationBaseKey: boss.sagume
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 4900000, guid: 53761e27d5fe53e4bac6696835fe0b22, type: 3}
+  key: bruh.sagume
+  colors: {fileID: 11400000, guid: 89bfd4f5863c5f74ca601c1529dfb16b, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 2800000, guid: 972414e491795114baccf71f73969942, type: 3}
+    rightSidebar: {fileID: 2800000, guid: f1b27e578fda0354c8a39434287fb29a, type: 3}
+  defaultNonBG: {fileID: 0}
+  defaultSpellBG: {fileID: 0}
+  defaultIntoSpellTransition: {fileID: 0}
+  defaultIntoNonTransition: {fileID: 0}
+  bossCutin: {fileID: 0}
+  spellCutins:
+  - {fileID: 160725723660692450, guid: 82a46ecd878cbd0439154bbb8e151cd4, type: 3}

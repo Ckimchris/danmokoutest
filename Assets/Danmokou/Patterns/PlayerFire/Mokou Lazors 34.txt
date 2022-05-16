@@ -1,0 +1,31 @@
+gtr {
+	wt 24 _
+	wait-child
+} fire
+	## free fire
+	async amuletdd-blue <> gcr { 
+		wait(18)
+		times(_)
+		sfx x-pc-fire-1
+	} gsr {
+		times(2)
+		bindLR
+	} simple rvelocity rx(lerpt(0.3, 0.7, 4, 12), 90 + &lr * lerpsmooth(io-sine, 0, 0.5, t, 20, 193)) 
+	{ player 30 30 oh-reimu-amulet }
+	## free cancellation
+	noop
+	## focus
+	paction 0 :2
+		async amuletdd-blue <> gcr {
+			wait(18)
+			times(_)
+			sfx x-pc-fire-1 
+		}  simple rvelocity rx(lerpt(0.2, 0.5, 4, 12), 90 + pm1(p) * lerpsmooth(io-sine, 0.15, 0.4, t, -40, 10)) 
+			{ player 30 30 oh-reimu-amulet }
+		async arrowpather-red/ <> gcr { 
+			wait(60)
+			times(_)
+			sfx x-pc-fire-1 
+		} pather 0.5 0.5 roffset(pxy(sine(0.6, 0.24 * pm1(p), t), 6 * t)) { player 360 110 65 oh1-purple }
+	## focus cancellation
+	noop

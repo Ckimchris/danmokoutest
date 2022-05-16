@@ -1,0 +1,173 @@
+<#> strict(none)
+pattern {
+	boss bruh.kurokoma
+	bgm {
+		1 bruh.level1
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 4
+	
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	lerp 0 1 t red pink
+	orange
+	1.5 2 0 0.5
+!}
+
+!!{ me kurokoma 
+
+## 1
+<!> challenge introdialogue
+<!> dialogue #{
+<!> root 0 1
+phase 0
+	saction 0
+		dialogue kurokoma.1
+		shift-phase
+#}
+
+<!> challenge destroy
+<!> challenge graze 350
+<!> challenge within 2
+<!> challenge novertical
+<!> challenge nofocus
+<!> type spell `Stop and Doubt: The Road Not Taken`
+<!> hpi 20000 2
+<!> root 0 0
+phase 36 #{
+	paction 0
+		pool-control { fireball-* } cullrad 10 
+		bullet-control persist fireball-black/ batch > (distto &.rootloc) (dist Lplayer &.rootloc) {
+			time 100 _
+			restyle fireball-red/ _
+			sfx x-transform-1 _
+		}
+		gtr2 2s _ <> {
+			wait-child
+			delay 1s
+		} saction 0
+			$power1
+			savev2 ploc 0 Lplayer
+			async glaser-orange/ <3;:180> gsr {
+				target a @0 ploc
+			} gsr2 19 <12> {
+				bank <0.8;:180>
+				center
+			} gsr2 2 <13> {
+				bank <>
+				center
+			} gsr {
+				bank <-0.9;:>
+			} laser null 1 0 {
+				tint(rgba(1, 1, 1, lerpsmooth(in-sine, 0, 0.6, t, 1, 0)))
+				dsfx
+			}
+			wait 1.5
+!!{ ctrlt 2
+			timer restart rt
+			bullet-control < timersec(rt) $ctrlt fireball-* slowdown -m 1 * 3 softmod (/ $ctrlt 2) timersec(rt) _
+			async arrow-orange* <3;:180> gcr3 4 1.3s <> {
+				target a @0 ploc
+				sfx x-fire-burst-2
+			} gsr2 17 <12> {
+				bank <0.8;:180>
+				center
+			} gsr2 2 <13> {
+				bank <>
+				center
+				colorf { /w / } + t &pi
+			} s tprot px lerpt 0 0.2 1 14
+			wait $ctrlt
+			break
+!!{ rpt 11
+		async fireball-black/ <> gcr2 (lerpt 0 4 5s 4s) _ aphi $rpt {
+			preloop rootloc =v2 loc
+			expose v2 rootloc
+			sfx x-fire-burst-1
+		} gsr2c $rpt {
+		} s tpnrot lerpt 100 101.3
+				rotify px lerpt 0 1 0.6 1.7
+				ss 100.2 vhome 2 Lplayer
+#}
+
+
+<!> challenge survive
+<!> challenge without 4
+<!> challenge destroy
+<!> challenge destroytimed 20
+<!> type spell `Tyger Tyger, Burning Bright`
+<!> hp 13000
+<!> root 0 2
+phase 36 #{
+	paction 0
+!!{ sunt 2
+		bullet-control persist sun-* cull > t $sunt
+		pool-control circle-black/b allowcull false
+		
+		sync circle-black/b <> loc0 gsr {
+!!{ wl 7
+!!{ ww 5
+			tmmod	$ww
+		} gsr {
+			tmmod	$wl
+		} gsr {
+			tmmod	2
+		} s nroffset :: {
+			px	pma $ww { $wl 2 }
+			py	pm $wl 2
+			plr	pm1 pm 2 1
+		} + lbeh $me tp wings1 $ww $wl 1.5
+		
+		gtr2 0s _ <>  { 
+			wait-child 
+			p this
+		} saction 0
+!!{ crosshairt (lerp 0 5 p 3 2)
+			~ _  - $crosshairt 1.5 $power1
+			crosshair crosshair Lplayer 0 $crosshairt sploc 0
+			savef moved 0 0
+			~ async sun-yellow/b <> gcr2 3 _ <> {
+				sfx	x-boom
+				cancel = @0 moved 1
+			} simple null { scale * 0.8 equad0m10 0.5 $sunt t }
+			move-while 1 onscreenby -0.5 loc tpnrot ss0 vhome 40 @0 sploc
+			savef moved 0 1
+			sync x-boom <> sfx
+			~ shake 1 0.3 smooth smod-010 / x 0.3
+!!{ crpt 24
+			~ async star-orange* <> gcr3 80 4s aphi $crpt {
+				color { /w / }
+				sfx x-fire-burst-1
+				bindLR
+			} gsr2c $crpt {
+			} simple tprot px lerpt 0 0.8 5 2.4 { dir * &lr starrot3 }
+			~ async lightning-pink/ <180> gcr3 3 3.5s <> {
+				frv2 a * pm1 t rand 60 150
+			} gsr {
+				target a Lplayer
+			} pather 0.4 0.4 tprot cx 6 { }
+			async lstar-red/w <> gcr3 20 3.5s <> {
+				sfx x-fire-burst-2
+				frv2 a * 24 rangemodh t
+			} gsr {
+				target a Lplayer
+			} simple tprot px 4.6 { dir starrotb2 }
+
+
+
+#}
+
+## 3
+<!> challenge enddialogue
+<!> dialogue #{
+<!> root 0 0
+phase 0
+	saction 0
+		dialogue kurokoma.2
+		shift-phase
+#}
+
+

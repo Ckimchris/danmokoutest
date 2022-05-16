@@ -1,0 +1,61 @@
+script
+place l1 mokou
+place r1 kasen
+sl mokou
+sr kasen
+srce happy
+. `Ah! I've been expecting you!`
+z
+slc
+. `Same here. Keine told me to get the entire story from you.`
+z
+srce _
+namecard namecard-kasen
+. `Sure. Although there really isn't that much more than what I told her last night.`
+z
+.`A few weeks back, some fairies were searching around the Hakurei shrine, and happened upon Reimu's yin-yang orbs.`
+z
+srce worry
+. `Reimu doesn't know it, but they're the shrine's g-- Excuse me. They're incredibly powerful holy weapons tied, in some way, to the continued existence of the barrier.`
+z
+. `The fairies thought they were plastic toys and dumped them somewhere. I picked them up.
+My, uh, hermit sense is perceptive enough that I could instantly tell something was wrong with the orbs.`
+z
+. `Since then, I've been keeping a close eye on the orbs with my animal friends. Nothing in particular happened until last night.`
+z
+. `Last night, the orbs suddenly cloaked themselves in a terrifying aura reminiscent of a vengeful spirit. I have no idea why. The situation has remained static, but it's already dangerous enough that we can't let it continue.`
+z
+. `I don't know any more than that. As long as the orbs are in this questionable state, we can't let Reimu use any of her Hakurei powers. We'd risk infecting her too. Keine told me she'd take care of Reimu, though.`
+z
+slce worry
+. `I guess I expected something along those lines. So? What do you want me to do with the orbs? Smash them? Burn them? I could probably even eat them.`
+z
+src
+. `Smash them if worse comes to worst. Yukari said she'd be investigating alternatives, but she hasn't returned yet.` 
+z
+slce _
+. `Alright. If that's all, I should go find Yukari, right? Can you point me in the right direction?`
+z
+srce worry
+. `Actually, I need to ask you something first.
+How did you find this place?`
+z
+slce worry
+. `How are you going to invite me here and then ask me that?`
+z
+src
+. `This clearing here is a dimension separate from Gensoukyou. You were only supposed to make it to the entrance. But if you made it inside, that means...`
+z
+slc
+. `I guess there were a few seals or something in the area, but they were nothing compared to the bamboo forest. What, were those things supposed to stop me?`
+z
+srce angry
+. `I have no choice. I can't let you leave this place alive.`
+z
+slc
+. `If you don't want people to come to your house, don't invite them over. That's kept people away from my place for over a millennium now.
+Anyways, thanks for the help. I'll take my leave. Sorry to bother you.`
+z
+src
+. `<b>Mondou muyou</b>! <i>En garde</i>!`
+z

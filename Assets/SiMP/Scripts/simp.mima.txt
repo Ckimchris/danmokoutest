@@ -1,0 +1,1174 @@
+<#> strict(none)
+pattern { 
+	bosses {
+		simp.mima
+		simp.keine
+		simp.kaguya
+	} {
+		0 1
+		5 2
+		8 0
+	}
+	bgm {
+		1	simp.4.mima
+	}
+}
+phase 0
+	paction 0
+		@ { kaguya keine }
+			position -15 0
+		shift-phase-to 2
+	
+	
+!!{ mimac { black yellow orange green teal blue pink }
+!!{ mimacnb { yellow orange green teal blue pink }
+!!{ mimac1 { black yellow orange }
+!!{ mimac2 { green teal blue pink }
+!{ keinepower1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t blue teal
+	witha 0.9 red
+	1.5 2 0 0.5
+!}
+!{ kaguyapower1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t red purple
+	witha 0.9 pink
+	1.5 2 0 0.5
+!}
+!{ kaguyapower2()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 2.5 t red purple
+	witha 0.9 pink
+	3 5 0 0.5
+!}
+!{ mimapower1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t green teal
+	witha 0.9 blue
+	1.5 2 0 0.5
+!}
+!{ mimapower2()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 2.5 t green teal
+	witha 0.9 blue
+	3 5 0 0.5
+!}
+!{ mimapower1long()
+sync powerup1 <> powerup x-powerup-1
+	witha 0.9 lerp 0 3.7 t green teal
+	3 5
+!}
+
+##1
+<!> showlives 1
+<!> dialogue #{
+phase 0
+	saction 0
+		~ @ keine
+			move-target 3 io-sine cx -2
+		move-target 3 io-sine cxy 1 1
+		wait-for 1
+		dialogue simp.dialogue.4.1
+		shift-phase
+#}
+
+!{ gfire(root)
+async ellipse-red/w <> gcr2 /i ^ dl 0.8 32 _ <> {
+	sfx x-fire-burst-1
+} gsr2 2 <120> {
+	face d
+	center
+	target a %root
+} s tprot cx 1.7
+!}
+!{ gfire4(root)
+async ellipse-red/w <> gcr2 /i ^ dl 0.8 32 _ <> {
+	sfx x-fire-burst-1
+} gsr2 3 <45> {
+	face d
+	center
+	target a %root
+} s tprot cx 1.7
+!}
+
+##2. joint 1 (keine)
+<!> showlives 1
+<!> type non :simp.boss.mima.keine1
+<!> hpi 11000 3
+<!> root -3 3
+!!{ kbase pxy 0 1.5
+<!> rootother keine 0 1.5
+phase 31 #{
+	paction 0
+		bullet-control persist ellipse-red/w restyleeffect arrow-red/ cwheel-red/b > t .8
+		gtr {
+			delay 60
+			wt /i ^ dl 0.4 300 _
+			sfx x-boom
+		} {
+			!!{ repc 4
+			sync lstar-*/w <> gsr2 $repc <> {
+				target a $kbase
+				p this
+			} gsr2c 6 {
+				color $mimacnb
+			} simple roffset +
+				px lssht 1 1 * -0.4 t * 1.5 t
+			!!{ per 6
+				tp qrotate py 62 
+					circle $per (lerpt 0 0.7 0 1.3) + t * p / $per $repc 
+                { dir starrotb1 }
+			@ keine
+				move-target 1 out-sine + $kbase rx
+					1.6
+					+ -90 atan - Lbeh mima $kbase
+		}
+		gtr {
+			wt 60 _ 
+			wait-child
+			preloop {
+				lr =f mp1 // ++ t 2
+				ud =f pm1  pred10(in mod 4 ++ t 0.5 2.5)
+			}
+		} move-target 4h io-sine pxy * &lr 3 + 1.2 * 2 &ud
+	
+		sync sun-blue/ <-90> gsr2 2 <> {
+			p this
+			preloop lr =f pm1 t
+		} gsr2c 3 {
+!!{ root pxy * &lr 2.4 1.6
+			root $root
+			p add
+		}  guideempty .1 p { pl loc } { } polar
+				0.8
+				* &lr lssht 0.3 1 0 * 30 t {
+					inode nroffset @ pl p $gfire($root)
+					simple nroffset @ pl p { scale 0.2 }
+				}
+		sync sun-blue/ <> gsr2c 4 {
+			p this
+!!{ root py 0
+			root $root
+			preloop eo =f if(even p, 1, -1)
+		} guideempty .2 p { pl2 loc } { } polar
+				0.8
+				* &eo * -24 t {
+					inode nroffset @ pl2 p $gfire4($root)
+					simple nroffset @ pl2 p { scale 0.2 }
+				}
+			
+
+#}
+
+
+##3. joint 2 (keine)
+<!> showlives 1
+<!> type spell :simp.boss.mima.keine2
+<!> hpi 20000 2
+<!> spellcutin 1
+<!> root -3 1
+<!> rootother keine 3 2
+phase 41 #{
+	paction 0
+		beh-control persist gpather-blue/b sm onlyonce > abs x xmax
+			async glcircle-blue/b <> gir { sfx x-fire-burst-1 } gcr2 12 3 <3.6> {
+!!{ rpt  ceil * ^ dl 0.9 9
+				start rv2.a +=f * p / 360h $rpt
+				p this
+			} gsr2c $rpt {
+				expose f st
+			} s tp
+				px - lerpt(0.5, 1, 2.6, 1.8) * 0.5 p
+				py lerp 0.5 4 (+ t * 0.2 p) 1 -3.6
+		bullet-control persist glcircle-blue/b restyleeffect fireball-blue/b cwheel-blue/w >(+ t &.st, 1.5)
+!!{ starwhen > t (+ 0.8 * 3 modh p)
+		bullet-control persist lstar-red/ batch $starwhen {
+			sm _ sync star-red* <> gsr2c * dl 10 {
+					sfx x-boom
+				} gsr2 3 <> {
+					p this
+					color { /b / /w }
+				} simple tprot px * lerpt 0.0 0.2 2 1
+					+ 1.4 * 0.3 p
+					{ dir starrotb1 }
+			cull _
+		} 
+			
+			
+		gtr {
+			wt 2s _
+			wait-child
+			p this
+			preloop {
+				lr =f pm1 p
+				ud =f pm1 // p 2
+			}
+			sequential
+		} {
+			paction 0
+				_ 1.5
+					async lightning-teal/w <> gcr2 12 3 <> {
+						sfx x-lightning
+						p this
+					} pather 1 1 nroffset pxy
+					!!{ per 1
+						* &lr pivot t / $per 2 (sine $per (+ 0.8 * 0.2 p) t) (* t -3)
+						pivot t / $per 2 (cosine $per (+ 0.8 * 0.2 p) t) (0)
+						{ }
+				@ keine
+					saction 0
+						$keinepower1
+						move-target 1 out-sine pxy * &lr 3.5 + 1 * &ud 1
+						wait 0.5
+						~ draiko 1 2
+						~ async keine-blue* <> gcr3 /i ^ dl 0.8 8 .45s <> {
+								face v
+								delay 2
+							} gsr2 2 <160> {
+								p this
+								center
+							} gsr2 2 <> {
+								color { /w /b }
+								p add
+							} s tprot rx
+								- 3.5 * 1.5 p2
+								 * pm1 p1 * 26 p2
+						~ async keine-red/ <1;:;:> icacheloc gcr2dr dl 16 8 <0.8;:> {
+							start rv2.a +=f + 90 * 90 &lr
+							sfx x-keine
+						} gsr2 2 <200> {
+							center
+							p this
+						} s tprot rx 
+							* pm1 p 4
+							flipxmod p 90
+						move-target 0.5 elinear pxy * &lr -2 1
+						sync lstar-red/ <> gsr {
+							t 18
+							frv2	angle + (- 90 * 65 &lr, cosine 12h 26 t)
+							sfx x-boom
+							p this
+						} simple tp
+							px * lerpt 0.2 0.4 3 1
+								+ 1.5 cosine 20h 0.8 p
+							py * -0.55 t
+							{ dir starrotb2 }
+						sync  lightning-red/ <90> gsr2 2 <140> {
+							start rv2.a +=f  * 90 &lr
+							center
+						} gsr2 6 <5> {
+							center
+						} pather 1 1 tprot px lerpt3 0.2 0.3 0.5 0.7 4 2 6 { }
+						move-target 1 out-sine pxy * &lr -1 -1
+						break
+			
+			## Dropblock
+			paction 2
+				async lightning-teal/w <> gcr2 30 8 <> {
+					root	px * &lr -3.6
+					p this
+					sfx x-lightning
+				} gsr {
+					target ry Lbeh keine
+				} pather 1 1 tpnrot px * &lr lerp3(0, 0.1, 0.6, 1.1, t, 6, 2, 12) {
+					sm	async star-*/ <> gcr2 /i dl 30 _ <> { 
+								delay * /i dl 30 * 1h p
+							} gsr2 4 <0.1;:> {
+							} {
+								 color blue simple tprot py lerpt(0, 1, 1, lerp(1, 2.5, + t * 0.06 p, 3, -4.5)) { dir starrotb2 }
+								 color green simple tprot py lerpt 0 1 0 -3.7 { dir starrotb1 }
+							}
+				}
+				@ keine
+					paction 0 :2
+						move-target 2 io-sine pxy * &lr 3 3
+						_ 1.5 
+							async gpather-blue/b <> gsr2 9 <> {
+								sfx x-fire-tech-6
+								p this
+							} pather 1 1 tpnrot 
+								ssvhomet (+ 1 * 0.24 ^ p 1.1, pxy * &lr xmin (- 3 * 0.9 p))
+								{ }
+			paction 0
+				move-target 2 io-sine pxy * -1 x y
+				_ 0.5
+					@ keine
+						move-target 1.5 io-sine pxy * &lr -3 * &ud -1
+			paction 0
+				@ keine
+					move-target 2 out-sine pxy x * &ud 1
+				async gdlaser-teal/ <> gcr2 120 2 <> {
+				} gsr2c * dl 12 {
+					target a Lbeh keine
+				} laser null 1.5 0.5 { dsfx }
+		}
+#}
+
+
+##4 
+<!> showlives 0
+<!> dialogue #{
+phase 0
+	saction 0
+		~ @ keine
+			move-target 2 io-sine cx 3
+		~ @ kaguya
+			move-target 2 io-sine cx -3
+		move-target 2 io-sine cy 1
+		dialogue simp.dialogue.4.2
+		@ keine
+			move-target 1 io-sine cx 13
+		shift-phase
+#}
+
+
+##5. joint 1 (kaguya)
+<!> showlives 1
+<!> type non :simp.boss.mima.kaguya1
+<!> hpi 11000 3
+<!> root 0 3.5
+<!> rootother kaguya 0 1
+phase 31 #{
+	paction 0
+		bullet-control persist sun-blue/b cull > t 3
+!{ ctrl(idx)
+bullet-control- persist keine-* sm circ + tp @ pl %idx circ(<;;0.8>)
+	sync star-** <> gsr {
+		sfx x-fire-star-1
+	} { 
+		gsr {
+			resetcolor
+			 color sun-blue/b
+		} simple null { scale lerpt 0 3 0.8 0 }
+		gsr2c * ^ dl 0.9 15 {
+			color $mimac2
+		} gsr2 2 <> {
+			color { /b /w }
+			p add
+		} simple polar
+			lssht(-2, 0.4, * 3 t, * (+ 1.2 * 0.8 p2, t))
+			* pm1 p1 * pm1 p2 * 10 t
+			{ dir starrotb1 }
+	}
+		
+bullet-control persist keine-* cull circ + tp @ pl %idx circ(<;;0.8>)
+!}
+		$ctrl(0)
+		$ctrl(1)
+	
+		move _ nroffset - rx
+!!{ a * 72 smoothloop io-sine / t 1
+				regpoly 2.5 5 $a
+				+ 90 $a
+			cy 2.5
+		
+		sync sun-teal/ <> gsr2 2 <> {
+			p this
+			root zero
+		} guideempty .1 p { pl loc } { }
+			nroffset + lbeh mima
+!!{ per 2
+				tp qrotate px + 50 sine 5p 20 t
+					circle $per 1 + t * p / $per 2 {
+				simple nroffset @ pl p { scale 0.4 }
+			}
+	
+		@ kaguya
+			gtr {
+				wt (max 60 - 100 * 6 t,  _)
+				wait-child 
+			} {
+				sync gdlaser-pink* <> gsr2c + 7 * 2 dc {
+					target a Lbeh mima
+					colorf { /w /b } if (= t 0, 0, 1)
+				} laser null 1.5 0.5 { dsfx }
+				async keine-*/w <;:180> gcr2dr ^ dl 0.3 20 12 <20>  {
+						sfx x-keine
+						start da =v2 Lbeh mima
+						p this
+					} gsr { 
+						bank <-42>
+						t	2
+						postloop {
+							rv2.ny *=f -1
+							rv2.a =f * -1 [&rv2].a
+						} 
+					} gsr {
+						colorf { red orange yellow } rand 0 3
+						t	2
+						rpp	angle * 32 pm1 &pi
+					} gsr {
+						target a &da
+					} s tprot lerp 0.8 1 t cx 4 cx 3
+			}
+
+
+#}
+
+
+!{ leff()
+paction 0 :2
+	async x-boom <> gcr3 30 4s <> {} sfx
+	draiko 0.6 4
+!}
+!{ lazor(color, target)
+async  %color <-2;:> gcr3 0.3 4s <> {
+	target a Lbeh %target
+	p this
+} s roffset
+	+ px * 8 t
+	circle 0.9 (+ 0.4 sine 20p 0.3 p)  * pm1 p + t * 2 modh p
+!}
+!{ mimal()
+$lazor(lstar-teal/w, kaguya)
+!}
+!{ kaguyal()
+$lazor(lcircle-pink/w, mima)
+!}
+!{ mimaf(t, r)
+async _ <> iparent this gsr2c 3 {
+	p this
+} inode polar
+		1
+		* 70 t
+	async star-** <0.1;:> gcr {
+		wt	/i dl (/ 16 %r) _
+		for %t
+		delay 2
+		face v
+		colorf $mimac2 p
+		sfx	x-fire-star-2
+		frv2	rot
+			sine 20p 0.4 t
+			cosine 20h 0.25 t
+			* 6p t
+	} gsr2 2 <> {
+		clip(offscreen loc)
+		color { /b / }
+		p this
+	} gsr2 3 <120> {
+		bank <>
+	} simple tprot  px + 1.2 * 0.65 p { dir starrot1 }
+
+!}
+!{ kaguf(t, r)
+async gem-*/w <> gir2 0 2 <> {
+	p this
+	color { red pink }
+} gir3 (/ 120 %r) %t * pm1 p <-10p> {
+	sfx x-fire-burst-2
+}  gcr2 4 (+ 4 dc) * pm1 p <1> {
+		clip(offscreen loc)
+} gsr2c * dl 12 {
+} s polar
+	logsumshiftt -4 1 (* 2 t) 
+		logsumshiftt 0.8 2 (* 0 t) (* 1.8 t)
+	* pm1 p logsumshiftt -1 1 * 20 t
+		logsumshiftt 0.05 2 (* -40 t) * 9 t
+!}
+##6 joint 2 (kaguya)
+<!> showlives 1
+<!> type timeout :simp.boss.mima.kaguya2
+<!> spellcutin 2
+<!> root 3 0
+<!> rootother kaguya -3 1
+phase 42 #{
+	gtr {
+		wt 1 _
+		wait-child
+		preloop lr =f mp1 t
+		sequential
+	} {
+	!!{ pys if > [Lplayer].y 0 1.5 -1.5
+		paction 0
+			$mimapower1
+			@ kaguya
+				paction 0 :2
+					$kaguf(6s, 1)
+					_ 1.5				
+						move-target 1 io-sine pxy x $pys
+			_ 1.5
+				$mimal
+			_ 1.5
+				$leff
+		paction 0
+			@ kaguya
+				paction 0 :2
+					$kaguyapower1
+					_ 1.5
+						$kaguyal
+			_ 1.5
+				move-target 1 io-sine pxy x $pys
+			_ 1.5
+				$leff
+			$mimaf(4.5s, 1)
+		paction 0
+			@ kaguya
+				paction 0 :4
+					$kaguyapower2
+					_ 0.5 $kaguf(6.5s, 0.7)
+					_ 3
+						$kaguyal
+					_ 3.8
+						move-target 4 elinear pxy * &lr 7 y
+			$mimapower2
+			_ 0.5 $mimaf(6.5s, 0.7)
+			_ 3
+				$leff
+			_ 3
+				$mimal
+			_ 3.8
+				move-target 4 elinear pxy * &lr -7 y
+		paction 0
+			pos pxy * &lr 8 y
+			@ kaguya
+				pos pxy * &lr -8 y
+		paction 0
+			move-target 2 io-sine pxy * &lr 3 0
+			@ kaguya
+				move-target 2 io-sine pxy * &lr -3 1
+	}
+
+#}
+
+##7
+<!> showlives 0
+<!> dialogue #{
+phase 0
+	saction 0
+		~ @ kaguya
+			move-target 2 io-sine cx 2.6
+		move-target 2 io-sine cy 1
+		dialogue simp.dialogue.4.3
+		@ kaguya
+			sync _ <> 1upitem
+		@ kaguya
+			move-target 1 io-sine cx 13
+		shift-phase
+#}
+
+##8
+<!> bosscutin
+<!> type spell :simp.boss.mima.kars #{
+<!> hpi 19000 4
+<!> root 0 2
+phase 37
+    paction 0
+		pool-control lstar-* allowdelete false
+		pool-control { { star-* sun-* lstar-* } } cullrad 10
+		gtr2 0 _ <> {
+			delay 3s
+			wait-child
+			p	this
+		} saction 0 :3
+			async gdlaser-*/b <> gcr2 12 4 <30> { target a Lplayer color $mimac2 } gsr2c 3 . laser null 2 0.5 { sfx2 x-laser-fire x-laser-on }
+			wait-for /i dh 3
+			move-target 3 io-sine pxy (* pm1 p rand 0.7 1.1, rand 1.8 2.3)
+		shake 2 3 smooth smod-010 / x 3
+		$mimapower1long
+		async x-boom <> gcr2 24 5 <> . sfx
+		async _ <> gcr {
+			wt	/i dl lerp3c 0 12 30 t 50 150 130 _
+			root	cxy 0 7
+			color	$mimac
+			p	this
+			preloop {
+				rv2.rx =f  * 3.4 rangemodh + t 3
+				rv2.ry =f lerp 0 8 t -4 0
+			}
+			sfx	x-fire-burst-3
+		} guideempty .1 p { eloc loc } { } 
+			tprot py brand -1.2 -0.8 {
+				colorr sun-*/b simple nroffset @ eloc p { scale 0.3 }
+				colorr lstar-*/ gsr2c(+ 5 d3d1) { } simple offset 
+					polartoxy
+						+ 1.6 cosine 7 1.1 + t * 4h p
+						* * pm1 p 22 + t * 2h p
+					@ eloc p
+					{ dir  * pm1 p starrot2 }
+				colorr star-*/w gsr2c(+ 5 d3d1) { } simple offset 
+					rx
+						1.3
+						* * pm1 p -44 + t * 2h p
+					@ eloc p
+					{ dir  * pm1 p starrot3 }
+			}
+#}
+
+
+##9
+<!> type non :simp.boss.mima.stars #{
+<!> hpi 17000 3
+<!> root 0 2
+phase 36
+    paction 0
+!!{ n 3
+		pool-control {{ lstar-* }} cullrad 10
+		gtr {
+			wt	2.5s _
+			p	this
+			wait-child
+		} saction 0
+			$mimapower1
+			wait-for 1.5
+			sync _ <> gsr { colorf $mimac2 p } gsr { 
+				tmmod $n
+				rpp <90>
+				sfx	x-fire-tech-6
+			} guideempty .1 p { eloc loc edir dir } { }
+				tpnrot 
+					switchH t 2 
+						* lerp3(0.0, 0.6, 1, 1.2, t, 10, 2, 8)
+							truerotatelerprate 400 + cy 0.2 rotify cx 1
+								ss 0.4 vhome 2 Lplayer
+!!{ rrt 0.1
+!!{ ip pma $n { }
+						switchH t $rrt
+							ssvhomet $rrt pxy(+ ++ xmin * (-- xmax) $ip, -6.5)
+							lerp3 0.5 1 1.3 1.6 t cy 3.2 zero cy 4
+					 {
+						colorr gpather-*/ pather 3 0.5 nroffset @ eloc p {
+							sm async star-** <> gir2 0 2 <> {
+								alternate t
+								wait-child
+								colorf $mimac2 pma _ { $n }
+							} {
+								gcr { #{
+									wtm	/i dl 4.5 1000 1000
+									cancel < y ymin
+									p	mod
+								} {
+									gsr { 
+										color /w
+										face v
+										start rv2.ry =f sine 13 0.4 (pma 1000 { })
+									} simple tprot polartoxy
+										lerp 0 1 t 0 1.2
+										* 25 (+ * 18 pma $n { 1000 } pma 1000 { })
+										{ dir starrotb1 }
+									gsr { 
+										color /
+										face v
+										start rv2.ry =f sine 13h 0.4 (pma 1000 { })
+									} simple tprot polartoxy
+										lerp 0 2 t 0 0.8
+										* 25p (+ * 13 pma $n { 1000 } pma 1000 { })
+										{ dir starrotb1 }
+								} #}
+							
+								gcr2 /i dh 36 _ <> {
+									color /b
+									while onscreenby -0.2 loc
+									delay * /i dh 36h $ip
+									sfx x-fire-star-2
+								} gsr2 2 <180> {
+								} gsr2 4 <> {
+									p this
+								} simple tprot px * lerpt(0.2, 0.6, 0.1, 1) + 0.88 * 0.23 p
+								    { dir starrotb2 }
+							}
+						}
+						colorr lstar-*/w simple nroffset @ eloc p { dir starrot2 }
+			}
+			~ _ + 3.4 $rrt
+				sfx x-metal
+			move 3 tpnrot easedvhomet io-sine 3 pxy (* pm1 p rand 1 2, 2)
+			break
+#}
+
+
+#{
+!!{ co0 cxy -2.7 -2.1
+!!{ co1 cxy -1.3 0.5
+!!{ co2 cxy 0.9 0.9
+!!{ co3 cxy 1 2.7
+!!{ co4 cxy -0.1 4
+!!{ co5 cxy -2.6 2.5
+!!{ co6 cxy -4.6 3.7
+!!{ co7 cxy -2 5.5
+!!{ co8 cxy 2.3 -1.4
+!!{ co9 cxy 2 4.5
+!!{ coa cxy 3 3.1
+!!{ cob cxy 3.2 1.8
+!!{ coc cxy 3 0.4
+!!{ cod cxy 2.8 -0.9
+!!{ cb0 cxy 3.1 -1.3
+!!{ cb1 cxy 1.4 -0.9
+!!{ cb2 cxy 0.1 0.3
+!!{ cb3 cxy 0 2
+!!{ cb4 cxy -3 2.5
+!!{ cb5 cxy -3.7 0.6
+#}
+##10
+<!> type spell :simp.boss.mima.constellations #{
+<!> hpi 20000 5
+<!> root 0 2
+phase 42
+!!{ slow lerpd(0.7, 1)
+    paction 0
+		## TODO generalize expred to exsbpred so this works
+		##bullet-control persist {{ sun-* }} cull < scale 0
+		bullet-control persist {{ sun-* }} cull > t 2.5
+		gtr {
+			wt	1 _
+			wait-child
+		} saction 0
+			~ dangerleft
+			dangerright
+			wait 1.3
+			$mimapower1
+			async gpather-teal/w <> gcr {
+				delay 1.5s
+				root cxy 0 -1
+			} gsr2 2 <> { p this } pather 7 7 nroffset 
+				if (= p 0, #{
+					lerpmany  {
+						0 $co0
+						1 $co1
+						2 $co2
+						3 $co3
+						4 $co4
+						5 $co5
+						6 $co6
+						7 $co7
+						7.1 + $co7 py (- t 7)
+					} t,
+					lerpmany  {
+						0 $co8
+						1 $co2
+						2 $co3
+						3 $co9
+						4 $coa
+						5 $cob
+						6 $coc
+						7 $cod
+						7.1 + $cod * (- t 7, cxy 0.2 -1.3)
+					} t) { #}
+				sm async _ <0.5;:> gir2 120 8 <> {
+					color $mimac2
+				} { #{
+					gsr { 
+						start	rv2 =rv2 zero
+				sfx	x-metal
+				color	sun-red/b
+					} simple null { scale * 0.6 (- 1 * 0.4 t) }
+					icacheloc gir2 0 5 <72> . gcr2d dl 2 24 angle /i dl 12 { 
+						bank <0.5;:-144>
+						p this 
+						colorr star-*/w
+					} simple tprot  rotate - 160 * (/i dl + 5 * 1.7 t, mod 4 p)
+						px * $slow lerp3c 1 3 4 (+ t * /i dl 40f // p 4) 0 2 3.5
+						{ dir starrot2 }
+				} #}
+			}
+			wait-for 10
+			$mimapower1
+			async gpather-pink/w <> gcr {
+				delay 1.5s
+				root cxy 0.3 0.8
+			} pather 5 5 nroffset 
+					lerpmany  {
+						0 $cb0
+						1 $cb1
+						2 $cb2
+						3 $cb3
+						4 $cb4
+						5 $cb5
+						5.1 + $cb5 * (- t 5, cxy -0.3 -2)
+					} t { #}
+				sm async _ <0.5;:> gir2 120 6 <> {
+					color $mimac2
+				} { #{
+					gsr { 
+						start	rv2 =rv2 zero
+				sfx	x-metal
+				color	sun-red/b
+					} simple null { scale * 0.6 (- 1 * 0.4 t) }
+					icacheloc gir . {
+## r = 0.5, c = 0.5
+						gir2 0 5 <72> . gcr2d dl 1 48 angle /i dl 6 { 
+							bank <0.5;:-144>
+							p this 
+							colorr star-*/w
+						} simple tprot  rotate - 160 * (/i dl + 2 * 0.8 t, mod 4 p)
+							px * $slow lerp3c 1 3 4 (+ t * /i dl 16f // p 4) 0 2 3.5
+							{ dir starrotb2 }
+						gir2 0 5 <72> {
+## r' = (r+c)cos 36, c' = (r+c)sin 36,  where 36 = 180 / 5
+							start rv2 =rv2 <.809;:180>
+						} gcr2d dl 2 44 angle /i dl 4 { 
+							bank <.5878;:-90>
+							p this 
+							colorr star-*/
+						} simple tprot  rotate - 160 * (/i dl + 1 * 0.2 t, mod 4 p)
+							px * $slow lerp 4 5 (+ t * /i dl 40f // p 4) 0 2.5
+							{ dir starrotb1 }
+					} 
+				} #}
+			}
+			wait-for 8.7
+			break
+#}
+
+
+##11
+<!> type non :simp.boss.mima.andromeda #{
+<!> hpi 19000 3
+<!> root 0 2
+phase 34
+    paction 0
+		pool-control  { { star-* lstar-* } } allowdelete false
+		$mimapower1
+		event playerinvuln 360
+		sync lightning-*/ <> gsr2 20 <> { root zero p this color $mimac } pather 1 0.4 polar
+			+ 0.1 * 0.072 p
+			+ * 240h p *  -(500, * 20 p) t { }
+		sync lstar-teal/b <> gsr { root zero } simple null { dir * 230 t }
+	paction 1.5
+		async star-*/ <4.5;:> gir2 60 _ <120h> { wait-child sfx x-metal } gcr {
+			wt	0.5 2300
+			frv2	angle pivot t 740 (* 1 ^ (/ t 2, 0.95)) 
+						pivot t 980
+							sine 480 18 (- t 720)
+							(* -0.04 ^ (/ - t 860 2, 1.7))
+			sfxif	x-fire-star-2 & (divby 16 t, in t 650 1100)
+		} gsr2 3 <120> { root zero color $mimac1 }  simple tp-rot cx 1 { dir starrot2 }
+!{ sqf(ct, thdr, th0r, spd)
+:: {
+	t	* * lerpd(0.8, 1) %spd t
+	ts	* 1π smoothloop io-sine (/ &t 1π)
+	j	softmod pi &ts
+	js	+ 0.6 * / -(pi, 1.2) pi &j
+	thd	+ * 360 (/ p %ct) raddeg * %thdr &t
+	th0	+ * 0.5 &js * %th0r &t ##0.5 gives a convulsing box
+	th	mod pi - &th0 degrad &thd
+	thp	&js
+	thq	- pi &thp
+	thpq	if >(&th, &thp) &thq &thp
+	thc	- hpi / &thpq 2
+	the	if >(&th, &thp) -(&th, &thp) &th
+	R	4.6
+	r	* &R / sin(&thc) sin(- - pi &thc &the)
+} polar
+	&r
+	&thd
+!}
+!!{ ct floor * dh 36
+		sync star-pink/w <135> gsr2 $ct <> { root zero p this } simple $sqf($ct, 1.4, 1.4, 0.4) { dir starrot2 }
+		sync star-teal/w <225> gsr2 $ct <> { root zero p this } simple $sqf($ct, 0.7, 1.4, 0.4) { dir starrot2 }
+		sync star-blue/w <> gsr2 $ct <> { root zero p this } simple $sqf($ct, 0.5, 1.4, -0.3) { dir starrot1 }
+		gtr {
+			delay 2s
+			wt	6s _
+			p	this
+			wait-child
+		} move 3 tpnrot easedvhomet io-sine 3 pxy (* pm1 p rand 0.8 1, y)
+		
+#}
+
+
+##12
+<!> type spell :simp.boss.mima.starfall #{
+<!> hpi 23000 8
+<!> root 0 2
+phase 44
+    paction 0
+		pool-control lstar-* allowdelete false
+		bullet-control persist empty.1 flipx> 3.4 _
+		bullet-control persist empty.1 flipx< -3.4 _
+		bullet-control persist empty.1 sm onlyonce < y ymin
+			sync gdlaser-*/b <90> gsr { face d colorf $mimac p } laser null 1.5 0.5 {
+				sfx2	x-laser-fire x-laser-on
+				s(lerpd(2, 3))
+				varlength(12, * 16 t)
+				dynamic polar
+					* 1 t
+					* lerpsmooth(out-sine, 0, 1.5, &lt, 1, 0) sine 2.8 (9) + + * 2.8h p * 1.1 * 1p &lt t
+				sm	_ 2 async gem-*/ <> gsr2 70 <> {
+						clip(true)
+						colorf $mimac p1
+						p add
+				} gsr { onlaser /i dl * 0.5 &pi } simple tprot polartoxy
+					lerp 0 2 t 0 1
+					* pm1 p1 * 25 (+ * 10h p1 p2) { }
+			}
+		async star-** <1;:90> gcr2d dl 3 88 angle /i dl 7.026 { 
+			color $mimac
+			sfxif	x-fire-star-2 divby 3 t
+			} gsr2 3 <5.6793h> { color { /b / /w }  p this } doubleflipx simple tprot px + 1.5 * 0.35 p { dir starrot2 }
+		gtr {
+			delay 6s
+			wt	6s _
+			p	this
+			wait-child
+		} move 3 tpnrot easedvhomet io-sine 3 pxy (* pm1 p rand 0.4 0.8, rand 1.8 2.3)
+			
+!!{ firef pivot t 10 (+ 82 * 6.2 t) (max 110 - 140 * 2 t)
+		async _ <> gcr {
+			wt	/i (^ dl 0.8) $firef _ 
+			p	this
+			frv2	angle + -90 * 70 rangemodh p
+			color	$mimac
+			root	cy 6
+			sfx	x-fire-burst-2
+		} guideempty .1 p { eloc loc edir dir } { }
+			tp 
+				lerp 0.5 2 t cx 3.8 cx 0.8
+				py * t -0.1 {
+!!{ n 30
+					gsr2 $n <> { 
+!!{ l / twau 5
+						preloop {
+							ba    	=f 	* t / twau $n
+							rv2.a	=f 	raddeg * $l smoothloop io-sine (/ &ba $l)
+						}
+					} colorr star-*/ simple offset 
+						rx
+							reg2star 2.2 5 &a
+							+  srand 0 360 p * (srand 6 12 p, t)
+						@ eloc p
+						{ dir starrot1 }
+					colorr lstar-*/b simple nroffset @ eloc p { dir starrotb2 }
+					colorr lightning-*/ pather 3 2 nroffset @ eloc p { }
+					
+		}
+		
+		
+		
+#}
+
+
+##13
+<!> type non :simp.boss.mima.4pt #{
+<!> hpi 17000 2
+<!> root 0 2.5
+phase 35
+    paction 0
+		async gpather-* <0;:-30> gcr2 /i ^ dl 0.4 max 210 - 280 * 10 t _ <> {
+			delay 1.5s
+			preloop rv2.rx =f + 0.1 * 0.1 softmod 3 t
+			color { */b */ }
+			sfx	{ x-fire-tech-6 x-fire-tech-8 }
+		} gsr2 25 <10> {
+			color $mimac
+		} pather 1 0.2 tpnrot
+			* lerp3 0.0 0.3 1.1 1.3 t 14 2 8
+				truerotatelerprate 400 rotify cx 1
+					ss 0.4 vhome 2 Lplayer
+			{ }
+		$mimapower1
+		gtr {
+			delay	1.5s
+			wt	0 _
+			wait-child
+			p	this
+		} saction 0
+			async star-** <;-1:;:> gcr {
+
+				wt		+ 4 /i (^ dl 0.6) 5 100
+				color	$mimac
+				frv2	angle pivot t 70
+							pivot t 20 * 10.443 t * -13.599 t
+							* 16.02 t
+				p this
+				sfxfif	{ x-fire-star-2 x-fire-star-4 } 
+					if > t 70
+						1
+					if > t 20
+						0
+						1
+					(divby 2 floor t)
+			} gsr {
+				t		clamp 2 3 dc
+				color	{ /b / /w }
+				p	add
+				rpp	angle if >(p1, 70) 
+						-7.56
+						if >(p1, 20)
+							2.34
+							-1.28
+			} gsr2 4 <90> {
+			} simple tprot px + 1.3 + * 0.01 p1 * 0.5  ^ p2 .86 { dir starrot2 }
+			wait-for 1
+			$mimapower1
+			move 1.5 tpnrot easedvhomet io-sine 1.5 pxy
+				* pm1 p rand 1 2
+				2.5
+			break
+#}
+
+
+##14
+<!> type spell :simp.boss.mima.dancing #{
+<!> hpi 19000 3
+<!> root 0 2
+phase 37
+    paction 0
+		gtr {
+			wt	1s _
+			p	this
+			wait-child
+		} saction 0
+			async _ <0.5;:-5> gcr2 12 6 <-60> {
+				p	add
+				color	$mimac1
+				sfx	x-metal
+			} gsr { 
+				start	rv2.a *=f  if (odd p1, 1, -1)
+			} target Lplayer guideempty .1 p { eloc loc edir dir } {} 
+				polar 
+					logsumshiftt 1.2 1.5 (* 1 t) (* 8 t)
+					* pm1 p1 (* 15 t) {
+					colorr sun-*/b simple nroffset @ eloc p { scale * 1 (- 1 * 0.35 t) }
+					colorr lightning-*/ pather 3 1 nroffset @ eloc p {
+						sm async lstar-*/ <> gcr2 20 _ <> {
+							delay	1.2s
+							while	onscreen loc
+							colorf	$mimac1 p2
+							sfx	x-fire-star-2
+						} target Lplayer simple tprot switchH t 100 zero
+							lerp3c 0.2 0.9 1.1 t zero ss0 px clamp 0.7 4 * 0.5 dist loc Lplayer zero
+							{ dir if > t 100 (* - t 100 brand 120 260) 0  }
+					}
+				}
+			wait-for 2
+			$mimapower1
+			wait-for 0.5
+			bullet-control once {{ lstar-* }} time 100 _
+			wait-for 1
+			~ async x-boom <> gcr2 18 4 <> . sfx
+			~ draiko 0.5 1
+			bullet-control once {{ lstar-* }} sm _ 
+				sync star-** <;:> gsr2c ceil(* dh 12) { color $mimac2 } gsr2 2 <> {
+					color { /w /b }
+					p this
+				} simple polar
+					logsumshiftt -5 0.1 (* - 5 p t) (* t if(= p 0, brand 0.7 0.9, brand 0.4 0.5))
+					* brandpm1 * t if = p 0
+						brand 4 7
+						0
+                    { dir starrotb1 }
+			pool-control {{ lstar-* }} softcullall cwheel
+			move 3 tpnrot easedvhomet io-sine 3 pxy (* pm1 p rand 1 2, 2)
+			break
+#}
+
+
+##15
+<!> type final :simp.boss.mima.supernova #{
+<!> hpi 34000 6
+<!> root 0 2
+phase 54
+    paction 0
+		gtr {
+			wt	6s _
+			p	this
+			wait-child
+		} paction 0
+			async x-metal <> gcr2 24 5 <> . sfx
+!!{ collt 10
+!!{ collt2 10.5
+			bullet-control persist sun-yellow/ savev2 saturn p loc < t 7
+			bullet-control persist sun-red/b savev2 jupiter p loc _
+			sync sun-yellow/ <> gsr {
+				root	multiplyx mp1 p cxy 8 -2
+			} simple tprot multiplyx mp1 p 
+				if < t 7
+					lerp 2 3.5 t cx -2 zero
+					lerp $collt $collt2 t zero rx 0.8 -60
+                { scale 1.5 }
+			_ 6.3
+				sfx x-metal
+			sync sun-red/b <> gsr {
+				root	multiplyx mp1 p cxy -8 8 ##-8 8
+			} simple tprot 
+				multiplyx mp1 p lerpmany {
+					2	rx 2 -40
+					3.5		zero
+					6.3		zero
+					$collt	rx 3 -40
+					$collt2	rx 0.8 -20
+				} t
+				{ scale 1.8 }
+			async gdlaser-teal/w <> gcr2 10 6 <> {
+				delay * 1s $collt
+				p	add
+!!{ rpt floor * dh 4
+			} gsr2 $rpt <> { 
+				root	+ pxy (* mp1 p1 1.8, -1.8) @ jupiter p1 
+				pm	add p2
+			} laser null 4 3 {
+				straight	atan :: {
+						a	+ * p2 / 360 $rpt * / 360h $rpt p1
+						ar	degrad &a
+					} tp qrotate pxyz -25 0 0
+						pxyz cos &ar 0 sin &ar
+				sfx2	x-laser-fire x-laser-on
+			}
+			async lstar-*/ <1.7;:> gcr3 /i dh 7 * (+ 2 $collt) 1s <> {
+				p	add
+			} gsr2 3 <> {
+				clip offscreen @ jupiter p1
+				start rv2.a =f flipxmod p1 55
+				root @ jupiter p1 
+				pm add p2
+				color $mimac1
+				preloop rv2.ry =f sine 18h (+ 1.0 sine 18p 0.3 (+ p1 * 6 t)) (+ p1 * 6 t)
+			} simple tp +
+				rx lerp 0.5 5 t 0 1.5
+					* 20 (+ p1 * 30h p2)
+				lerp 4 8 t  zero cx -0.8
+				lerp 4 8 t zero cy -4
+				{ dir starrotb3 }
+				
+!!{ rate /i ^ dl 0.6 90
+			async star-*/w <> gcr3 $rate * $collt 1s <> {
+				delay 0s
+				color $mimac2
+				maxt	30
+				p	mod
+!!{ ct floor * ^ dl 0.8 120
+!!{ incr / 720 $ct
+			} gsr { tmmod $ct } loc0 simple nroffset :: { 
+				p1	p1maf { 30 $ct }
+				p2	pmaf 30 { $ct }
+				p3	pmaf $ct { }
+				a	+ * * (pm1 &p3) 3 t  + (* 6h &p2) * $incr // &p3 2
+				ar	degrad &a
+				r	+ 1.3 logsumshiftt -2 1 (* 2.5 t) (* 1.4 t)
+			} + @ saturn &p1 tp qrotate pxyz
+				-25 0 * mp1 &p1 -20
+				pxyz
+					* cos &ar &r
+					0
+					* sin &ar &r
+                { dir starrotb2 }
+			async x-boom <> gcr2 20 7 <> { delay * 1s $collt } sfx
+			_ (- $collt 1.5)
+				$mimapower1
+			_ $collt
+				shake 1 2 smooth smod-010 / x 2
+			break
+#}
+
+
+##16
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 1
+		dialogue simp.dialogue.4.4
+		move-target 3 in-sine cy 10
+		shift-phase
+#}
+
+
+///
+
+

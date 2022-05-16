@@ -1,0 +1,194 @@
+<#> strict(none)
+pattern { 
+	boss simp.eraa
+	bgm {
+		1 simp.3.stage
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 4
+
+
+## 1
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 2
+		dialogue simp.dialogue.3.1
+		shift-phase
+#}
+
+
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t yellow orange
+	witha 0.9 green
+	1.5 2 0 0.5
+!}
+!!{ me eraa
+##2
+<!> bosscutin
+<!> type non :simp.boss.eraa.gc #{
+<!> hpi 24000 5
+<!> root 0 2.5
+phase 42
+	paction 0
+		async gem-** <> gcr {
+			color { teal }
+			root py 2.5
+!!{ dgem dl
+			wtd	$dgem 3 _
+			p	this
+			saoffset	bt (+ * 12p (/ t $dgem) * 60 z1 t)  :: {
+				t	* 0.08 / t $dgem
+			} pxy
+				* 1.7 cos &t
+				* 1 sin * 3 &t
+		} gsr {
+			colorf {  /b /w } z1 p
+		} simple tprot lerp 0.5 1 (+ t * 0.4 z1 p) zero px + 1.2 * 0.5 (z1 p) { dir starrotb2 }
+		gtr {
+			wt 60 _
+			wait-child
+			preloop lr =f pm1 t
+		} saction 0 
+			pool-control {{ arrow-* gem-* }} reset
+			~ move-target 1 io-sine pxy * 1.7 &lr y
+			async mulaser-yellow/b <;8:> gcr2 24 1 <90> {
+				root	pxy * 1.7 &lr 0
+				sfx x-laser-fire
+			} safelaser 14 { straight -90 }
+			~ async arrow-*/ <6;:> gir2 0 2 <180> {
+				color { green orange }
+				root	pxy * 1.7 &lr 0
+			} gcr3 (lerp3 0 16 25 54 t 30 24 3) 11s <> {
+				preloop	rv2.ry =f +[&brv2].ry * 8 rangemod 1 * 2h (+ * 32 &pi t)
+				p this
+				sfxif x-fire-small-1 & = 0 &pi divby 2 t
+			} gsr2 lerpd(4, 9) <0;0.1:> {
+			} s tprot px lerpt 0.6 0.7 (lerp 0 100 p -4 -4.8) -1.8
+			wait 11
+			bullet-control persist { { arrow-* gem-* } } slowdown 0 _
+			timer restart bct
+			bullet-control persist { { arrow-* } } softcull cwheel-pink/w relcirc player pz * 6 timersec(bct)
+			zawarudo 2 Lplayer 0.5 0.5 15
+			bullet-control once {{ arrow-* }} cull _
+#}
+
+
+!!{ seq1 pxy (+ * 0.2 &t (* 2 cos * 0.8 &t)) sin &t
+!!{ teq1 pxy (+ * 0.2 &t2 (* 2 cos * 0.7 &t2)) sin &t2
+!!{ seq2 pxy (+ * 0.2 &t (* 2 cos * 0.75 &t)) sin * 0.8 &t
+!!{ teq2 pxy (+ * 0.2 &t2 (* 2 cos * 0.7 &t2)) sin * 0.8 &t2
+##3
+<!> type spell :simp.boss.eraa.ip #{
+<!> hpi 21000 6
+<!> root 0 2.5
+phase 42
+	paction 0
+		pool-control circle-* allowdelete false
+		##bullet-control persist gcircle-* cull & (= t 0) offscreenby 0.6 loc
+!!{ rpt + 4 * 2 dc
+		async ellipse-orange/ <-60> gcr2 140 _ angle / 360h $rpt {
+			sfx x-fire-burst-1
+		} gsr2c $rpt {
+		} gsr2 24 <> {
+			p this
+		} s tprot px - 2.3 * 0.018 p
+		sync gdlaser-orange/b <-6;:> gsr2 2 <12;:> {
+			root cy 5
+			preloop lr =f pm1 t
+		} laser nroffset px
+			* &lr lerp3 0 4 4 14 (mod 16 t) 0 4.4 0
+			0 999 {
+			straight -90
+		}
+		dangerleft
+		dangerright
+		gtr {
+			delay 1s
+			wt	16s _
+			timereset
+		} paction 0
+!!{ root1 cxy -2.6 5
+!!{ root2 cxy 2.6 5
+!!{ t1	2
+!!{	t2 4
+!!{ t3 12
+!!{ t4 14
+!!{ dd (* 0.88 ^(dl, .9))
+!!{ pr / 0.33 $dd
+			_ - $t2 1.5
+				$power1
+			_ - $t4 1.8
+				$power1
+			async circle-green/ <> gcr2d $dd 1 400 <> {
+				root	zero
+				p this
+			} s nroffset :: {
+				t	* $pr p
+				t2	* $pr remapindexloop 5 p
+			} lerpsmooth io-sine $t2 $t3 + + &st t brand -1.4 0
+				+ $root1 rotate -90 $seq1
+				+ + $root2 rotate -90 $teq1
+					rx
+						logsumshiftt 4 - $t4 &st 0 * 1.3 t
+						* 14p p 
+			async circle-yellow/ <> gcr2d $dd 1 400 <> {
+				root	zero
+				p this
+			} s nroffset :: {
+				t	* $pr p
+				t2	* $pr remapindexloop 5 p
+			} lerpsmooth io-sine $t2 $t3 + + &st t brand -1.4 0
+				+ $root2 rotate -90 $seq2
+				+ + $root1 rotate -90 $teq2
+					rx
+						logsumshiftt 4 - $t4 &st 0 * 1 t
+						* 17p p 
+			async lightning-yellow/w <-90> gcr {
+				sfx x-lightning
+				delay * 1s $t1
+				root $root1
+			} pather 1 1 roffset :: {
+				t	* 35 t
+			} $seq1 { smooth high }
+			async lightning-yellow/w <-90> gcr {
+				sfx x-lightning
+				delay * 1s $t3
+				root $root2
+			} pather 1 1 roffset :: {
+				t2	* 35 t
+			} $teq1 { smooth high }
+			async lightning-green/w <-90> gcr {
+				delay * 1s $t1
+				root $root2
+			} pather 1 1 roffset :: {
+				t	* 35 t
+			} $seq2 { smooth high }
+			async lightning-green/w <-90> gcr {
+				delay * 1s $t3
+				root $root1
+			} pather 1 1 roffset :: {
+				t2	* 35 t
+			} $teq2 { smooth high }
+			
+#}
+
+
+
+## 4
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 1
+		dialogue simp.dialogue.3.2
+		sync _ <> powerupshiftitem
+		move-target 2 in-sine cy 6
+		shift-phase
+#}
+
+
+

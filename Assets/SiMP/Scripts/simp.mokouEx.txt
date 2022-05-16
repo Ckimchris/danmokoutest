@@ -1,0 +1,261 @@
+<#> strict(none)
+pattern { 
+	boss simp.mokou
+	bgm {
+		1 simp.ex.stage
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 3
+	
+
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t red pink
+	witha 0.9 red
+	1.5 2 0 0.5
+!}
+!{  power1long()
+sync powerup1 <> powerup2 
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 2.6 t pink red
+	red
+	3 5 0 0.5
+!}
+!!{ color3 { black pink red }
+
+!!{ me mokou
+
+## 1
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 1
+		dialogue simp.dialogue.ex.1
+		shift-phase
+#}
+
+##2
+<!> bosscutin
+<!> type timeout :simp.boss.mokou.cinder #{
+<!> root 0 3
+phase(30)
+	paction 0
+!!{ sunt 2
+		bullet-control persist sun-* cull > t $sunt
+		pool-control { fireball-* } allowcull false
+		pool-control fireball-black/b allowdelete false
+	paction 0
+		async fireball-black/b <> gcr2 /i ^ dl 0.4 (lerpt 0 20 130 100) _ <> {
+			root cy 5
+!!{ vs /i ^ dl 0.4 0.9
+			frv2 rx * $vs modh t
+		} gsr2 30 rx $vs {
+			center
+		} s tprot py lerpt 0 1 -3 -1
+		
+		gtr2 4s _ <>  { 
+			wait-child 
+			p this
+		} saction 0
+!!{ crosshairt  (lerp 0 5 p 3 lerpd(2.5, 2))
+			~ _  - $crosshairt 1 $power1
+			crosshair crosshair lerpsmooth(out-sine, 0, 59, t, loc, Lplayer) 0.5 $crosshairt sploc 0
+			savef moved 0 0
+			~ async sun-red/w <> gcr2 3 _ <> {
+				sfx	x-boom
+				cancel = @0 moved 1
+			} simple null { scale * 0.8 equad0m10 0.5 $sunt t }
+			move-while 1 onscreen loc tpnrot ss0 vhome 50 @0 sploc
+			savef moved 0 1
+			bullet-control once fireball-red/b softcull cwheel-red/ _
+			bullet-control once fireball-pink/b softcull cwheel-pink/ _
+			sync x-boom <> sfx
+			~ shake 1 0.3 smooth smod-010 / x 0.3
+			async arrowpather-red/w <180> gcr2 10 (+ 7 dc) <>  {
+				spread <170>
+				sfx x-lightning 
+				face v 
+				p this
+			} gsr2 2 <> {
+				postloop rv2.a *=f -1
+			} gsr {
+				clip & = p 0 = &pi 0
+			} {
+				color glaser-pink/ laser null 1 0 {
+					tint(rgba(1, 1, 1, lerpsmooth(in-sine, 0.4, 1, t, 1, 0)))
+					s(2)
+				}
+				pather 1 0.5 tprot lerpin -0.1 0.5 cx 5 {
+						s 		2
+						sm	async fireball-*/b <> gcr2d ^ dl 0.3 11 _ <> {
+							delay 5
+							p this
+							face d
+							color { red pink }
+							bindLR
+						} gsr {
+							rootadjust	lbeh $me
+							start {
+								rt =v2 rv2topolar &rv2
+								rv2 =rv zero
+							}
+						} s polar
+								[&rt].x
+								+ [&rt].y * &lr lssht 0.2 0.8 0 * + 15 * 2 &lr t
+					}
+			}
+#}
+
+
+## 3 
+<!> type spell :simp.boss.mokou.serpent #{
+<!> root 0 1.5
+<!> hpi 20000 2
+phase 38
+	paction 0
+!!{ seethet 3
+		bullet-control persist sun-* cull > t $seethet
+		bullet-control persist sun-* sm onlyonce > t * 0.95 $seethet
+			sync fireball-black/ <> gsr2c * ^ dl 0.6 8 {
+				sfx x-boom
+			} gsr2 (+ 4 d3d1) <> {
+				p this
+			} s polar
+			lssht -1 0.3 * 6 t * -1 t
+			+ * 2 p lssht -0.1 1 * 90 t 0
+		bullet-control persist scircle-* sm onlyonce offscreen loc
+			paction 0 :2
+				sync fireball-red/ <-0.6;:> gsr2c * ^ dl 0.7 12 {
+				} gsr2 3 <0.3;:> {
+				} s tprot px lerpt 0.4 1 0.4 1.6
+				sync sun-pink/ <>  gsr {
+					sfx x-metal
+				} simple null { scale lerpt 0 $seethet 1 0 }
+		gtr2 lerpt 0 4 300 120 _ <> {
+			wait-child
+			p this
+		} saction 0
+			$power1
+			wait 1.5
+			~ move-target 0.5 out-sine - loc * 1.2 norm (- Lplayer loc)
+			async _ <> gcr2 16 3 <> {
+				sfx x-fire-burst-3
+				target a Lplayer
+				p add
+				preloop fitr =f t
+				expose { f fitr }
+			} gsr2 2 <> {
+				p add
+				bindLR
+				frv2	a * &lr * 50 &pi
+			} gsr {
+				clip & = &fitr 0 = &pi 1 
+			} guideempty .1 p { pl loc } { } tprot px lerpt 0.5 1.5 2 6
+				{
+					color arrowpather-red/b pather 0.5 0.4 nroffset @ pl p { 
+						high 
+						s 2 
+!!{ d ^ dl 0.6
+						sm	async fireball-pink* <> gcr2 /i $d 9 _ <> {
+									while onscreen loc
+									p	this
+									face v
+								} {
+									gsr { 
+										color /
+										start rv2.ry =f sine 13 0.4 + * 13h &fitr / p $d
+									} simple tprot polartoxy
+										lerp 0.3 1.6 t 0.2 1.3
+										* 25 / p $d
+										{ scale 0.8 }
+									gsr { 
+										color /b
+										start rv2.ry =f sine 13h 0.4 + * 13 &fitr / p $d
+									} simple tprot polartoxy
+										lerp 0.5 1.7 t 0.2 0.9
+										* 25p / p $d
+										{ scale 0.8 }
+								}
+					}
+					color scircle-red/b s nroffset @ pl p
+				}
+				wait 2
+				move-target 1 io-sine pxy 0 1.5
+#}
+
+
+## 4
+<!> type timeout :simp.boss.mokou.mii #{
+<!> root 0 1
+phase 38
+	paction 0
+		draiko 2 4
+		$power1long
+		async x-boom <> gcr2 24 12 <> . sfx
+		sync fireball-*/b <> gsr2 2 <> {
+			bindLR
+			color { red pink }
+		} gsr2 70 <;0.3:> {
+			root px * &lr -4
+			center
+!!{ rpt 6
+		} gsr2 $rpt <> {
+			p this
+		} s tprot pxy 
+			* &lr * lerp 0 $rpt ++ p 0 1 lerpt 2.5 4 1.3 -3
+			0.4
+!!{ ang	rangesoftmod 30 * 3.2p -m timersec(tmr) 3.5
+		timer restart tmr
+!!{ fireballf /i ^ dl 0.3 lerpt 4 16 150 94
+		async fireball-red/ <> gcr2 $fireballf _ <> {
+			root cx -6
+!!{ vs /i ^ dl 0.4 0.6
+!!{ spacing gsr2 30 ry $vs { center }
+			frv2 ry * $vs modh t
+		} $spacing s tprot cx 1
+		async fireball-pink/ <> gcr2 $fireballf _ <> {
+			root cx 6
+			frv2 ry * $vs modh + 10 t
+		} $spacing s tprot cx -1
+		async fireball-black/b <90> gcr2 24 _ <> {
+			delay 3s
+			sfx x-fire-loop-1
+			frv2	a $ang
+!!{ rpt 40
+		} gsr2 $rpt a / 300 $rpt {
+			center
+		} s tprot cx 4
+		async arrowpather-*/w <> gcr2 30 _ <> {
+			delay 3s
+			frv2	a $ang
+		} gsr2 6 <> {
+			p this
+		} gsr2 2 <> {
+			bindLR
+			color { red pink }
+		} pather 1 0.5 tprot rx 
+			lerpt3 (0, 0.2, 0.4, 0.6, 18, 3, 14)
+			lerpt 0.1 0.5
+				+ 90 * &lr + 14 * 10 p
+				+ 90 * &lr + 180 + -36 * 24 p
+		{ high }
+#}
+
+
+## 5
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 0
+		dialogue simp.dialogue.ex.2
+		sync _ <> powerupshiftitem
+		dbossexplode lerp(0, 1, t, red, pink) red
+		position 0 20
+		shift-phase
+#}
+
+
+

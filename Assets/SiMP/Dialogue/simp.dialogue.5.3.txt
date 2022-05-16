@@ -1,0 +1,49 @@
+script
+place l1 mokou
+sl mokou
+slce worry
+. `Is that Reimu?`
+z
+sr kaguyaf
+. `No, definitely not.`
+z
+slc
+. `Then, is it a manifestation of the shrine's god, or something?`
+z
+slce surprise
+. `Wait, who said that?!`
+z
+place r1 kaguya
+setstandopacity kaguya 0
+fadestandin kaguya 1
+sr kaguya
+srce happy
+. `Yo! How's it going?`
+z
+slc
+. `Kaguya?! What are you doing here?`
+z
+srce _
+. `I have a critical mission to fulfill here. As it turns out--
+ `
+srce happy
+.c `I'm here to cheer for you!
+GO GO MO-KOU! GO GO MO-KOU!`
+z
+slce worry
+. `...Why?`
+z
+src
+. `You're "risking" your "life" for Gensoukyou's "sake"! Of course I'd come cheer for you!`
+z
+srce _
+. `Also, Eirin said I should support you!`
+z
+srce happy
+. `Good luck! I'll be sitting over there!`
+fadestandout kaguya 1
+z
+slce worry
+. `Does this count as support?`
+z
+

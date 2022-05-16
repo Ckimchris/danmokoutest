@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: SiMP.Seija
+  m_EditorClassIdentifier: 
+  boss: {fileID: 6274564262994426332, guid: 33ce4a0ca42ed7e4c98b829e4314bddb, type: 3}
+  localizationBaseKey: simp.boss.seija
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 4900000, guid: 1b371c9e201e35747911cfdc25a695ce, type: 3}
+  key: simp.seija
+  colors: {fileID: 11400000, guid: 2b0cbd0b46a92ad429b425b10ae95074, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 2800000, guid: 111a06e0e902af749aa902fd7831b3ae, type: 3}
+    rightSidebar: {fileID: 2800000, guid: 8298eb34b11afbe478b7b0cb6974cd0d, type: 3}
+  defaultNonBG: {fileID: 5180723301924424041, guid: 966faf05bff6e584fa9ffd10a7cfe3a2,
+    type: 3}
+  defaultSpellBG: {fileID: 5180723301924424041, guid: 7111b51df44de5b4fbde84d042b2f9a4,
+    type: 3}
+  defaultIntoSpellTransition: {fileID: 11400000, guid: 76e812b8d330cbe43b048748bf21ae77,
+    type: 2}
+  defaultIntoNonTransition: {fileID: 11400000, guid: 23d9a9fbcd555004c9905acab3bc372a,
+    type: 2}
+  bossCutin: {fileID: 2426727079670566650, guid: 8bbfc537408ee7848b7ed9922a93cf8f,
+    type: 3}
+  spellCutins:
+  - {fileID: 160725723660692450, guid: fbd3f4d93e6f0e94aa1f9c4f3cc4da2a, type: 3}

@@ -1,0 +1,86 @@
+script
+place l1 mokou
+place r1 mima
+sl mokou
+sr mima
+srce cry
+. `Uwaah... I'm sorry.`
+z
+slce happy
+. `That was nice. I managed to punch out some of my frustration.
+And? What did you want to talk about?`
+z
+slce _
+srce _
+. `Well, to switch gears quickly, I know why this incident is occurring.`
+z
+srce surprise
+. `When I was still a vengeful spirit, Reimu sealed me inside the shrine several times.`
+z
+srce happy
+. `Of course, I broke free every time (lol), but eventually she got pissed and used the power of the yin-yang orbs to seal me away properly.`
+z
+srce worry
+. `Those orbs are... like sponges, I guess. They absorbed the evil from me until I became a pure divine soul.`
+z
+srce cry
+. `The Lord giveth and the Lord taketh away, as they say. I've turned into nothing more than an exceptionally strong prankster...`
+z
+srce _
+. `And here's the important part. If you do something stupid like destroying the orbs or, I don't know, inverting the boundary of good and evil around them...`
+z
+srce surprise
+. `All that evil energy is going to spread across Gensoukyou and make the fairies or weaker youkai go rabid.`
+z
+. `Your leader... Keine, right? She-`
+z
+slce angry
+. `That's Professor Kamishirasawa to you.`
+z
+srce cry
+. `Yes, of course. Professor Kamishirasawa probably planned for this contingency. But I can simply reclaim the energy and prevent any further issues.`
+z
+slce worry
+. `Well, it should be trivial enough to put you down a second time.`
+z
+srce worry
+. `No, no, that won't be necessary! Since my soul has been, uh, purified, there's no way that my reclaiming that energy could lead to any negative outcomes! (lie)`
+z
+slc
+. `...Let's see what Keine has to say about this.`
+z
+slce _
+place center phone
+setstandopacity phone 0
+fadestandin phone 1
+. `Keine? This is Mokou. I caught the ghost.`
+z
+slce surprise
+. `...Yeah, how did you know?`
+z
+slce worry
+. `...Second thoughts? Do we really have time to be worrying about them?`
+z
+. `...I guess that makes sense. Come over later and we'll work through it.`
+z
+slce _
+. `...OK. I'll head to the shrine. See ya.`
+fadestandout phone 1
+z
+. `Mima, are you good at hiding?`
+z
+srce _
+. `Hiding?`
+fadestandout mima 1
+.cn `Like this?`
+z
+slce worry
+. `...I guess that works. Keine wants you to avoid being seen while we head to our final destination.`
+z
+slce happy
+. `Well, I guess it's finally time to burn down the Hakurei shrine. Let's make this fun.`
+z
+src
+re sfx extend-any
+. `(Mima has joined the party!)`
+z

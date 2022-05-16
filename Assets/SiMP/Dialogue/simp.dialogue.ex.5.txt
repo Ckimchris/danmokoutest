@@ -1,0 +1,60 @@
+script
+place l1 mima
+sl mima
+slce worry
+.z `Helllloooooo? Boss? Are you here?`
+place r1 shinki
+setstandopacity shinki 0
+fadestandin shinki 1
+sr shinki
+namecard namecard-shinki
+.z `Ah, Fujiwara, good work. It's almost time to launch the third attack. Today, we shall burn Gensoukyou within the fires of Hokkai!`
+srce surprise
+.z `Wait, you!
+No... it can't be!`
+slce _
+.z `Yo. I've been expecting you, demon.`
+src
+.z `How could this be?! Our intelligence was impeccable! We were told that you had a deadly fight with the guardian of the barrier and ended up killing each other!`
+srce worry
+.z `I only did this to take advantage of the lucky timing...`
+slc
+.z `Really? Couldn't I have invented that story to the explicit end of drawing you here?`
+.z `I don't know about your little playground, but for a god of the human world, spreading a few rumors is a trivial task.`
+.z `And what? You think Fujiwara was actually interested in taking over Gensoukyou with you? She was working under orders to sabotage your plans.`
+srce worry
+.z `Impossible... but why would you set me up to invade the human world in the first place?`
+slc
+.z `Back then, I couldn't realize my ambitions. I couldn't overthrow you within your little pocket dimension. You were pretty clever in how you set up its boundaries.`
+slce happy
+.z `But today, my ancient plan to take over Makai has reached fruition.`
+slce _
+.z `You're not in Makai anymore. If I defeat you here, it's entirely possible for me to take your power and become the god of Makai. This world, after all, is my world. It won't protect you.`
+srce surprise
+.z `You were planning that far ahead all this time?! To think your foresight was this penetrating...`
+slc
+.z `Either I had planned this all from the start, or all of this was a lucky coincidence. Pick your poison.`
+.z `Let me tell you something nice. The shrine maiden of Hakurei, the phoenix of the bamboo forest, and the youkai of boundaries are all out of commission today.`
+.z `A perfect setup for you, isn't it? If you beat me here, there are few strong enough to stop you from taking over Gensoukyou. An easy victory, like drinking up the sake offered at an altar.`
+.z `I know how you feel, Shinki. Gods like to play games. Yet they never like to have their own heads on the scaffold. `
+slce angry
+.z `But I'm not like you. I wasn't born as a god, but as a human. How do you think I got this power?! I'm willing to put my neck under the axe if it means a chance at becoming the executioner!`
+.z `You gods who have never known the threat of extinction will turn tail and flee on the first whiff of the stench of death.`
+.z `That's why you're continually stagnating, and why you have no fate but to be overthrown by the truly ambitious!`
+.z `I'm staking my own life and Gensoukyou on this battle! What are you willing to put up, Shinki?!`
+slce happy
+.z `How do you like that? I've been practicing this monologue for a while. (lie)`
+srce special
+.z `Haha... Don't underestimate the title of god, Mima.`
+.z `The reason we turn away from death is because it is only in facing death that one's true face is revealed. 
+And the true face of a god is terrifying enough to destroy eight million worlds with a single glance.`
+.z `Ahh... the last time I felt like this was when I drew Makai out of the void.
+Have you ever felt it, Mima? The sensation of pulling being from emptiness?`
+slce worry
+src
+.z `Strangely... it feels the same as returning matter to nothingness.`
+.z `To a lesser entity, the difference between existence and non-existence is the firstmost distinction that must be made.`
+.z `To a god, it's a matter of preference. We live in a perpetual state of neither existence nor non-existence, neither purity nor impurity. And it is this state that makes us greater than any other being on this plane.`
+.z `Fledgling cub of eight million, I shall consume you as I have all your brethren!`
+
+

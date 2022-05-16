@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: SiMP.Kaguya
+  m_EditorClassIdentifier: 
+  boss: {fileID: 3158588245573588644, guid: 403abf52053147b44b8f276702818066, type: 3}
+  localizationBaseKey: simp.boss.kaguya
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 0}
+  key: simp.kaguya
+  colors: {fileID: 11400000, guid: e83c174566855bf419430e8e72dabb67, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 2800000, guid: df99048f6b48bc3499a5810c47682705, type: 3}
+    rightSidebar: {fileID: 2800000, guid: c00afe3a631bd3e479b97dbf5d260b20, type: 3}
+  defaultNonBG: {fileID: 0}
+  defaultSpellBG: {fileID: 0}
+  defaultIntoSpellTransition: {fileID: 0}
+  defaultIntoNonTransition: {fileID: 0}
+  bossCutin: {fileID: 0}
+  spellCutins: []

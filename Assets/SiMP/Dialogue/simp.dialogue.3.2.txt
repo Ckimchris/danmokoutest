@@ -1,0 +1,81 @@
+script
+place l1 mokou
+place r1 eraa
+sl mokou
+sre eraa cry
+. `...!`
+z
+slce angry
+. `Had enough? Let's hear you spit it out. What were you doing?`
+z
+src
+. `Fine. I wasn't doing anything. This incident isn't my fault.`
+z
+slc
+. `And what about Aya? Was that your fault?`
+z
+srce worry
+. `Oh, did the reporter forget me? That's... sort of my fault. More like an inevitability, I guess. By the time this incident is cleared up three days from now, the miser and the thief will also have forgotten me.`
+z
+slce worry
+. `Three days? I was planning to clear out this incident within three hours...`
+z
+srce _
+. `Your involvement in the incident ends today. The title of Incident Resolver is a transient privilege. It shall rest on your shoulders for but a moment, and, if you play your cards right, never again.`
+z
+. `That said, you too will forget me. When you recount the tale of this incident to your friends some months from now, the space I now occupy will contain only nothingness.`
+z
+. `Nothing to do with this incident, anyways. The title of God of Secrets is a heavy burden. Those two schemers know all about it, so bug them for the details.`
+z
+slce angry
+. `And? Where's the rest of your confession?`
+z
+srce worry
+. `I told you! This incident isn't my fault!`
+z
+. `Look. Think of it this way. The reporter told you about the incident I actually caused, right? I infected almost every fairy in Gensoukyou and threw the natural order of this plane into chaos. In three days.`
+z
+. `How long has the Skyfeller been--`
+z
+slce worry
+. `Skyfeller? What?`
+z
+srce angry
+. `Damned millenials! Do you even read the news?! I swear, it's because the lot of you are so irresponsible that Gensoukyou has gone down the drain recently. Since you fools can't get your act together and maintain the balance of Gensoukyou, I have to start getting involved in incident politics again! Lazy entitled shitheads! Have some respect for your elders and let us retire in peace!`
+slc
+. `(I don't know what's going on, but I better shut this boomer up.)`
+z
+. `Oh, yeah, my bad, of course I know about the Skyfeller. I thought you said Sky<i>fooler</i>. Please, continue.`
+z
+srce worry
+. `...I guess even a millenial would know about the greatest oni to ever lay foot on Gensoukyou's soil, right? Well, whatever.`
+z
+srce _
+. `The Skyfeller has been screwing around with the Hakurei orbs for a few weeks now. With that kind of time, I could turn 93.7% of the living beings in Gensoukyou into puppets. I even wrote a paper on it.`
+z
+. `You think I'd waste my time playing pranks on some some stupid shrine maiden?
+<size=52>Also, want to see the paper? It was a big deal, Nature doesn't publish disease pathology often. Not until 2020, anyways.</size>`
+z
+slc
+. `I'll pass. Maybe when I have more time. 
+So, if you're not the culprit, then why did you bring me here?`
+z
+src
+. `Because one of our mutual friends asked me to find someone. Apparently you need this person's help to resolve the incident.
+They're up ahead. Go meet them.`
+z
+slce _
+. `Just one thing before I leave. 
+What's your name?`
+z
+srce special
+. `It's <color=red>[NULL REFERENCE EXCEPTION]</color>. You won't be able to remember it, so don't bother trying.
+Just remember that I am the terrifying secret god of Gensoukyou, and that'll suffice.`
+z
+srce angry
+. `Now leave and never come back here.`
+z
+
+
+
+

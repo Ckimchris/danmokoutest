@@ -1,0 +1,197 @@
+<#> strict(none)
+pattern {
+	boss bruh.tokiko
+	bgm {
+		1 bruh.level1
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 4
+	
+
+!!{ me tokiko
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	lerp 0 1 t black red
+	blue
+	1.5 2 0 0.5
+!}
+## 1
+<!> challenge introdialogue
+<!> dialogue #{
+<!> root 0 1
+phase 0
+	saction 0
+		dialogue tokiko.1
+		shift-phase
+#}
+
+<!> challenge destroy
+<!> challenge destroytimed 22
+<!> challenge novertical
+<!> challenge nohorizontal
+<!> type spell `Birds Singing in the Dark -- Rainy Dawn`
+<!> hpi 18000 4
+<!> root 0 1.5
+phase 30 #{
+	paction 0
+		pool-control gcircle-* allowcull false
+		
+		sync gcircle-*/b <> loc0 gsr {
+!!{ wl 10
+!!{ ww 8
+			tmmod	$ww
+			bindItr	w
+		} gsr {
+			tmmod	$wl
+			bindItr	l
+		} gsr {
+			colorf { red black } if (| <= &l 1 >= &w 6) 1 0
+			tmmod	2
+		} s nroffset :: {
+			px	pma $ww { $wl 2 }
+			py	pm $wl 2
+			plr	pm1 pm 2 1
+		} + lbeh $me tp qrotate py @0 rot wings1 $ww $wl 1.8
+	
+!!{ crep 12
+		async fireball-blue* <0.1;:> gcr2 1.8s _ aphi $crep {
+			delay 1.8s
+			sfx x-fire-burst-1
+			bindLR
+		} gsr2c $crep {
+		} gsr2 6 a * &lr 4 {
+			p this
+			colorf { /b / /w } / t 2
+		} s tprot px lerpt 0.3 0.6 (+ 0.8 * 0.1 p) (- 2.7 * 0.3 p)
+	
+		move _ nroffset px lerpsmooth io-sine 0 3 t 0 sine 8 1.4 t
+		async _ <> gcr2 1 _ <> {
+			savef rot 0 * 20 dsine 8 1.4 * 1f t
+		} noop
+		
+		async icrow <> gcr2 7s _ <> {
+			root cy 5
+			bindItr(itr)
+			timereset
+			sfx x-crow
+		} gsr2 2 <5;:> {
+			center
+			p this
+		} summons :: {
+!!{ cper 2
+			t	+ t * * (+ * 2 &itr p) 1h $cper
+		} nroffset pxy
+				sine $cper 0.6 &t
+				+ * -2.3 t cosine $cper  * pm1 p 0.3 &t
+			async triangle-*/w <180> gcr2 6 _ <> {
+				while onscreenby 0.5 loc
+				face v
+				colorf { black red } p
+				frv2 a * pm1 p * 16 t
+			} s tprot px lerp 8 10 (+ t * 1.4 &st) 0 (+ 1 * 0.14 pm1 p)
+#}
+
+<!> challenge survive
+<!> challenge nofocus
+<!> challenge destroy
+<!> challenge within 5
+<!> challenge without 6
+<!> type spell `旅烏古巣は梅になりにけり`
+<!> hpi 18000 4
+<!> root 0 2.5
+phase 32 #{
+	paction 0
+		$power1
+		async gdlaser-*/b <90> iparent this gsr2 0 <60> {
+			center
+			color { red black  blue }
+			p this
+		} laser null 1.5 _ {
+			dsfx
+			s 1
+			stagger 0.24
+			dynamic polar 
+				* 2 t
+				+ (sine 8 0 &lt) * -- p sine 1.6 (4) + * 1.1 &lt t
+		}
+	paction 0
+		pool-control gcircle-* allowcull false
+		sync gcircle-*/b <> loc0 gsr {
+!!{ wl 8
+!!{ ww 6
+			tmmod	$ww
+			bindItr	w
+		} gsr {
+			tmmod	$wl
+			bindItr	l
+		} gsr {
+			colorf { red black } if (| <= &l 1 >= &w 4) 1 0
+			tmmod	2
+		} s nroffset :: {
+			px	pma $ww { $wl 2 }
+			py	pm $wl 2
+			plr	pm1 pm 2 1
+		} + lbeh $me tp wings1 $ww $wl 1.5
+		
+		timer restart pt
+		async star-*/w <> gcr2 120 _ <> { 
+		} gsr2 2 <> {
+			color { red blue }
+			bindLR
+		} gsr2c 8 {
+		} gsr2 9 <> {
+			p this
+		} simple polar
+			+ * 1.7 t * -0.01 p
+			* &lr + * -1.6 p * 17 timersec(pt)
+			{ dir * &lr * 200 t }
+		gtr2 8s _ <> {
+			bindItr(itr)
+		} saction 0
+			$power1
+			async gdlaser-*/b <> gcr2 80 3 <> {
+				delay 1.5s
+				colorf { blue red } &itr
+			} gsr {
+				target a Lplayer
+			} laser null 1 1 {
+				dsfx
+				s 1.4
+				stagger 0.24
+				dynamic polar 
+					* 2 t
+					* lerpsmooth(out-sine, 0, 1, &lt, 1, 0) sine 1.4 (9) + * 1.1 * 1p &lt t
+				sm _ 1.03 sync lcircle-*/b <> gsr2 6 <> {
+					p this
+					colorf { blue red } &itr
+				} gsr {
+					onlaser + 0.8 * 0.45 &pi
+!!{ effft (- - t 1.8 * 0.3 p)
+				} simple tpnrot * lerp 0 0.6 $effft 0.01 1 sampleif < $effft 0 vhome 3 Lplayer
+				    { scale(lerpt 0 0.4 0 1) dir(* pm1 p * 400 t) }
+			}
+			bullet-control persist lcircle-red/b batch  > $effft 0  {
+				 restyleeffect lcircle-red/ cwheel-red/ _
+				 sfx x-transform-1 _
+			}
+			bullet-control persist lcircle-blue/b batch > $effft 0 {
+				restyleeffect lcircle-blue/ cwheel-blue/ _
+				sfx x-transform-1 _
+			}
+#}
+		
+
+## 3
+<!> challenge enddialogue
+<!> dialogue #{
+<!> root 0 0
+phase 0
+	saction 0
+		dialogue tokiko.2
+		shift-phase
+#}
+
+

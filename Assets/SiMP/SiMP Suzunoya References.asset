@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87ab70b3d8149c0861cb6fd8068c3fa, type: 3}
+  m_Name: SiMP Suzunoya References
+  m_EditorClassIdentifier: 
+  renderGroupMimic: {fileID: 836292319904304369, guid: ad089b1aca3d7bb4a9edead2f2fb9b95,
+    type: 3}
+  entityMimics:
+  - {fileID: 5171041737173443338, guid: 477e934842a686d4fa99fd7af32157ee, type: 3}
+  - {fileID: 3096344507094870328, guid: 52e36ae38f2849b4c8c066aa2f544708, type: 3}
+  - {fileID: 3096344507094870328, guid: ed3bd479240855048a28a07d72dcd0c2, type: 3}
+  - {fileID: 3096344507094870328, guid: fe7e93b0971082c45808c26c3f78b577, type: 3}
+  - {fileID: 5466135841841681093, guid: 969a8a9943be2d6439e82d5a15d605ba, type: 3}
+  - {fileID: 3096344507094870328, guid: a25d89a6fb494954cbb62741a6b3fbf7, type: 3}
+  - {fileID: 3096344507094870328, guid: a5794d46382f72249878b5229e1b561b, type: 3}
+  - {fileID: 3096344507094870328, guid: fa089dc9a6daa1044b4ac617b0353d34, type: 3}
+  - {fileID: 3096344507094870328, guid: 3269fce1e2ed22441a3a5498d517dad8, type: 3}
+  - {fileID: 8119514112767452889, guid: 01c89d71303719a408a6c03ce7dcfbd4, type: 3}
+  - {fileID: 8119514112767452889, guid: 6d0b903a957afac49b8db0552578aae3, type: 3}
+  - {fileID: 3096344507094870328, guid: debdb6f2cce2e5b4c811a3884a9cb963, type: 3}
+  - {fileID: 3096344507094870328, guid: 221961308a7443441b83d40664157c11, type: 3}
+  - {fileID: 3096344507094870328, guid: cdfc25ba310bb1541839d71b88a5cc4d, type: 3}

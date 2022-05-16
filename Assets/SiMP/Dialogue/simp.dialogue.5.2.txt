@@ -1,0 +1,14 @@
+script
+place l1 mokou
+place r1 kasen
+sl mokou
+sr kasen
+srce happy
+. `You pass, I guess.
+Keep going, Mokou. I'll see you again once this is all over.`
+z
+. `And we'll have a nice, long chat about any misconceptions you may have arrived at in the process of your journey.`
+z
+re sfx extend-any
+. `(Koutei has joined the party!)`
+z

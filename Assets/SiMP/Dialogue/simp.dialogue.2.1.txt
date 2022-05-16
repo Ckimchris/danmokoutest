@@ -1,0 +1,20 @@
+script
+place l1 mokou
+place r1 kaguyaf
+sl mokou
+sr kaguyaf
+. `Stop right there!`
+z
+slc
+. `Are you Chen? I'm looking for Yukari, is she around here?`
+z
+src
+z
+. `I said stop! Put your hands up and turn around, or I'll shoot!`
+z
+slce worry
+. `I'm a bit too busy to be picking fights right now. Let's continue this another day, alright, comrade?`
+z
+src
+. `I warned you! Get ready to taste the bullets of justice!`
+z

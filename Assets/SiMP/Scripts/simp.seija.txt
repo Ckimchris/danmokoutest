@@ -1,0 +1,716 @@
+<#> strict(none)
+pattern {
+	boss simp.seija
+	bgm {
+		2	simp.3.seija
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 7
+	
+!!{ me seija
+!{ 
+seijapower1()
+sync powerup1 <> powerup x-powerup-1
+	witha 0.9 lerp 0 1.6 t red purple
+	1 2
+!}
+!{ 
+seijapower1long()
+sync powerup1 <> powerup x-powerup-1
+	witha 0.9 lerp 0 3.7 t red purple
+	3 5
+!}
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t red purple
+	witha 0.9 blue
+	1.5 2 0 0.5
+!}
+
+##1
+<!> dialogue #{
+<!> roott(3, 0, 1)
+phase 0
+	saction 0
+		dialogue simp.dialogue.3.3
+		shift-phase
+#}
+
+##2 
+<!> bosscutin
+<!> type non :simp.boss.seija.onion #{
+<!> hpi 18000 4
+<!> root 0 2
+phase 32
+    paction 0
+		dangerright2
+		dangerbot
+		gtr {
+			delay 1s
+			wt 1 _
+			wait-child
+			p this
+		} saction 0
+			if even p 
+				bullet-control persist ellipse-purple/* flipx> xmax = 0 mod 3 p2
+				bullet-control persist ellipse-purple/* flipx< xmin = 0 mod 3 p2
+			bullet-control persist ellipse-red/* flipy< ymin = 0 mod 3 p2
+			bullet-control persist ellipse-purple/w restyleeffect ellipse-purple/b cwheel-purple/ > t 1.5
+			bullet-control persist ellipse-red/w restyleeffect ellipse-red/b cwheel-red/ > t 1.5
+			$power1
+			move-target 1.5 io-sine pxy * pm1 p 0.7 y
+			async ellipse-*/w <1;:> gir { 
+				wt	186 6
+				color { purple red }
+				p this
+				rpp	angle + -3 * 19 pm1 p
+			} gir {
+					wt  	 9 21
+					rpp	 rot -0.02 0 * pm1 p1 1
+					p  	  add
+					sfxfif	{ x-fire-burst-1 x-fire-burst-2 } p1 (divby 2 p2)
+				} {
+				gcr {
+					delay	1.5s
+					sfxif	x-transform-1 (divby 5 p2)
+				} noop
+				gsr2c ceil(* (^ dl 0.75) 21) { 
+				} s tprot lerp 1.3 1.7 (+ + t 0.3 * -0.3 z1 p1)
+					cx 3.2
+					cx 1.8
+				}
+			pool-control ellipse-* reset
+			sfx x-colorshift
+			##Prevents flip command from screwing shit
+			bullet-control once ellipse-purple/b restyleeffect ellipse-pink/b cwheel-purple/ _
+			break
+#}
+		
+
+##3
+<!> type spell :simp.boss.seija.rice #{
+<!> hp 22000
+<!> root 0 1.5
+phase 33
+	paction 0
+		dangerbot
+		pool-control { { ellipse-*/ } { red purple } } allowcull false
+		gtr {
+			delay 3s
+			wt 0.5s _
+			wait-child
+			p this
+		} move-target 2 io-sine pxy * pm1 p brand 0.8 1.2 brand 1 2
+!!{ d 8
+!!{ s 1.6
+!!{ t / $d $s
+		bullet-control persist ellipse-red/ softcull cwheel-red/b & > t $t not divby 4 p
+		bullet-control persist ellipse-purple/ softcull cwheel-purple/b & > t $t not divby 4 p
+		bullet-control persist ellipse-red/ restyle ellipse-red/w & > t $t divby 4 p
+		bullet-control persist ellipse-purple/ restyle ellipse-purple/w & > t $t divby 4 p
+		async ellipse-*/ <> gcr2 /i dl 20 _ <30.986> {
+			start rv2.rx +=f $d
+		} gsr2c 1 {
+		} gsr2 (+ 4 d3d1) <2> {
+			p this
+		} gsr2 2 <> {
+			postloop rv2.a =f - 180 [&rv2].a
+			color { red purple }
+		} s tprot px * -1 lerpt $t + 0.2 $t $s 2.9
+		async lcircle-*/b <;:> gcr2 (/ 70 ^ dl 0.25) _ angle / 180h 16 {
+			p this
+			color { red purple }
+			sfx x-fire-burst-1
+		} gsr2c * dl 20 {
+		} simple tprot
+!!{ s1 2.7
+!!{ s2 1.2
+			if (= z1 p @0 part) 
+				px lerp 0 1 timersec(pct) $s1 $s2
+				px lerp 0 1 timersec(pct) $s2 $s1
+			{ dir  * pm1 p * 400 t } 
+		
+		savef part 0 1
+		bullet-control persist lcircle-red/w restyleeffect lcircle-red/b cwheel-red/ = @0 part 0
+		bullet-control persist lcircle-red/b restyleeffect lcircle-red/w cwheel-red/ not = @0 part 0
+		bullet-control persist lcircle-purple/w restyleeffect lcircle-purple/b cwheel-purple/ = @0 part 1
+		bullet-control persist lcircle-purple/b restyleeffect lcircle-purple/w cwheel-purple/ not = @0 part 1
+		timer restart pct
+		
+		gtr {
+			delay 3s
+			wt	0 _
+			wait-child
+		} saction 0 :10
+			$power1
+			wait 1.5
+			savef part 0 0
+			timer restart pct
+			wait 3
+			$power1
+			wait 1.5
+			savef part 0 1
+			timer restart pct
+			wait 3
+		
+#}	
+
+
+##4
+<!> type non :simp.boss.seija.100 #{
+<!> hpi 15000 3
+<!> root 0 1.9
+phase 30
+	paction 0
+		$power1
+    paction 1.5
+		bullet-control persist ellipse-purple/w batch > x xmax {
+			flipx> xmax _
+			restyleeffect ellipse-purple/b cwheel-purple/b _
+		}
+		bullet-control persist ellipse-red/w batch < x xmin {
+			flipx< xmin _
+			restyleeffect ellipse-red/b cwheel-red/b _
+		}
+		bullet-control persist {{ ellipse-*/b } { red purple }} slowdown 0.4 _
+!!{ d dl
+		async x-fire-loop-1 <> gcr2 5 _ <> { } sfx
+		async ellipse-*/w <1;:> gcrf /i $d (lerpt 0 100 21 18) _ (angle sine 180 350 (/ t $d)) {
+		} gsr2c 5 {
+		} gsr2 2 <> {
+			p this
+			color { red purple }
+		} gsr2 2 <> {
+			p add
+		} s tprot rx (* lerpd(0.82, 1) + 3.8 * 0.06 p2) + -180 * pm1 p1 / 108 2
+		gtr {
+			wt 2s _
+			delay 3s
+			wait-child
+			preloop lr =f pm1 t
+		} move-target 1.5 io-sine pxy (* &lr brand 0.7 1.1) brand 1.6 2.2
+#}
+
+
+##5
+<!> type spell :simp.boss.seija.circular #{
+<!> hp 23000
+<!> root 0 1.5
+phase 34
+    paction 0
+		timer restart seija.fcr
+		
+		gtr {
+			delay 3s
+			wt 4s _
+			p this
+		} move-target 2 io-sine pxy * pm1 p brand 0.5 1.1 brand 1 2
+		async ellipse-* <> gir2 
+			/i (^ dh 0.3) max 180 - 220 * 5 t
+		_ <8h> {
+			p this
+			sfx { x-fire-burst-3 }
+		} gcr2 0 4 <> {
+			p add
+			preloop {
+				idx2 =f mod 2 + p1 // p2 2
+			}
+			colorf { red/w purple/w } &idx2
+		} gsr2c (* ^ dl 0.6 32) {
+			root pxy 
+				if (| = t 1 = t 2) xmin xmax
+				if (< t 2) ymax ymin
+			expose f idx2
+		} s tprot ::v2 {
+			fast	cx 1.5
+			slow	cx 0.75
+		}
+!!{ per 8
+!!{ perst * $per .24
+!!{ pered * $per .74
+!!{ tper mod $per timersec(seija.fcr) 
+			lerpback (* .24 $per) (* .27 $per) (* .74 $per) (* .77 $per) $tper
+				if (= &idx2 0) &fast &slow
+				if (= &idx2 0) &slow &fast
+		bullet-control persist ellipse-red/w restyle ellipse-red/b in $tper $perst $pered
+		bullet-control persist ellipse-red/b restyle ellipse-red/w not in $tper $perst $pered
+		bullet-control persist ellipse-purple/w restyle ellipse-purple/b not in $tper $perst $pered
+		bullet-control persist ellipse-purple/b restyle ellipse-purple/w in $tper $perst $pered
+		
+		async powerup1 <> gcr2 (* 0.5s $per) _ <> {
+			delay * 0.14s $per
+			p	this
+		} { 
+			powerup2  x-incoming x-colorshift
+				if even p red purple
+				if even p purple red
+				* 0.1 $per 1 0 0.4
+			gsr {
+				color gdlaser-*/b
+				frv2	ny * 1 modh p
+				alternate p
+			} {
+	!!{ lr * dl 18 ry /i dl 0.7
+				gsr2 $lr {
+					color purple
+					root cxy -5 5
+					bank <-45>
+					center
+				} laser null * 0.1 $per 0.5 { dsfx s 0.7 }
+				gsr2 $lr {
+					color red
+					root cxy 5 5
+					bank <-135>
+					center
+				} laser null * 0.1 $per 0.5 { dsfx s 0.7 }
+			}
+		} 
+		
+#}
+
+
+##6
+<!> type non :simp.boss.seija.pareto #{
+<!> hpi 16000 3
+<!> root 0 2.3
+phase 37
+    paction 0
+		pool-control lcircle-orange/ allowdelete true
+		dangerbot
+		pool-control { ellipse-* } cullrad 15
+!!{ crep * dl 16
+		async lcircle-orange/ <> gcr {
+			wait(/i ^ dl 0.3 + 84 sine(8, 28, t))
+			times(_)
+			sfx x-fire-burst-2
+			rv2incr(aphi($crep))
+		} gsr2c $crep {
+		} simple tprot px(lerpt(0, 0.5, 3, 1.6)) {
+			dir(* pm1(p) * 400 t)
+		}
+		gtr {
+			wait-child
+			wait(240)
+			times(_)
+			bindLR
+			sequential
+		} {
+			~ _ 0.5 $power1
+			move-target 2 io-sine pxy * &lr rand 0.7 1 rand 2.1 2.5
+			async ellipse-*/b <;:> gir {
+				times(4)
+				wait-child
+				wait(select t {
+					120
+					240
+					40
+					0
+				})
+				colorf { purple red } // p 2
+				bindLR
+				p this
+				rpp(<5>)
+			} gcr {
+				wt  	 11 (+ 5 dc)
+				rpp(angle(* pm1(// p 2) 1.5))
+				bindItr(n)
+				sfxf	{ x-fire-small-1 x-fire-small-2 } 0
+				preloop root =v2 loc
+				expose v2 root
+			} gsr2c ceil(* (^ dl 0.3) 24) { 
+!!{ t1 0.8
+!!{ t2 2.1
+!!{ t3 2.7
+!!{ t4	2.8
+!!{ t5	3.5
+!{ movement() 
+tprot px lerpmany {
+	- $t1 0.05		1.6
+	+ $t1 0.05	3.2
+	$t2 			3.2
+	$t3			0
+	$t4			0
+	$t5			-2.3
+} t
+!}
+			} s $movement
+		}
+		
+!{ ctrl(color)
+bullet-control persist ellipse-%color%/b batch < abs - t $t1 2f {
+	sfx x-transform-1 _
+	restyleeffect ellipse-%color%/w _ _
+}
+bullet-control persist ellipse-%color%/w batch < abs - t $t2 2f {
+	sfx x-fire-small-2 _
+	restyleeffect ellipse-%color%/ _ _
+}
+bullet-control persist ellipse-%color%/ batch < abs - t $t4 2f {
+	sm _
+		sync ellipse-%color%/b.1 <>  gsr {
+			sfx x-fire-small-3
+		} s tprot px lerpt 0 0.6 0 2.5
+	restyleeffect ellipse-%color%/w _ _
+}
+bullet-control persist ellipse-%color%/w cull circ withz &.root 0.04
+!}
+		$ctrl(purple)
+		$ctrl(red)
+				
+
+#}
+
+
+##7
+<!> type spell :simp.boss.seija.potato #{
+<!> hpi 18000 5
+phase 34
+	paction 0
+		dangerbot
+		dangertop
+		dangerleft2
+		dangerright2
+		move-target 2 io-sine py 2.6
+    paction 0
+		gtr {
+			delay 3s
+			wt 4s _
+			p this
+		} move-target 2.4 io-sine pxy * pm1 p brand 0.8 1.2 brand 2.4 2.8
+		async arrow-purple/b <> gcr2 1 _ <> {
+			while > [Lplayer].y 2.8
+			sfx x-fire-small-1
+		} s tprot ss 0 vhome 10 Lplayer
+		sync inode <> gsr {
+			root cxy 3 -1.2
+		} summon null
+			gtr {
+				delay 240
+				wt 360 _
+				wait-child
+				p this
+!!{ t lerpd(4, 3)
+			} move-target $t io-sine pxy x + + * 0.14 p -1.2 * pm1 p rand 1 1.2
+			{ name pointer }
+		@ pointer
+			async scircle-pink/w <0.6;:;:> gcr2 /i (^ dl 0.6) max 250 - 450 * 50 t _ <> {
+				delay 2s
+				sfx x-fire-burst-1
+			} gsr2 2 <-7.2;:;:> {
+			} gsr {
+				sltarget ra Lplayer
+			}  gsr2 5 angle(lerpd(40, 30)) {
+				center
+			} s tprot lerp 0.3 1 t cx 2.3 cx 1.9
+		async ellipse-red/b <-90> gir2 0 2 <3.6;:;:> {
+			p this
+			center
+		} eruption /i dl 28 _
+				cosine (* 1h + 6 p1) 70 p2
+				+ 1.2 cosine 10h 0.3 p2
+				max -2.6 * -1 t
+			{ 
+				p add
+				root py ymax
+			} 
+		async ellipse-purple/w <-90> gir2 0 3 <2.7;:;:> {
+			p this
+			center
+		} eruption /i dl 15 _
+				cosine (* 1h + 9 p1) 60 p2
+				+ 6.0 cosine 10h 1.8 p2
+				max -3.1 * -1 t
+			{ 
+				p add 
+				root py ymax
+			}
+!!{ r <0;0.2:20;1.8:0>
+!!{ rct relrect pointer $r
+		sync _ <> relrect _ pointer
+				$r
+				witha lerpt 0 1 0 0.4 pink
+		bullet-control persist ellipse-red/w batch not $rct {
+			sm _ sync lellipse-red/b <> simple tprot cx 2.2 { scale lerpt(0.1, 0.3, 1, 2) }
+			softcull _ _
+		}
+		bullet-control persist ellipse-red/b restyleeffect ellipse-red/w _ $rct
+		bullet-control persist ellipse-red/b slowdown 0.8 _
+		bullet-control persist ellipse-purple/b slowdown 0.2 _
+		bullet-control persist ellipse-purple/w restyleeffect ellipse-purple/b _ $rct
+		bullet-control persist ellipse-purple/b batch & < y [lbeh pointer].y not $rct {
+			sm _ sync lellipse-purple/w <> simple tprot px lerpt(0.1, 0.4, 3, 6) { scale lerpt(0.1, 0.3, 1, 2) }
+			softcull _ _
+		
+		}
+		
+#}
+	
+
+##8
+<!> type final :simp.boss.seija.consequent #{
+<!> hpi 16000 7
+<!> root 0 1.5
+phase 40
+	paction 0
+!{ er(c, s1, s2, pred)
+	bullet-control persist ellipse-%c%%s1% restyleeffect ellipse-%c%%s2% cwheel-%c%/b %pred
+!}
+!{ glr(c, s1, s2, pred)
+	bullet-control persist lcircle-%c%%s1% restyleeffect lcircle-%c%%s2% cwheel-%c%/ %pred
+!}
+!{ rbf(f)
+	$%f(purple)
+	$%f(red)
+!}
+!{ pbf(f)
+	$%f(orange)
+	$%f(pink)
+!}
+!!{ et1 2
+!!{ et2 11
+		$rbf($glr(!$, /w, /, in t $et1 -- $et2))
+		$rbf($glr(!$, /, /w, > t $et2))
+		pool-control lcircle-* allowdelete false
+		pool-control ellipse-* cullrad 8
+		gtr {
+			delay 3s
+			wt 2s _
+			wait-child
+			p this
+		} move-target 2 io-sine pxy * pm1 p brand 0.7 1.1 brand 1 2
+		gtr {
+			wt	2s _
+			wait-child
+		} paction 0 :3
+			_ $et1
+				sfx x-transform-2
+			_ $et2
+				sfx x-transform-3
+			async lcircle-*/w <1;:150> gcr2 (/i dl 8) (* dl 12) angle /i dl -19p {
+					sfx x-fire-star-3
+!!{ ct 6
+!!{ p1r * p1 / 7 $ct
+				} gsr2 $ct <> {
+					p this
+				} gsr2 2 <> {
+					p add
+					postloop rv2.a =f - 180 [&rv2].a
+					color { red purple }
+				} simple tprot rx
+					* + 0.23 * 0.2 $p1r
+						lerp3 (0.3, 1.4, - $et1 0.2, + $et1 0.5, t, 3, 1.7,
+							lerpt($et2, + $et2 2, 0, 4))
+					* pm1 p2 + 80 * 7p $p1r
+					{ dir * pm1 p2 * 400 t }
+					
+		async ellipse-*/b <;:> gcr2d (^ dl 0.5) 90 _ angle / 180h 16 {
+			p this
+			color { red purple }
+			sfx x-fire-burst-1
+		} gsr2c (* 16 ^ dl 0.5) {
+		} s tprot
+!!{ s1 2
+!!{ s2 -1
+			if (= z1 p @0 part) 
+				px lerp 0 1 timersec(pct) $s1 $s2
+				px lerp 0 1 timersec(pct) $s2 $s1
+		
+		savef part 0 1
+		bullet-control persist ellipse-red/w restyleeffect ellipse-red/b _ = @0 part 0
+		bullet-control persist ellipse-red/b restyleeffect ellipse-red/w _  not = @0 part 0
+		bullet-control persist ellipse-purple/w restyleeffect ellipse-purple/b _ = @0 part 1
+		bullet-control persist ellipse-purple/b restyleeffect ellipse-purple/w _ not = @0 part 1
+		timer restart pct
+		
+		gtr {
+			delay 3s
+			wt	0 _
+			wait-child
+		} saction 0 :10
+			$power1
+			wait 1.5
+			savef part 0 0
+			timer restart pct
+			wait 3
+			$power1
+			wait 1.5
+			savef part 0 1
+			timer restart pct
+			wait 3
+			
+		async gdlaser-*/b <> gcr2d ^ dl 0.45 480 _ <> {
+			root cxy -6 6
+		} {
+			gsr {
+				color purple
+				target ry Lplayer
+			} laser null 1.8 0.3 { s 2 dsfx }
+			gsr {
+				color red
+				target rx Lplayer
+			} laser null 1.8 0.3 { s 2 straight -90 dsfx }
+		}
+#}
+
+
+##9
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 2 io-sine cy 1
+		dialogue simp.dialogue.3.4
+		move-target 2 in-sine cy -10
+		shift-phase
+#}
+
+
+///
+
+
+<!> type spell `Grand Reversal: Ten Chi Mu You` #{
+<!> hp 23000
+<!> root 0 1
+phase 27
+	paction 0
+		pool-control { { ellipse-*/b } { red purple } } allowcull false
+		gtr {
+			wt 0 _
+			wait-child
+			preloop lr =f pm1 t
+			p this
+		} saction 0 :5
+			$power1
+			wait 1.5
+			async ellipse-*/b <-5;-1:> gcr {
+				wt	1	200
+				sfxif		x-fire-star-1 divby 12 t
+				saoffset	bo 0 pxy
+									softmod (- 10 * 0.004 t) * 0.4 t
+									* 0.016 t
+			} {
+				gsr {
+					color purple
+					bank angle + + * 360h p 30 * 4.852 t
+				} s tp
+					px lerpt 0.3 0.5 0 1.5
+					py * -0.5 -m t 0.3
+				gsr {
+					color red
+					bank angle + + * 360h p 160 * 9.43 t
+				} s tp 
+					px lerpt 0.3 0.5 0 2
+					py * -0.8 -m t 0.3
+			}
+			wait 0.5
+			move-target 4 io-sine pxy * &lr 1 y
+		bullet-control persist ellipse-purple/b batch < y -4.6 {
+			dx * -2 [dir].x _
+			y 4.2 _
+			restyle ellipse-purple/w _
+		}
+		bullet-control persist ellipse-red/b batch < y -4.6 {
+			dx * -2 [dir].x _
+			y 4.2 _
+			restyle ellipse-red/w _
+		}
+#}	
+
+
+
+<!> type final `Fallacy: Affirming the Consequent` #{
+<!> hp 36000
+<!> root 0 0.5
+phase 41
+!{ trail(c)
+async gem-%c%/b <0.2;:> gir {
+		bank <0.2;:180>
+	} gcrf 2 _ (angle * 30 rangemod 1 * 2h t) {
+		while onscreen loc
+		delay 60
+		face v
+	} s tprot px lerpt 0 0.6 3 0
+!}
+	paction 0
+		$rbf($er(!$, /, /b, in t 2 10))
+		$rbf($er(!$, /b, /, > t 11))
+		bullet-control persist gem-red/b softcull cwheel-red/b > t 1
+		bullet-control persist gem-purple/b softcull cwheel-purple/b > t 1
+		$power1
+		gtr {
+			delay 1.5s
+			wt 0 _
+			wait-child
+			p this
+		} {
+			_ 2
+				sfx x-transform-2
+			_ 11
+				sfx x-transform-3
+			_ 11
+				move-target 3.5 io-sine pxy (* pm1 p 0.8) y
+			_ 13
+				$power1
+			async ellipse-*/ <1;:150> gcr2 6 15 <-15p> {
+				sfx x-fire-star-3
+			} gsr2 12 <> {
+				p this
+			} gsr2 2 <> {
+				p add
+				postloop rv2.a =f - 180 [&rv2].a
+				color { purple red }
+			} s tprot rx
+				* + 0.2 * 0.12 p1 
+					lerp3 (0.3 1.4 2 2.2) t 3 1.7
+						lerpt (11 13) 0 3
+				* pm1 p2 + 80 * 4p p1
+			async sun-purple/b <60> gcr { delay 3s } gsr2c 3 { 
+				p add
+				sfx x-metal
+			} guideempty .1 p { plb loc } { }
+				tprot px lerpt 1.2 2 1 4 {
+					inode nroffset @ plb p
+						paction 0 :2
+							$trail(purple)
+							async strip-*/w <0.5;:> gcr2 40 _ <10c> { 
+								bank <>
+								while onscreen loc
+								delay 60
+								sfx x-fire-burst-1
+								face v
+								p this
+								color { purple pink }
+							} gsr2c 12 {
+							} s polar
+								+ 0.2 * 0.7 t
+								* pm1 p logsumshiftt -0.3 3 * 22 t * 9 t
+					simple nroffset @ plb p { scale 0.5 }
+			}
+			async sun-red/b <> gcr { delay 5s } gsr2c 3 { 
+				p add
+				sfx x-metal
+			} guideempty .2 p { plr loc } { }
+				tprot px lerp3 (1 2 2.3 3 t) 1 4 -6 {
+					inode nroffset @ plr p
+						paction 0 :2
+							$trail(red)
+							async strip-red/w <0.5;:> gcr2 (lerpt 4 7 40 30) _ <10c> { 
+								bank <>
+								while onscreenby 2 loc
+								delay 60
+								sfx x-fire-burst-2
+								face v
+								p this
+							} gsr2c 12 {
+								bank <0.2;:>
+							} s tprot cx 1.2
+					simple nroffset @ plr p { scale 0.5 }
+			}
+		
+		}
+#}
+
+
+

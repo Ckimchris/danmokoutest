@@ -1,0 +1,37 @@
+script
+place l1 mokou
+place l2 keine
+place r1 mima
+sr mima
+sl mokou
+. `Huh? Is that Keine over there?
+And... one other person?`
+z
+sl keine
+slce angry
+namecard namecard-keine
+. `What do you want, vengeful spirit?!`
+z
+src
+. `I am no vengeful spirit! (lie) I am Mima, the god of the human world (lie), sealed away in the depths of the Hakurei Shrine and become its curse deity!`
+z
+srce happy
+. `If you wish to resolve this incident, you must defeat me!
+Hahaha~!`
+z
+slc
+. `Fine. I'm not as strong as Mokou, but I'll take you on until she arrives.`
+z
+srce worry
+. `Mokou...?! I have no idea who that is (lie), but they sound weak (lie)!
+Ahem, uh, if you wish to challenge me, you must capture me first!`
+fadestandout mima 1
+z
+slce surprise
+. `Scheiße! Hey! Get back here!`
+fadestandout keine 1
+z
+sl mokou
+slce worry
+. `This looks stupid... But I better catch up to them.`
+z

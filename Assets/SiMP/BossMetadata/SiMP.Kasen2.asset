@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: SiMP.Kasen2
+  m_EditorClassIdentifier: 
+  boss: {fileID: 6274564262994426332, guid: fc535ee3310d1574da2cf8ad79e59e23, type: 3}
+  localizationBaseKey: simp.boss.kasen2
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 4900000, guid: ca1fb53a373513044bef11c168ccc8a0, type: 3}
+  key: simp.kasen2
+  colors: {fileID: 11400000, guid: 5df9dbcaf94c7f8459e791a37f854553, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 2800000, guid: 8cc7235ebe29cdc4aa62302d4c5de717, type: 3}
+    rightSidebar: {fileID: 2800000, guid: cf10aa52430cbb743b5db2d6d5cb600a, type: 3}
+  defaultNonBG: {fileID: 5180723301924424041, guid: 54af7e21f5658a34eb43a871eff483aa,
+    type: 3}
+  defaultSpellBG: {fileID: 5180723301924424041, guid: 96832a8ee1768044894f1fde7b536a94,
+    type: 3}
+  defaultIntoSpellTransition: {fileID: 11400000, guid: 9b0abf82e07299741a4d64ecd57ff7e6,
+    type: 2}
+  defaultIntoNonTransition: {fileID: 11400000, guid: 9b0abf82e07299741a4d64ecd57ff7e6,
+    type: 2}
+  bossCutin: {fileID: 2426727079670566650, guid: 9034878ae333cbb4ca7ee234d377cf9d,
+    type: 3}
+  spellCutins:
+  - {fileID: 160725723660692450, guid: 84fb77ee536bc6540b695614be95c03b, type: 3}

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: SiMP.Kaguya-Fake
+  m_EditorClassIdentifier: 
+  boss: {fileID: 3665291995995624048, guid: efc8d19268d8b854c912ba518b2bb0dd, type: 3}
+  localizationBaseKey: simp.boss.kaguyaf
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 4900000, guid: 09c66581f08b1fb4d94eac60e59db48f, type: 3}
+  key: simp.kaguya-fake
+  colors: {fileID: 11400000, guid: e83c174566855bf419430e8e72dabb67, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 2800000, guid: 3cc599348e354284cb3e052035774390, type: 3}
+    rightSidebar: {fileID: 2800000, guid: eeda9b1a2f84fda49b544ade0699261b, type: 3}
+  defaultNonBG: {fileID: 5180723301924424041, guid: 530b2757f26656a469c7ee227f12a901,
+    type: 3}
+  defaultSpellBG: {fileID: 5180723301924424041, guid: 7fc6da278d40c184691eaf99376588d9,
+    type: 3}
+  defaultIntoSpellTransition: {fileID: 11400000, guid: 9b0abf82e07299741a4d64ecd57ff7e6,
+    type: 2}
+  defaultIntoNonTransition: {fileID: 11400000, guid: ee89dae89d15f34418474c82d6d3a3ba,
+    type: 2}
+  bossCutin: {fileID: 2426727079670566650, guid: da0d72b0151405246972cb9e52d01dba,
+    type: 3}
+  spellCutins:
+  - {fileID: 160725723660692450, guid: a0d43902db95ead47a70227f763ff6a9, type: 3}

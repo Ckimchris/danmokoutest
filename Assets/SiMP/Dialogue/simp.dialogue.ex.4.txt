@@ -1,0 +1,77 @@
+script
+place l1 mima
+place r2 kasen
+place r1 yukari
+sl mima
+sre kasen angry
+.z `Yukari, what are you doing?! Stop that immediately!`
+sre yukari surprise
+.z `Ah! Kasen, I--`
+sre kasen worry
+.z `Apologies, comrade. It seems that I wasn't thorough in teaching my student how to exercise restraint.`
+srce angry
+.z `Yukari, bow your head and apologize.`
+sre yukari cry
+.z `I'm sorry. I shouldn't have attacked you over a harmless joke.`
+slce worry
+.z `No need to apologize. I provoked you. Sorry, Yukari. No hard feelings, hopefully.`
+slce _
+.z `Oh, I guess I should introduce myself. I'm Mima, the missing variable, the demon sealed away within the Hakurei shrine, the god of the unending cosmos (lie), and the root cause of the last incident.`
+slce worry
+.z `So. Yukari says that her teacher wants to shatter the skies. I assume her teacher is you, suspicious hermit with a thunder dragon.`
+.z `There are many who have declared their will to bring down the heavens, but I only know of one who has gotten anywhere close.
+By any chance, are you... the Skyfeller?`
+sre kasen worry
+.z `Right to the point, I see.`
+srce _
+.z `Your suspicions are accurate. I'm Ibaraki, the Skyfeller, officially deceased as of 1300 years ago. In public, I'm Kasen, the unassuming flower hermit.`
+slce surprise
+.z `I'm surprised. They always said that you perished under the Jade Moon. That makes two of us who should be long dead, Ibaraki!`
+srce happy
+.z `I don't know about you, but I'm only back from the grave for one reason: to carry out my old ambition of shattering the skies over Gensoukyou.`
+srce _
+.z `You can probably guess, but we want your cooperation. With you on our side, we should be able to launch an assault on Heaven in the near future.`
+srce worry
+.z `It's probably impossible for us to actually topple the Emperor without someone with power deriving from the stars.`
+slce happy
+.z `Hah! And here I was wondering if the legends about your hatred for the celestials were overblown.`
+slce _
+.z `Well, I hate them too. So I'll work with you... on the condition that I get to take the title of God of the Boundless Skies.`
+srce worry
+.z `...Just the title? Not, like, the seat of the Jade Emperor?`
+slce worry
+.z `Being Emperor is a pain. Too much stress. And you're going to abolish that position, aren't you?
+On the other hand, you must be aware of the power of titles, Ibaraki.`
+slce _
+.z `Titles, even more so than names or real institutional positions, define how we are seen in the eyes of others. And ultimately, we are nothing more than what others perceive us to be.`
+sre yukari happy
+.z `In the Outside World, they have this saying: "Damnation is other people". Perhaps more accurate would be, "Existence is other people."`
+slc
+.z `And for those who are too weak to guide the eyes of others, existence is damnation as well. But that's the point of claiming titles, isn't it? To force others to perceive you as you will.`
+.z `After all, I'm only involved in today's little facade to claim a title long owed to me. That of God of Makai.`
+sre kasen surprise
+.z `God of Makai? Yukari, you really went overboard with this incident, didn't you?`
+sre yukari worry
+.z `There were two relevant rumors I found on the mysterious god lurking around the Hakurei shrine. One was that she fought the god of Makai to a tie, and the other was that she turned away invaders from the Outside World.`
+.z `I'd have preferred to have limited this to a smuggling incident, but I had to set this up before Reimu got better, so there wasn't enough time to go mystery-hunting outside.`
+slce worry
+.z `Uh, to be clear, it wasn't a tie. I won.`
+sre kasen happy
+.z `Well, the best way to fix that rumor is to beat her again, right?`
+slc
+.z `But I'm not the "mysterious god lurking around the Hakurei shrine" anymore. So even if I do win again, it won't change the rumor.`
+src
+.z `In that case, all you have to do is claim the title of Mysterious God Who Once Lurked Around the Hakurei Shrine.`
+slc
+.z `...I feel like you're insulting me, but I can't tell why.`
+sre yukari happy
+.z `Kasen's wisdom is too great to be encoded in only one side of a word.`
+.z `Some other time, I'll show you some excerpts from the manuscript for Ibaraki's Collected Teachings. You might be able to understand just what it takes to assume a title as grand as Skyfeller.`
+sre kasen worry
+.z `Yukari, it's kind of embarrassing when you talk like that right in front of me...`
+srce _
+.z `Anyways, Mima, we'll leave you to collect your debts. And to clear your, uh, title.`
+srce happy
+.z `Speak again soon.`
+
+

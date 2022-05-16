@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: SiMP.Eraa
+  m_EditorClassIdentifier: 
+  boss: {fileID: 6274564262994426332, guid: c476dffd127fdb84dbd05703920ce518, type: 3}
+  localizationBaseKey: simp.boss.eraa
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 4900000, guid: 94ab211bcbea305429bbcabef77e06a1, type: 3}
+  key: simp.eraa
+  colors: {fileID: 11400000, guid: ab30a231e25698d4088d6338b84323bb, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 2800000, guid: eadeeb21fa10c7e4c812772e701a4de3, type: 3}
+    rightSidebar: {fileID: 2800000, guid: af7f02d2585432a409ebc280b3bc0297, type: 3}
+  defaultNonBG: {fileID: 5180723301924424041, guid: 966faf05bff6e584fa9ffd10a7cfe3a2,
+    type: 3}
+  defaultSpellBG: {fileID: 5180723301924424041, guid: 8bff78fdceab558419b1428bab2a2f57,
+    type: 3}
+  defaultIntoSpellTransition: {fileID: 11400000, guid: 23d9a9fbcd555004c9905acab3bc372a,
+    type: 2}
+  defaultIntoNonTransition: {fileID: 11400000, guid: 76e812b8d330cbe43b048748bf21ae77,
+    type: 2}
+  bossCutin: {fileID: 2426727079670566650, guid: 86a1e04b52bd1c7409ac4aa157637f07,
+    type: 3}
+  spellCutins:
+  - {fileID: 160725723660692450, guid: 8ceb8373a22b68e47bd57529c39cfa92, type: 3}

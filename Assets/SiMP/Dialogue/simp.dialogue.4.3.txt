@@ -1,0 +1,56 @@
+script
+place l1 mokou
+place r1 kaguya
+sr kaguya
+sl mokou
+. `Kaguya!`
+z
+srce happy
+. `Mokou again! What a coincidence!`
+z
+slc
+. `Turn around! Let me handle this!`
+z
+srce worry
+. `If you say so... but let me watch, OK?`
+z
+slce angry
+. `Do whatever you want!`
+z
+fadestandout kaguya 1
+place r1 mima
+sr mima
+srce _
+fadestandin mima 1
+namecard namecard-mima
+. `So, weakling, are you ready to face your death? If you beg for forgiveness, I might reveal my evil plans before devouring your soul!`
+z
+srce worry
+. `Ah! You... I don't want to fight you.`
+z
+slce angry
+. `Huh? What is that supposed to mean, you damned ghost?!`
+z
+srce worry
+. `Uh... well...`
+z
+srce cry
+. `I'm sorry. I took my joke too far. It's been so long since I've been able to prank people. We're probably on the same side.`
+z
+. `You're here to deal with the yin-yang orbs too, aren't you? I only provoked those two so I could talk to them about some possible avenues for resolution.`
+z
+. `Also I'm not a ghost.`
+z
+slc
+. `That aside...`
+z
+slce happy
+. `I happened to see you attacking my friends earlier. 
+In their place, I'll give you a few good punches, and we can discuss the incident after that.`
+z
+slce angry
+. `Paws up. I don't have much time.`
+z
+srce worry
+. `Haha... I'm not scared of you... (lie)`
+z

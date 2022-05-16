@@ -1,0 +1,10 @@
+script
+sl mima
+sr mima
+src
+. `Thanks for playing the SiMP demo! The full version will be out by August 28.`
+z
+slc
+. `Click the Twitter link on the main menu for more news!
+Press confirm to return to the main menu.`
+z

@@ -1,0 +1,112 @@
+script
+place l2 mokou
+sl mokou
+place r2 seija
+place r1 mima
+sr mima
+srce worry
+. `Are you done yet?`
+z
+sr seija
+. `Can't you tell? There's no way it's safe for us to approach that thing right now.`
+z
+slce worry
+. `Yeah. Just give me some more time. We don't need to rush this, it's not like Reimu will be coming back anytime soon.`
+z
+place center phone
+setstandopacity phone 0
+fadestandin phone 1
+slce worry
+. `(RING RING)
+A call? At this time?`
+z
+. `Uh, hello, sorry, I'm in the middle of something, could you call back later?`
+z
+sr keine
+. `Mokou! This is really bad. Reimu is heading back!`
+z
+slce surprise
+. `How?! Didn't you literally poison her?`
+z
+src
+. `We did! She's been half-dead in bed for several hours. She shouldn't have been able to move for three days. But just a minute ago, she stood up, said "the shrine is calling me", and left! We couldn't restrain her!`
+z
+. `Poisoning someone and then beating them up is a bit morally questionable, but you're the only one who can do it, Mokou.`
+z
+fadestandout phone 1
+sr seija
+slce worry
+. `Sorry. Looks like this will take a bit longer than expected.`
+z
+srce worry
+. `Mima, we'd better hide.`
+fadestandout seija 1
+z
+sr mima
+srce surprise
+. `Hide? What from?`
+z
+sr reimu
+. `Mima...? Is that Mima?`
+z
+fadestandout mima 0.4
+place r1 reimu
+setemote reimu angry
+setstandopacity reimu 0
+place l1 mima
+setemote mima surprise
+setstandopacity mima 0
+fadestandin mima 0.4
+fadestandin reimu 0.4
+namecard namecard-reimu
+sr reimu
+. `Mima, aided by Mokou, Kaguya, and even Kasen's pets.
+I guess I should have expected that fake hermit to betray me.`
+z
+. `Mima, I never found out why you wanted these yin-yang orbs so badly. But I won't let you play god anymore. This time, I'll exterminate you properly.`
+z
+sl mima
+. `Shit, where'd she come from?
+Uh, excuse me. I mean--`
+z
+slce _
+. `Fufufu, yes... You figured me out! Over the course of ten years of confinement I poured my evil power into your shrine!`
+z
+. `And now, I'm going to use the true power of the Hakurei yin-yang orbs to become first the god of the human world, then the god of Makai, and then the god of the rest of the universe!`
+z
+sl mokou
+slce angry
+. `...`
+z
+sl mima
+slce worry
+. `Uh, I'd have said that ten years ago, but I'm not into that anymore. Now I'm just doing incident resolution with Mokou. After she lets me go, I'm only planning to put some bedsheets on my head and haunt you.`
+z
+srce angry
+. `I'll take those as your last words, Mima. Truly a prankster until the end.`
+z
+sl mokou
+slce worry
+. `Reimu, as it turns out, there are a lot of circumstances behind this incident. Could you back off and let me handle it?`
+z
+srce worry
+. `Honestly, Mokou, I'm happy that you're taking the initiative on incident resolution. It makes my life easier.`
+z
+srce angry
+. `But for me, the sanctity of this shrine takes priority over any of that. 
+And if you're working with Mima to destroy this shrine, then I'll just have to exterminate you too.`
+z
+sl mima
+slce worry
+. `Uh, I'm just going to go sit over there next to the cheerleader, all right? Let me know when you're done.`
+fadestandout mima 1
+z
+src
+. `Are you going to stand in my way, Mokou?`
+z
+srce worry
+. `I have youkai extermination to get to. Let's finish this quickly.`
+z
+
+
+

@@ -1,0 +1,63 @@
+script
+sr narrator
+. `"Aggh, my stomach!" Eirin's poison had resumed its effects. Reimu was once again bedridden.`
+z
+. `"Aggh..." There was one more patient at the clinic. "Why would you poison me too?"`
+z
+. `"Well, when I told Keine you might have turned back into an evil spirit, she proposed this as the easiest solution."`
+z
+. `It was difficult for me to look at her. We were, in some way, war buddies. It was a bit cruel of me to subject her to this.`
+z
+. `"Whoa, is that... Mima? Serves you-- right!" With barely any air in her lungs, Reimu's laugh could not even carry to the next bed.`
+z
+. `"Serves you right-- too, Reimu..."`
+z
+. `With some kind of machinery in her hand, Eirin waved her arm slowly over Mima. Nostalgic black smoke plumed out of the strange device.`
+z
+. `I've heard that normal people would do something similar when cooking over stoves, but as far as I can remember, I've always tested the fire by putting my hand in it.`
+z
+. `"Well, it looks like whatever 'evil' you absorbed from this incident didn't affect you significantly. It should be safe to let you free."`
+z
+. `"Hear that, Reimu? I'm a good guy now... (lie)"`
+z
+. `"Ha, like I... care! Gonna seal you up again... anyways!"`
+z
+. `Nobody bothered to stop the pair's half-delirious bickering now that Reimu's anger had subsided to a normal level.`
+z
+. `Eirin assured us that Reimu wouldn't remember any of this, so I'm hoping that Mima can make a better first impression when the two are up and about.`
+z
+. `Turns out that erasing someone's memories is quite easy when they're sleeping on the bed right in front of you. Maybe that's what happened to Aya?`
+z
+. `Eirin, having completed her checkup, turned to me. "I'm sorry, Fujiwara. I didn't think that you'd run into Kaguya and then summarily get your liver beaten out of you.`
+z
+. `I thought you were stronger than that. But next time I'll be careful to keep Kaguya informed. It would be a problem if you had to take a day off due to an unexpected death, right?"`
+z
+. `Nice try. I'm too old to fall for that.`
+z
+. `"I should be thankful Kaguya normally handles me with kid gloves. Otherwise I'd spend half my life in bed healing off my injuries. Like that pink rabbit over there. What the hell did you do to her?"`
+z
+. `She turned away, apparently disappointed. I think she underestimates me. That's fine. It's easier that way.`
+z
+. `As Mima had promised, there were no serious consequences to this incident. There was no reason for me to be here anymore.`
+z
+. `I left Eientei and weaved through the thickest clusters of the forest, heading towards the lake near my hut.`
+z
+. `By the lakeside was a single figure, masked by long robes.`
+z
+. `"Mokoooou! Help me! I can't catch anything!"`
+z
+. `"Kaguya?! What are you doing here?! And why do you have my fishing rod?!"`
+z
+. `A challenge? No, we had a duel scheduled fairly soon. There was no reason for her to one-sidedly push the date forward. A surprise attack, then? No, she was too vulnerable in this situation.`
+z
+. `"You said you wanted to go fishing, so I was waiting for you! I was going to get a head start, but it turns out I'm pretty bad at this..."`
+z
+. `Well, whatever. 
+"If you can't fish, then you'll just have to learn.
+Sit by my side and watch closely."`
+z
+. `(Good End! Congrats! Make sure to play the Extra stage!)`
+z
+
+
+

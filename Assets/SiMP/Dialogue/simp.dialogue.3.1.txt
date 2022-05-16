@@ -1,0 +1,60 @@
+script
+place l1 mokou
+place r1 eraa
+sl mokou
+sre eraa special
+. `Welcome to my domain. I am--`
+wait 1
+slce surprise
+. `Ah! By any chance, are you the god who infects people's bums?`
+z
+src
+. `No? I am the all-powerful secret--`
+wait 1
+slce angry
+. `Aya said you might be the one behind this incident. Is that true?`
+z
+srce _
+. `Ahem. The all-powerful--`
+wait 1
+slce worry
+. `I really wanted to ask someone about you, but then if they were infected, they'd just attack me, right? Well, it should be fine if I ask you. Since I have to beat you up anyways.`
+z
+srce worry
+. `I said, God Of Gens--`
+wait 1
+slce angry
+. `Honestly, I've wasted so much time today on this incident. I was planning to go fishing, but because of your antics, I have to go around pretending to be Reimu. That really pisses me off.`
+z
+. `I'm normally pretty calm, but when I think about how I lost half a day of fishing due to some stupid youkai antics, my blood boils.`
+z
+srce angry
+. `Gensoukyou! God! Me!`
+z
+slce worry
+. `...Ah, are you one of those weirdos who speak in unnecessarily archaic language? Don't worry, I understand most old dialects. Feel free to speak natively. Though you should learn the modern style soon.`
+z
+src
+. `...`
+z
+slce happy
+. `I can do a little bit of foreign languages too.
+<i>Commense sa va?</i>`
+z
+src
+. `You piece of shit! If <i>she</i> hadn't asked me to help you, I'd skewer your limbs on Youkai Mountain and draw a road made of your entrails from Muenzuka to Higan!`
+z
+slce angry
+. `Don't rush it, fool. Every beating needs to be preceeded by some banter.`
+z
+slce happy
+. `And since the final boss takes the biggest beating, they deserve the widest slice of the pie.`
+z
+slce angry
+. `Well, I should at least thank you for showing up so early. There's no way I would survive another six hours of this adventuring.
+Let's clean up this incident, shall we?`
+z
+
+
+
+

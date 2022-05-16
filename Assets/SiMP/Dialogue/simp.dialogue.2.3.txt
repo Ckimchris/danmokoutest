@@ -1,0 +1,43 @@
+script
+place l1 mokou
+sl mokou
+slce worry
+. `Yukari? Yukari, are you here? Keine sent me...`
+z
+place r1 yukari
+setstandopacity yukari 0
+fadestandin yukari 1
+sr yukari
+srce happy
+namecard namecard-yukari
+. `I'm here. `
+z
+slce surprise
+. `Uwah! Don't just appear randomly like that.`
+z
+srce worry
+. `I wasn't expecting you this early. You're quite fast.`
+z
+srce happy
+. `I was visiting an old friend who should be able to help us resolve this incident.
+But before we get to that, I have an objection to this situation.`
+z
+slce worry
+. `As the only phoenix around here, I think I should be the one objecting.`
+z
+srce worry
+. `You know, when we had our little skirmish during the trial of guts, you were kind of... wimpy?`
+z
+slce _
+. `If you say so. I'm just a simp`
+wait 1
+.c `le tour guide.`
+z
+srce happy
+. `Don't be like that! I just want to see if you've improved any.`
+z
+. `If you're as pathetically weak as you were then, then I might have to get someone else to resolve the incident.`
+z
+. `Think of me as the threshold guardian for your hero's journey.
+Let's have some fun, Fujiwara.`
+z

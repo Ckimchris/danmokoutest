@@ -1,0 +1,15 @@
+#Star {
+    height: 100%;
+    width: 240px;
+    background-image: url('/Assets/Danmokou/Sprites/UI/boss-star.png');
+    -unity-background-image-tint-color: rgb(255, 0, 0);
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.bracket {
+    -unity-font-definition: url('/Assets/Danmokou/Fonts/Unity SDF Assets/Odibee-CorpSt-Joint SDF.asset');
+    font-size: 200px;
+    color: rgb(200, 200, 200);
+    -unity-text-align: middle-left;
+}

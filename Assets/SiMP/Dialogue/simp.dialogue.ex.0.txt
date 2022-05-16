@@ -1,0 +1,44 @@
+script
+place r1 keine
+sre keine worry
+.z `Scheiße... I guess she's not here...`
+place l1 mima
+setstandopacity mima 0
+fadestandin mima 1
+sl mima
+.z `Yo! What's up, Professor?`
+srce surprise
+.z `It's you! The curse deity of the Hakurei shrine!`
+srce angry
+.z `Was machst du hier?! This is Mokou's house! Did you do something to her?! Depending on your response...`
+slce worry
+.z `Whoa, whoa, don't misunderstand. I'm just casually haunting this place.`
+srce worry
+.z `...Haunting? What kind of god haunts houses?`
+slc
+.z `Well, there are all kinds of gods. A visionary from another world once reckoned eight million gods in the human world.`
+.z `Anyways, I haven't seen Mokou either. She went fishing yesterday morning, but hasn't returned.`
+srce worry
+.z `Well, if you didn't do anything, then I'm not worried about her, but as it turns out...
+The incident isn't over.`
+slce surprise
+.z `What?!`
+src
+.z `There's some kind of otherworldly invasion. Chances are good that everything we did last week was just a setup to get Reimu out of the way.`
+.z `I thought Mokou might want to finish the job, but if she went on a fishing trip, I'll just have to tell her the story afterwards.`
+slce worry
+.z `You don't seem particularly concerned.`
+srce _
+.z `If Yukari and the other youkai can put their hats in the game this time, then the incident will get solved one way or another.`
+.z `I have no reason to get involved. And Mokou's only possible reason to get involved is for revenge.`
+slc
+.z `Hmm, now that I think about this more... an otherworldly invasion...`
+slce _
+.z `I think it's time for me to show my true power.`
+srce worry
+.z `You're going to resolve the incident?`
+slc
+.z `If my estimation is correct, the mastermind of this plot owes me a large debt. I intend to go collect it.`
+src
+.z `Well, have fun, I guess.`
+

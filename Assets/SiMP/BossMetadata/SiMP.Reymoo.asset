@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: SiMP.Reymoo
+  m_EditorClassIdentifier: 
+  boss: {fileID: 5557805967316943377, guid: 5d7c2e027fb1a504185dfa12862e5608, type: 3}
+  localizationBaseKey: simp.boss.reymoo
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 4900000, guid: 840384f4e1c2bc34082d045dcb45cde8, type: 3}
+  key: simp.reymoo
+  colors: {fileID: 11400000, guid: 1af87831a4361b44092750b7f2453dad, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 0}
+    rightSidebar: {fileID: 0}
+  defaultNonBG: {fileID: 5180723301924424041, guid: 54af7e21f5658a34eb43a871eff483aa,
+    type: 3}
+  defaultSpellBG: {fileID: 5180723301924424041, guid: 9634a3dafc6f67b4d91b51bf5e9dfda8,
+    type: 3}
+  defaultIntoSpellTransition: {fileID: 11400000, guid: 9b0abf82e07299741a4d64ecd57ff7e6,
+    type: 2}
+  defaultIntoNonTransition: {fileID: 11400000, guid: 23d9a9fbcd555004c9905acab3bc372a,
+    type: 2}
+  bossCutin: {fileID: 0}
+  spellCutins: []

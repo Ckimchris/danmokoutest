@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: SiMP.YukariEx
+  m_EditorClassIdentifier: 
+  boss: {fileID: 6274564262994426332, guid: 2e4cfe2f6f8095747a49bcb45d5dea46, type: 3}
+  localizationBaseKey: simp.boss.yukariex
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 4900000, guid: e6752f2cc58aedc4f9f7e8ea873b2ea0, type: 3}
+  key: simp.yukari2
+  colors: {fileID: 11400000, guid: 149feb9b514a85740b57d74694671283, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 2800000, guid: 9f9e9d6453a18cd42a54610b9f52950a, type: 3}
+    rightSidebar: {fileID: 2800000, guid: f6d00f000fa70cc46947766cae64e3ad, type: 3}
+  defaultNonBG: {fileID: 5180723301924424041, guid: 4a0a8a5316c330c4189ab06c1ba0018c,
+    type: 3}
+  defaultSpellBG: {fileID: 5180723301924424041, guid: 560f5baeda61def45ad4e941fc6813ca,
+    type: 3}
+  defaultIntoSpellTransition: {fileID: 11400000, guid: 23d9a9fbcd555004c9905acab3bc372a,
+    type: 2}
+  defaultIntoNonTransition: {fileID: 11400000, guid: 76e812b8d330cbe43b048748bf21ae77,
+    type: 2}
+  bossCutin: {fileID: 2426727079670566650, guid: cf37679fe9eb4e14abbf2d9aa35dd246,
+    type: 3}
+  spellCutins:
+  - {fileID: 160725723660692450, guid: 64a979253eb380246aab3a8f93e5d0b6, type: 3}

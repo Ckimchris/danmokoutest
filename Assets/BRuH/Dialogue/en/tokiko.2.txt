@@ -1,0 +1,21 @@
+script
+place l1 kasen
+place r1 tokiko
+sle kasen _
+sre tokiko happy
+.z `I can feel it! Your love for poetry!`
+slce happy
+.z `And I haven't met anyone as well-read as you in a long time. `
+srce _
+.z `Well, I am the founder of Gensoukyou's one and only book club. Reading is my passion!`
+slce surprise
+.z `We have a book club?!`
+srce happy
+.z `Yeah. It's mostly made up of weak youkai like me, though.
+But you're welcome to join. Ask Rinnosuke for the details.`
+srce _
+.z `Before I go, let me take the position of your guest of honor and offer a hokku of praise. I'd love to hear you cite it yourself one day.`
+.z `"Traveller"
+ I shall be called--
+ first winter showers`
+.z `I'll see you on stage, comrade.`

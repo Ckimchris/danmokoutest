@@ -1,0 +1,202 @@
+pattern { 
+	##boss simp.kasen
+}
+phase 0
+	paction 0
+		shift-phase-to 4
+		
+!!{ colors { black blue purple pink red orange yellow green teal black  }
+!!{ csuff { /w /b /  }
+!!{ csuff1 { /w /b / }
+
+
+## 1 small bullets
+<!> type non `紫` #{
+phase 0
+	paction 0
+		position 0 3
+		sync * <;-3.95:> gsr2 9 <0.75;:> {
+			center
+			color { arrow-* circle-* gcircle-* ellipse-* star-* dot-* shell-* strip-* gem-* }
+		} gsr2 3 <0.2;:> {
+			center
+			color { */b */ */w } 
+		} gsr2 9 <;-0.3:> color $colors
+		gsr {
+			bank <90>
+		} s tprot zero
+		sync * <;-1:> gsr2 6 <1.3;:> {
+			center
+			color { sakura-* triangle-* apple-* amulet-* amuletreimu-* amuletreimu2-* }
+		} gsr2 3 <0.35;:> {
+			center
+			color { */b */ */w }
+		} gsr2 9 <;-0.3:> color $colors s tprot zero
+#}
+
+## 2 amulets
+phase 0 #{
+	paction 0
+		position 0 3
+		sync * <;-1:> gsr2 3 <0.4;:> {
+			center
+			color { amuletreimu2-* amulet-* amuletreimu-* }
+		} gsr2 3 <1.6;:> {
+			center
+			color { */b */ */w }
+		} gsr2 9 <;-0.3:> color $colors s tprot zero
+		sync amulet2-* <;-5:> gsr2 9 <0.4;:> {
+			center
+			color { reimu }
+		} s tprot zero
+		
+
+
+#}
+	
+## 3 new glow bullets
+phase 0 #{
+	paction 0
+		position 3 3
+		pool-control glcircle* tint rgba(1.3, 1.3, 1.3, 1)
+		sync gcircle-* <-4.3;-4.6:> gsr2 3 <0.3;:> color { */  */w */b }  gsr2 9 <;-0.3:> color $colors s null
+		sync sakura-* <-6;-4.4:> gsr2 3 <0.5;:> color { */  */w */b }  gsr2 9 <;-0.3:> color $colors s null
+		async fireball-* <-6.1;0.5:> gir2 15 3 <0.6;:> color { */ */w */b }  gcr2 10 9 <;-0.5:> color $colors s null
+		##sync fireball-ppr <-7.3;-5:> s tprot zero
+		async glcircle-* <-4.4;0.7:> gir2 15 3 <0.6;:> color { */  */w */b }  gcr2 10 9 <;-0.6:> color $colors s tprot zero
+		sync scircle-* <-2.3;0.4:> gsr2 2 <1.4;:> color { */w */b }  gsr2 9 <;-0.85:> {
+			bank <>
+			color $colors
+			preloop rv2.rx =f * 0.8 mod 2 t 
+		} s tprot zero
+		##sync sun-* <-2;1.3:>  gsr2 3 <2;:> color { */ */w */b }  gsr2 4 <;-2:> color $colors ss 1 tprot zero
+#}
+	
+## 4 lasers pather
+phase 0 #{
+	paction 0 
+		position 0 0
+		sync gdlaser2c-*;*/w <> gsr2 0 <12> {
+			color { blue red purple  }
+		} gsr2c 9 {
+			color $colors
+		} laser null 0 20 {
+			#tint rgba(1.1, 1.1, 1.1, 1)
+			hueshift(60 * max(0, t - 3))
+		}
+		sync gdlaser-** <;:3> gsr2 9 <40> { color $colors } gsr2  3 <14> { color $csuff1  } laser null 4 20 { 
+		##	dynamic(roffset(rx(1 + t, 10 * &lt)))
+		}
+		sync gstretchlaser-** <;:7> gsr2 9 <40> { color $colors } gsr2  3 <14> { color $csuff1  } laser null 4 20 { 
+			dynamic(roffset(rx(1 + t, 10 * &lt)))
+			length(2)
+			s(4)
+		}
+		sync mulaser-*/b <1;:3> gsr2 9 <40> { color $colors }  safelaser 3 { }
+		##sync arrowpather-** <1;:183> gsr2 9 <40> { color $colors } gsr2 3 <13> { color $csuff }  pather 3 3 tprot cx 2 { }
+		sync arrowpather-** <;:183> gsr2 0 <40> { color $colors } gsr2 3 <13> { color $csuff }  pather 1 1 polar
+			+ 0.5 * 1 t
+			sine 4 20 t
+		{ }
+#}
+	
+## 5 Large bullets
+<!> type non ``
+phase 0 #{
+	paction 0
+		position 4 0
+		sync lcircle-** <-3;3.5:> gsr2 9 <;-0.6:> { root zero color $colors } gsr2 3 <0.6;:> { color $csuff1 } simple null { dir starrot4 }
+		sync stelldecagon-** <-1;3.5:> gsr2 9 <;-0.8:> { root zero color $colors } gsr2 3 <0.8;:> { color $csuff1 } simple null { dir starrotb2 }
+		sync lellipse-** <1.5;3.5:> gsr2 9 <;-0.7:> { root zero color $colors } gsr2 3 <0.8;:> { color $csuff1 } simple null { dir starrotb2 }
+#}
+		
+
+## 6 Tint support
+phase 0 #{
+	paction 0
+		position 0 0
+!{ lerper(ctrl)
+	lerpback(0, 0.3, 0.7, 1, mod(1, %ctrl), 0, 1)
+!}
+		pool-control lstar-blue/w tint rgba(1, 1, 0.7 + sine(2h, 0.5, t), 
+			$lerper(t / 2 + 1h * p))
+		async lstar-blue/w <90> gcr2 40 _ <> {
+			frv2(angle(30 * rangemodh(++ t)))
+			p this
+		} guideempty2 p { pl loc pd dir } velocity(
+			px(3.7),
+			py(-2 * t)
+		) {
+			simple dtpoffset pl pd p zero {
+				dir(400 * pm1(p) * t)
+			}
+			##color star-red/w simple doffset pl pd p -0.5 {
+			##	dir(300 * mp1(p) * t)
+			##}
+			color gpather-pink/w pather 1 1 dtpoffset pl pd p zero {
+				tint(rgba(1,1, 0.7 + sine(2h, 0.5, t), 1 - $lerper(t / 2 + 1h * p)))
+			}
+		}
+
+#}
+
+## 7 Recolorize support (simple bullets)
+phase 0 #{
+	paction 0
+		position 0 1
+
+!{ lcA(a, b, c)
+lerpmany({
+	0	%a
+	1	%b
+	2	%c
+	3	%a
+}, mod(3, &.loop / -10 + &.loop2 / 15 - 3 * t))
+!}
+!{ rccA(c1, c2, c3)
+recolor(
+	$lcA(palette(%c1, d), palette(%c2, d), palette(%c3, p)),
+	$lcA(palette(%c1, l), palette(%c2, l), palette(%c3, h))
+)
+!}
+		pool-control circle-recolor* $rccA(pink, blue, black)
+		async circle-recolor/w <0.5;:90> gcr2 12 _ <> {
+			frv2 angle(sine(60, 8, t))
+			bindItr(loop)
+		} gsr2 135 <> {
+			center
+			spread(<330>)
+			bindItr(loop2)
+			expose { f loop f loop2 }
+		} s(rvelocity(px(lerpt(0.2, 0.4, 0.2, 2))))
+#}
+
+## 8 Recolorize support (pathers/lasers)
+phase 0 #{
+	paction 0
+		position 0 0
+!{ recolor()
+recolor(
+	lerp3c(0, 0.5, 1, softmod(1, (p + 2 * t - 4) / 2), 
+		palette(red, d), palette(black, d), palette(blue, d)), 
+	lerp3c(0, 0.5, 1, softmod(1, (p + 2 * t - 4) / 2), 
+		palette(blue, l), palette(green, l), palette(yellow, l)))
+!}
+		sync pather-recolor* <0.5;:9> gsr2 9 <12> {
+			p this
+		} gsr2 3 <120> { color $csuff1  }  pather 2 2 tprot cx 1.3 { 
+			s 2
+			$recolor
+			high
+		}
+		sync laser-recolor* <0.5;:3> gsr2 9 <12> {
+			p this
+		} gsr2 3 <120> { color $csuff1  }  laser null 1 4 { 
+			$recolor
+			high
+		}
+
+#}
+		
+		
+		

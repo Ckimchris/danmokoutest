@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f64d4a00c194018afbe5db3323da211, type: 3}
+  m_Name: SiMP Campaign
+  m_EditorClassIdentifier: 
+  startLives: 8
+  key: simp.main
+  shortTitle: Main
+  replayable: 1
+  endings:
+  - {fileID: 11400000, guid: ee061571258144046846fbe13456a608, type: 2}
+  - {fileID: 11400000, guid: 7f65b4581454d4c4ea4ac16e73a06754, type: 2}
+  players:
+  - {fileID: 11400000, guid: 794bb6976ccc5104a88d12a1c93fa9fd, type: 2}
+  stages:
+  - {fileID: 11400000, guid: a46f372fcd2996445bac038ef2a72d0c, type: 2}
+  - {fileID: 11400000, guid: 100e508a9bdf67b4982aeb04d285d02c, type: 2}
+  - {fileID: 11400000, guid: 66e5bf4771be67a4b9a41266427756ca, type: 2}
+  - {fileID: 11400000, guid: bcc32a73896be0d46bfb974e9868ca01, type: 2}
+  - {fileID: 11400000, guid: 78cdc667a3de5bc4c9a160339af30f6e, type: 2}
+  practiceBosses:
+  - {fileID: 11400000, guid: 5d6d4963e0f6b7544a9b64095bb1e76d, type: 2}
+  - {fileID: 11400000, guid: 99cd8b998316e6a4eae1f8894a706193, type: 2}
+  - {fileID: 11400000, guid: da15df684a7eec947ac0846219c4461f, type: 2}
+  - {fileID: 11400000, guid: 2a8da76a930486b49aebfdb0e223c0fc, type: 2}
+  - {fileID: 11400000, guid: a50fb6bf14fe55c42ae6b1f031c5a69a, type: 2}
+  - {fileID: 11400000, guid: 2f31385c7b8745b498c8cb0cbc5ac0b0, type: 2}
+  - {fileID: 11400000, guid: c1bc569dd2c107245bb9c2f98ab5bcd9, type: 2}
+  - {fileID: 11400000, guid: 43e8e3031b95bc8498525b35ec31b1c9, type: 2}
+  - {fileID: 11400000, guid: 5d20410abda162f4b86c5b5511038e76, type: 2}
+  - {fileID: 11400000, guid: 1a0ddcbc2a436e8438020c8f8384c55a, type: 2}

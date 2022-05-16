@@ -1,0 +1,40 @@
+pattern { }
+phase 0
+	paction 0
+		shift-phase-to 1
+	
+<!> type non `hello world`
+phase 2.5
+    paction 0
+        position 0 0
+		##New
+		bullet-control persist lcircle-blue/w batch & < x 0 > t 1 {
+			sm _ 
+				async circle-green/w <> gcr2 120 _ <> {
+				} gsr2c 20 {
+				} s tprot cx 2
+			cull _
+		}
+		
+		sync lcircle-blue/w <> gsr2c 10 {
+		} s tprot cx 2
+
+<!> type non `foo bar`
+phase 2.5
+    paction 0
+        position 0 0
+		##New
+		beh-control persist gpather-blue/w batch & < x 0 > t 1 {
+			restyle gpather-purple/ _
+			sm _ 
+				async circle-green/w <> gcr2 120 _ <> {
+				} gsr2c 20 {
+				} s tprot cx 2
+		}
+		
+		sync gpather-blue/w <> gsr2c 10 {
+		} pather 2 2 tprot cx 2 { }
+
+phase 0
+	paction 0
+		move _ nroffset px sine 4 2 t

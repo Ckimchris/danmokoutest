@@ -1,0 +1,189 @@
+script
+place l1 mokou
+place r1 yukari
+sr yukari
+sl mokou
+slce worry
+. `Two cards? And they call you the strongest youkai in Gensoukyou?`
+z
+srce happy
+. `Well, to be honest, I just wanted to show you my danmaku. There's actually no time to find someone else.`
+z
+. `And if Kasen let you pass, then you're probably qualified enough.`
+z
+slc
+. `Kasen? Is she that strong?`
+z
+srce _
+. `I don't know if she's strong, but it takes a lot of wisdom to be able to detect an incident so quickly.`
+z
+srce surprise
+. `Something goes wrong in the middle of the night, and by dawn her friend Kamishirasawa is calling asking me to join the resolution team! Even I'm not that fast at dealing with incidents.`
+z
+srce _
+. `The celestials may be a bunch of lazy blowhards, but the hermits in this land are really something.`
+z
+. `More importantly, do you know what this is?`
+place center phone
+setstandopacity phone 0
+fadestandin phone 1
+z
+slce _
+. `No idea.`
+z
+srce worry
+. `It's a device from the Outside World.
+You've seen the tower in the Forest of Magic, right?`
+z
+. `This device can send messages through the air to that tower, and that tower can send messages through the air to this device.`
+z
+. `So you can talk to anyone else with the same device, as long as you're both within range of the tower.`
+z
+srce happy
+. `I sent Chen to deliver one to Kamishirasawa, along with my plans. I didn't expect you to get here before me, but with this device, you won't have to backtrack.`
+z
+slce _
+. `Is that all?`
+z
+srce _
+. `No, I have one more gift for you.
+A warning.`
+z
+srce angry
+. `Fujiwara. If you fail, I'll have to step in.
+And that will be the second-worst outcome. For everyone.`
+z
+. `Don't screw up. Kamishirasawa might trust you, but I don't trust her and I don't trust you. I'm only working with you because I can't involve Reimu.`
+z
+srce happy
+. `And on that note... I'm going to sleep. When I wake up, I expect to see this incident resolved.`
+z
+fadestandout yukari 1
+slce worry
+. `...She'd have a lot more friends if she were a bit more honest.
+Hah! Do I have a beam in my eye or something?`
+z
+. `Well, let's try using this piece of junk...`
+z
+. `Ah, hello? Keine? This is Mokou.`
+place r1 keine
+setstandopacity keine 0
+fadestandin keine 1
+z
+sr keine
+. `Mokou! I was expecting we'd communicate with one of Kasen's hawks. Is everything good on your end?`
+z
+slce happy
+. `No issues so far.`
+z
+slce _
+. `Oh, but I did run into Kaguya. Could you tell Eirin that I got thrashed by Kaguya?`
+z
+srce worry
+. `...Did that really happen?`
+z
+slce worry
+. `No.`
+z
+src
+. `...I expect to hear the rest of this story tomorrow.`
+z
+slce _
+. `Thanks.`
+z
+srce _
+. `More importantly, the next part of your mission. Yukari hasn't given me too many details, but is there a jizo statue nearby?`
+z
+slc
+. `Yeah, just one.`
+z
+src
+. `Alright. Your instructions are on the back of that statue. I'm hanging up now, Eirin needs me.`
+fadestandout keine 1
+fadestandout phone 1
+z
+slce worry
+. `Yukari could have just told me that herself... Hmm... back of a jizo statue? That sounds vaguely familiar... Let's see... What?!`
+fadestandout mokou 1
+z
+place l1 kasen
+place r1 yukari
+setstandopacity kasen 0
+setstandopacity yukari 0
+fadestandin kasen 1
+fadestandin yukari 1
+sr yukari
+sl kasen
+slce happy
+. `Second-worst outcome?`
+z
+srce surprise
+. `Kasen? Were you watching?`
+z
+slce _
+. `Whether everyone else knows it or not, I am your teacher. And it's a teacher's duty to critique her student's performances, right?`
+z
+srce worry
+. `It's also a teacher's duty to guide her students, isn't it? So answer this for me.`
+z
+. `This incident is giving me a terrible sense of powerlessness. It's my job to protect Gensoukyou, but I can't even approach Reimu's shrine, let alone resolve the incident.`
+z
+. `Kasen... what should I do?`
+z
+slc
+. `Ambition is what makes a youkai. If we can't yet defy the very laws of nature, then it simply means our ambition isn't grand enough.`
+z
+slce happy
+. `One day, we'll reach for the moon, Yukari. And when that project is realized, nobody, not even the Hakurei god herself, will be able to stop us.`
+z
+slce _
+. `For now, have patience.`
+z
+srce surprise
+. `Ah... actually, I think we might find a clue to that project in this incident.`
+z
+slce surprise
+. `Really?`
+z
+srce _
+. `I was thinking about some rumors from a couple years ago. Before you came back.`
+z
+. `Back then, some youkai were talking about a vengeful spirit trying to take over the Hakurei shrine. I even heard some claims that this spirit was actually some kind of astronomical deity.`
+z
+. `"God of the Eighty-Sixth Crescent Moon". I do remember this title pretty well. Journalistic instinct and all.`
+z
+slce worry
+. `Eighty-six?`
+z
+srce worry
+. `Supposedly, that's the number of gods in our realm. The number is wrong, but it's too obviously wrong to be wrong. I don't know what to make of it.`
+z
+. `Anyways, I know for a fact that Reimu sealed something powerful in the back of the shrine at about that time. And then the rumors stopped.`
+z
+slce _
+. `I see. So you're hoping that a god named after an astronomical body would be willing to work with us to shatter the false skies.`
+z
+slce worry
+. `But, supposing that Reimu sealed the Eighty-Sixth God of the Crescent Moon in the shrine. Even if this god happened to break out of the shrine last night, it wouldn't explain why the goshintai are acting up.`
+z
+srce _
+. `My best guess is that the Hakurei god is involved in the jailbreak. Probably a petty grievance against Reimu.`
+z
+slce surprise
+. `Gods hold grievances against their own shrine maidens? Times have changed...`
+z
+src
+. `Other gods don't. But the Hakurei god is in a league of her own.`
+z
+srce happy
+. `But enough thinking for now. With Reimu's shrine in this state, there's not much more I can do. 
+So I'll get some sleep instead.`
+z
+slce happy
+. `In that case, I'll stick around a bit longer.`
+z
+src
+re sfx extend-any
+. `(Mysterious Communication Device has joined the party!)`
+z
+

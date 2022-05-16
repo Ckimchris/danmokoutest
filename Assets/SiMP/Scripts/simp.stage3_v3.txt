@@ -1,0 +1,322 @@
+<#> warnprefix
+pattern { bgm {
+	1  simp.3.stage
+	8	_
+} }
+phase 0
+	paction 0
+		shift-phase-to 4
+		
+
+##1
+<!> announce
+phase 0
+	saction 0
+		stage-announce
+		shift-phase
+
+!{ fliplr(color, color2)
+bullet-control persist %color batch > x xmax {
+	flipx> xmax _
+	restyle %color2 _
+}
+bullet-control persist %color batch < x xmin {
+	flipx< xmin _
+	restyle %color2 _
+}
+!}
+
+!{ flipb(color, color2)
+bullet-control persist %color batch < y ymin {
+	flipy< ymin _
+	sfx x-transform-1 _
+	restyle %color2 _
+}
+!}
+
+
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.7 lerp 0 1 t yellow orange
+	witha 0.7 green
+	1 1 0 0.5
+!}
+
+
+!{ a1(y 2)
+summonr null(cy(5))
+	movewrap 1 goy(%y) 3 goy(6)
+		async triangle-*/ <> gir3 (180 / dl ^ 0.8) 6s <> {
+			p this
+			delay(lerpd(60, 0))
+		} gcr2 8 (2 + dc) <> {
+			aimed
+			sfx x-fire-small-1
+		} {
+			gsr {
+				color yellow
+			} s tprot cx 3
+			gsr {
+				times(2)
+				color { green orange }
+				bindLR
+			} s roffset pxy(3 * t, (1 + cosine(1.4, 1, t + 1.4p * p)) * (0.08 + 0.03 * dc) * &lr)
+		}
+		{ hp 150 }
+!}
+
+!{ a2(y 2)
+summonr rvtp(cy(5), tpnrot(py(-1.5 * (t ^ 0.5))))
+	async lcircle-*/ <90> gir2 (60 / dl ^ 0.8) _ <> {
+		while(onscreenby(-0.5, loc) & >(y, -2))
+		p this
+		preloop y =f y
+		color({ orange yellow })
+	} gsr2 (5 + d3d1 + z1(p)) <> {
+		spread(<90>)
+		center
+		sfx x-fire-burst-1
+	} simple velocity
+		cx 1.6
+		py(-2.2 * (t ^ 0.65)) {
+			dir(400 * t)
+			scale(lerp(-2, 2.5, &y, 0.8, 0.4))
+		}
+	{ hp 700 }
+!}
+
+!{ a4(y 2.5)
+summonr null(cy(5))
+	movewrap 1 goy(%y) 3 goside(%y + 0.5)
+		async circle-green/ <> gcr3 (50 / dl ^ 0.6) 8s <> {
+			sfx x-fire-burst-2
+		} gsr2c(22 * dl ^ 0.5) {
+			offset(aphi(&times) * &pi)
+		} s rvelocity(px(1.6 + sine(2, 0.8, t)))
+	{ hp 2500 }	
+!}
+
+!{ a5(x [Lplayer].x, y 3.5, color pink, delay 0)
+summonr null(cy(5))
+	paction 0 :2
+		sfx x-crow
+		movewrap 1 pxy(%x, %y) 2 goside(1)
+			>> 1 _ %delay sync gdlaser-%color%/b <-2;:> target Lplayer laser null 1 0.5 { s 2 dsfx }
+	{ hp 500 }
+!}
+
+!{ l(x -2.7)
+<%x%;:>
+!}
+!{ r(x 2.7)
+<%x%;:>
+!}
+!!{ lr 2.7
+!!{ w 5.4
+
+##2
+<!> stage
+phasej 59 0 #{
+	paction 0
+	paction 0
+		async tfairy <> gcr2 60 5 <> {
+			p this
+		} gsr {
+			t(2)
+			center
+			spread(rx($w - 0.6 * p))
+		} $a1(0 + 0.7 * p)
+	paction 3
+		async tfairy <> gcr2 60 5 <> {
+			p this
+		} gsr {
+			t(2)
+			center
+			spread(rx(1.6 + 0.8 * p))
+		} $a1(0.4 + 0.6 * p)
+	paction 3
+		async tfairy <> gcr2 60 5 <> {
+			spread(rx(-1 * $w))
+			center
+		} $a1
+		_ 1 async tfairy <2;:> $a2
+		_ 1.6 async tfairy <> $a2
+		_ 2.2 async tfairy <-2;:> $a2
+	paction 5
+		$flipb(circle-green/, circle-green/w)
+		async tlfairy <> gcr2 7s 2 <-2.4;:> {
+		} $a4
+		_ 1 dangerbot
+		_ 3 async crow <> gcr2 60 2 <> {
+			bindLR
+		} $a5(3 * &lr)
+		_ 5 async crow <> gcr3 (120 / dl ^ 0.5) 14s <> {
+			p this
+		} $a5(2.5 * rangemodh(++ p))
+		_ 5 async tfairy <> gcr2 60 5 <> {
+			spread(rx($w))
+			center
+		} $a1
+		_ 13 async tfairy <> gcr2 60 5 <> {
+			spread(rx(-1 * $w))
+			center
+		} $a1
+		_ 14 async tlfairy <2.5;:> $a4
+	paction 5
+		async tfairy <> gcr2 6s _ <> {
+		} gsr2 4 <> { 
+			spread(rx($w))
+			center
+		} $a2
+		_ 5.5 async crow <> gcr2 (lerpt(0, 6, 160, 80) / dl ^ 0.5) _ <> {
+			p this
+		} $a5(2.5 * rangemodh(++ p))
+		
+
+#}
+
+
+
+!{ al7(root, vel, f, color)
+summonr rvtp %root tprot %vel
+	async %color <> gcr2 %f _ <> {
+		while onscreenby 3 loc
+		sfxif(x-fire-burst-1, > t 1)
+	} gsr {
+		face v
+	} gsr2 2 <120> {
+		center
+	} s tprot px lerpt 0.5 0.8 3 1.4
+	{ hp 500 }
+
+!}
+
+## 3
+<!> stage
+phase 33 #{
+	paction 0
+!!{ fd (dl ^ 0.6)
+		async tfairy <> gcr3 /i $fd 90 _ <> {
+		} $al7(cxy -5.4 4.5, cr 2 -15, (60 / $fd), circle-green/w)
+		async tfairy <> gcr3 /i $fd 90 _ <> {
+		} $al7(cxy 5.5 4.5, cr 2 -165, (60 / $fd), circle-orange/w)
+		async crow <> gir2 /i (dl ^ 0.6) lerpt 0 4 360 280 _ <> {
+			delay 20s
+		} gcr2 36 4 <> {
+			p this
+			sfx x-crow
+		} gsr {
+			root pxy(4 * pm1 p, 5)
+		} summon null movewrap 1 pxy([Lplayer].x, 3.5) 2 pxy(6 * pm1 p, 1)
+			paction 0 :2
+				sync gdlaser-pink/b <-2;:> target Lplayer laser null 1 0.5 { s 2 dsfx }
+				wait 1
+			{ hp 600 }
+		async crow <-6;-3.8:> gcr3 (3.5sh / dl ^ 0.8) 16s <180> {
+			p this
+		} summon tprot cx 1
+			paction 0 :2
+				async gdlaser-yellow/b <-2;:90> iparent this gir {
+					delay rand 0s 2s
+!!{ cold lerpd(1.9, 1.5)
+!!{ hot (2.5 - $cold)
+				} laser null $cold $hot { repeat sfx2 `` x-laser-on hueshift lerp3(0.1, 0.3, $cold - 0.4, $cold, mod(2.5, t), -120, 0, -120) }
+				wait _
+			{ hp 4000 }
+
+#}
+
+
+##4. Mid-boss
+<!> midboss
+phase 0
+	saction 0
+		boss simp.eraa
+		shift-phase
+
+
+## 5 
+<!> stage
+phasej 36 0 #{
+	paction 0
+		async tfairy <> gcr2 6s 2 <> {
+		} gsr2 4 <> { 
+			spread(rx($w))
+			center
+		} $a2
+		_ 5 async tfairy <> gcr2 120 2 <> {
+			spread(rx(-1 * $w))
+			center
+		} $a1(3)
+	paction 6
+		dangerleft
+		dangerright
+	paction 2
+		async tfairy <-3;-5:> gcr2 5.5s _ <> {
+		} gsr2c 2 {
+			p this
+		} summon
+			tprot cy 2
+			async triangle-*/w <0.4;:> gcr2dr dl 4 _ <19p> {
+				colorf { red purple } p1
+				p add
+				while onscreen loc
+				sfxif x-fire-star-2 divby 2 t
+			} gsr {
+				bank0 angle(1p * p2 * (6 + 4 * p1))
+			} s tprot px(1.7 + 0.5 * p1)
+			{ hp 1500 }
+		_ 4.5 async crow <> gcr2 (lerpt(0, 8, 120, 70) / dl ^ 0.5) _ <> {
+			p this
+		} $a5(3 * rangemodh(++ p), 3.5, yellow, 1)
+
+#}
+
+
+## 6
+<!> stage
+phase 19 #{ ##Some extra time since this precedes the boss
+	paction 0
+		bullet-control persist ellipse-* batch (>(t, 0.8) & =(&.refire, 1)) {
+			 sfx x-transform-2 _
+			 restyleeffect arrow-black/w cwheel-black/w _
+		}
+		sync tlfairy <> summonr null(cy(5)) movewrap 1.5 cy(2) 2 cy(5)
+			async ellipse-*/b <1;:> gcrf /i dl 25 _ (angle sine 80 200 tdl) {
+					for	14s
+					sfx x-fire-burst-2
+					preloop refire =f if (divby 8 t) 1 0
+				} gsr2c 6 {
+				} gsr2 4 <> {
+					p this
+					color { red orange pink purple }
+				} gsr {
+					start refire =f (&refire * (if < p 3 1 0))
+				} s tp rx(
+						2.8 * if =(&refire, 0) 1 lerpt 0.7 0.9 1 0,
+						-180 +  pm1(p) * (if =(p // 2, 0) 120 60) / 2)
+					if (= &refire 0, zero,
+						ss(1, vhome 4 Lplayer) * lerpt(1, 1.2, 0, 1))
+			{ hp 11000 }
+
+#}
+
+## 7 End-boss
+<!> endboss
+phase 0
+	saction 0
+		boss simp.seija
+		shift-phase
+
+
+##8
+<!> announce
+phase 0
+	saction 0
+		stage-deannounce
+		shift-phase
+
+
+
+

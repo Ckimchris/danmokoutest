@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bf11572e58e644b8d52bbf0f0bb284, type: 3}
+  m_Name: SiMP.Dialogue
+  m_EditorClassIdentifier: 
+  assetGroups:
+  - name: simp.dialogue.1.1
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 4604e7cc22aa4b74e871009aa882d745, type: 3}
+  - name: simp.dialogue.1.2
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 4f288a387f9c92e48854afed53df5670, type: 3}
+  - name: simp.dialogue.1.3
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 4331e69c1bd625b42b8e1878eafdf77e, type: 3}
+  - name: simp.dialogue.1.4
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 88a6936fdd537304c97ebff749d7b0e5, type: 3}
+  - name: simp.dialogue.2.1
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 2f1cbf80ab34bf84da0456471813071e, type: 3}
+  - name: simp.dialogue.2.2
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 0da52989977ddde4bb59ad3e0ebfcaac, type: 3}
+  - name: simp.dialogue.2.3
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 1a66ec180a3658542965d03b0f6aa1f7, type: 3}
+  - name: simp.dialogue.2.4
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 1ac303d4caddabc49b090b1494b1d291, type: 3}
+  - name: simp.dialogue.3.1
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 6b141ea7920f10143b400f895cd6cd93, type: 3}
+  - name: simp.dialogue.3.2
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: cda4e4e1d996f49488443b793c7b235b, type: 3}
+  - name: simp.dialogue.3.3
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 78c0cbc935a913241bf2731d3955ebe4, type: 3}
+  - name: simp.dialogue.3.4
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 93d40e800a7c39640ae1150142ac6c19, type: 3}
+  - name: simp.dialogue.4.1
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 777503eea202ef1479f1787ffcde3886, type: 3}
+  - name: simp.dialogue.4.2
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: e758570e2c6b44f42aa34539041e2ed7, type: 3}
+  - name: simp.dialogue.4.3
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 61aaf7f833f271442a8d4255fa39a1a2, type: 3}
+  - name: simp.dialogue.4.4
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 6b8bc8d616eff334ca46f8aa503364d6, type: 3}
+  - name: simp.dialogue.5.1
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 6683a5adb5f9ea24498f46361c91bb37, type: 3}
+  - name: simp.dialogue.5.2
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 81409111d71afa8409adaffa37457b39, type: 3}
+  - name: simp.dialogue.5.3
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 36146f9a5012bfb429be4b5d9ae1d4c1, type: 3}
+  - name: simp.dialogue.5.4
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 7d3b15d3b0000c14b81d5fe8d80c9c25, type: 3}
+  - name: simp.dialogue.ex.0
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 481d73bcbdbd6c74c9e3a9d40fc0442d, type: 3}
+  - name: simp.dialogue.ex.1
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 5bff8d52774e0fc439ef7b33e0986ad2, type: 3}
+  - name: simp.dialogue.ex.2
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: c85f37ae2ccee814fab3452188184cc6, type: 3}
+  - name: simp.dialogue.ex.3
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 66a6360062ff3d043b8aeadda56a598b, type: 3}
+  - name: simp.dialogue.ex.4
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: a1817c299367769419dbec18af8a8945, type: 3}
+  - name: simp.dialogue.ex.5
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 4a2eb93ffcd05354ea102a145f06f6d7, type: 3}
+  - name: simp.dialogue.ex.6
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 758794cb27f7cd2409c5046032d347c5, type: 3}
+  - name: simp.dialogue.e-good
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 683abfd70edf15949a317f649f1344ce, type: 3}
+  - name: simp.dialogue.ex.e
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 3053c39b671bcfa47945a06ecf4e3ca3, type: 3}
+  - name: simp.dialogue.e-bad
+    files:
+    - locale: 0
+      file: {fileID: 4900000, guid: 54772ab6d38d09d4088a181aefee1372, type: 3}

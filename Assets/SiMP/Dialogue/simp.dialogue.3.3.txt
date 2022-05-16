@@ -1,0 +1,56 @@
+script
+place l1 mokou
+place r1 seija
+sl mokou
+sr seija
+srce angry
+. `Hey, you. What are you clinging to the ceiling for? Are you making fun of me?
+Get down here and name yourself. `
+z
+slce worry
+. `My bad. I'm Mokou. Keine sent me. And I guess Yukari pulled the strings.
+And you... honestly, I'm surprised you weren't literally exterminated by Reimu.`
+z
+srce worry
+namecard namecard-seija
+. `Hmm... this is a problem.
+I agreed to help a Keine as well as a Yukari, but I never agreed to help a "Mokou".`
+z
+. `If you agree to work with someone, and then they start acting one-sidedly, isn't that betrayal?`
+z
+. `Somehow, by advancing our common goals, those two have betrayed me and turned me into their enemy.`
+z
+slce worry
+. `Yeah, sure, if you say so.
+Anyways, what's your plan? I was going to smash the orbs, but if you can do something better...`
+z
+srce happy
+. `I'm the legendary amonajaku Kijin Seija. I have the ability to invert things, and my plan is to use this power to overthrow the ossified power structure of Gensoukyou. No more shall the fairies, humans, and weaker youkai tremble before the claws of the imperious! This world, controlled by only those born into lines of power and influence, must be rebuilt from-`
+srce surprise
+. `Wait.
+You're betraying me too!`
+z
+slce worry
+. `What the hell?`
+z
+srce angry
+. `I was talking honestly about my grievances, and you tricked me into divulging my secret plans! How do you plan to take responsibility for this?`
+z
+slc
+. `...Well, consider this. You talked about your grievances with <i>Keine and Yukari</i> to me, but you never asked them if you could do that. By telling me about the situation I put you in, haven't you in turn betrayed them?`
+z
+srce surprise
+. `...Ah!
+No... how could this be?`
+z
+slce worry
+. `To resolve this conundrum, I propose a simple game. 
+We'll have a short danmaku match.
+If I win, then you agree to work with me and nobody betrayed anybody.`
+z
+srce happy
+. `OK! And if I win, I get your liver!`
+z
+slce happy
+. `Don't worry. I have no intention of letting you regret that wish.`
+z

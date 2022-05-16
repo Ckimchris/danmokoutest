@@ -1,0 +1,49 @@
+gtr {
+	wt 30 _
+	wait-child
+} firesame
+	## lazors
+	paction 0 :2
+		async x-pc-fire-1 <> gcr2 3 _ <> {
+		} sfx
+		async arrowlaser-* <> gcr {
+			while(> powerf p)
+			root zero
+			preloop { 
+				pid = f playerid mine
+			}
+!{ laseropts()
+start(30 * max(0, (t - LaserLastActiveT(mine))))
+varLength(15, 30 * t)
+dynamic(tpnrot(rotate(OptionAngle(mine), cy 1)))
+delete(> (t - LaserLastActiveT(mine), 1) | (neq &pid playerid mine))
+deactivate((<= powerf p) | (> playerUnfiringT(mine) 0))
+!}
+		} {
+			gsr {
+				color(blueteal)
+			} laser(nroffset(OptionLocation(mine)),
+				0, _, {
+					$laseropts
+					tint(rgba(1,1,1,0))
+					player(12, 35, 28, oh1-teal)
+			})
+			gsr {
+				color(blueteal)
+			} laser(nroffset(OptionLocation(mine)),
+				0, _, {
+					$laseropts
+					tint(rgba(1,1,1, if(lasercolliding mine, lerpt(0.2, 0.6, 1, 0), 1)))
+					player(1, 0, 0, null)
+			})
+			gsr {
+				color(tealgreen)
+			} laser(nroffset(OptionLocation(mine)),
+				0, _, {
+					$laseropts
+					tint(rgba(1,1,1, if(lasercolliding mine, lerpt(0.2, 0.6, 0, 1), 0)))
+					player(1, 0, 0, null)
+			})
+		}
+	## cancellation
+	noop

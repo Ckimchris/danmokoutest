@@ -1,0 +1,29 @@
+script
+place l1 mima
+place r1 mokou
+sr mokou
+sle mima worry
+.z `Mokou? What are you doing here?`
+srce surprise
+namecard namecard-mokou
+.z `Oh. It's Mima.`
+srce worry
+.z `I'm on a job. I was hired by... someone.  They asked me to defend this place.
+"Kill anyone who doesn't turn around immediately", or something like that.`
+slc
+.z `Uh... Should I turn around?`
+srce _
+.z `Actually, don't.`
+.z `This is a sabotage. I took this job so I could ensure that any challengers make it all the way to my (temporary) boss.`
+srce happy
+.z `I was planning to make a show of losing to Marisa or one of those fools, but now that you're here, we might as well have a proper duel.`
+.z `We still have a score to settle, don't we?`
+slc 
+.z `Haha, I have no idea what you're talking about... (lie)`
+srce _
+.z `If what you showed me during the last incident was all the power you could muster, then I'll just have to wait for someone else. But I'm pretty sure you have what it takes to challenge me.`
+srce happy
+.z `Don't worry. Unlike most of the normies around here, I won't die even if I'm killed. So don't pull your punches.`
+srce angry
+.z `This is a rematch, Mima! I want to see your true strength this time. Show me what you reclaimed from the Hakurei Shrine!`
+

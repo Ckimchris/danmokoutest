@@ -1,0 +1,11 @@
+script
+place l1 mima
+place r1 mokou
+sl mima
+sre mokou happy
+.z `Ha! I'm looking forward to breaking our tie someday.
+For old time's sake.`
+slce worry
+.z `Huh? What could you possibly be referring to?`
+srce angry
+.z `Now hurry up and kill me, Mima!`

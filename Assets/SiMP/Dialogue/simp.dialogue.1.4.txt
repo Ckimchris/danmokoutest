@@ -1,0 +1,39 @@
+script
+place l1 mokou
+place r1 kasen
+sl mokou
+sr kasen
+srce happy
+. `Alright. I give up. With this kind of power, you should be capable enough of resolving this incident.`
+z
+slce surprise
+. `What?! Are you telling me that was a "test"?`
+z
+srce _
+. `You're strong, so let's say it was a test.
+That said, I should give you a warning before you proceed.`
+z
+slce _
+srce worry
+. `I don't know Yukari particularly well, but I do know that you can't trust her.`
+z
+. `Yukari doesn't want anything bad to happen to the barrier. That's probably why Keine involved her.`
+z
+. `But beyond that, you shouldn't assume that her goals are aligned with yours.`
+z
+slc 
+. `Fair enough. And what about your goals? Are they aligned with ours?`
+z
+srce happy
+. `I'm a hermit. I have no wordly desires. I guess I'd like to make it to Heaven one day, but that's completely unrelated to this incident, isn't it?` 
+z
+srce _
+. `Kume! Kanda!
+I only have a vague idea of where Yukari lives. You'll have to do the real searching.`
+z
+. `Kanda will follow you and serve as liaison. 
+Hop on Kume's back and we'll be off.`
+z
+re sfx extend-any
+. `(Kanda joined the party!)`
+z

@@ -1,0 +1,38 @@
+script
+sr narrator
+.z `I raised my left fist with only my index finger extended, letting it lean slightly backwards to feign an air of nonchalant wisdom.`
+.z `I have trained, through entirely aboveboard means, most characters in Gensoukyou to listen to me carefully when I do this.`
+.z `This time is, after all, the most important part of an incident. Not the problem, not the solution, but the lies that clear the board and allow the denizens of this land to move on with their lives.`
+.z `"We had two sequential incidents, but they were completely unrelated.`
+.z `Last week, some anomalies arose in the barrier by this shrine due to a mistake Reimu made several years ago, and as you know, Fujiwara repaired them.`
+.z `The other day, some grunts from Hell came looking for something, but they were unacceptably messy, so I sent them packing."`
+.z `Three sentences, three lies. Plus a fourth if you include my convenient omission of the fact that I was responsible for the latter of the two incidents.`
+.z `The thief was lying down on the shrine's platform, her face spared from the sun's rays by the overhang, and her feet dangling loosely over the edge. "It was probably that wicked hermit's fault again. She should just hurry up and die already, ze."`
+.z `In most cases, I don't need to make my explanations as public as this. I can usually speak with the related individual parties privately. People are not pure like shikigami, the more you put together, the more errors and unexpected behaviors arise.`
+.z `But, to make my next lie as efficient as possible, I need someone else to propose it. And before that, I need someone else to ask the right question.`
+.z `She's here right now. I've been holding off on visiting the shrine until she would come. Fujiwara cares little for lying and has certainly opted to instead avoid all her questions. She knows that I know the truth. And she doesn't know me well enough to doubt my every word.`
+.z `"What about Mokou? I thought she might have figured out the problem and gone to resolve it herself."`
+.z `Real trust can only arise when its naive counterpart has been dispelled. And if Keine is to protect the humans when the sky finally falls, she will need to have real trust in Kasen and myself.`
+.z `"Ah, yes, I nearly forgot about her. She thought it was linked to last week's incident, and so she went to finish the job. But then she got killed pretty quickly by some of the minions. She never even made it to the midboss!"`
+.z `Kasen's footsteps. I didn't tell her about my little deal with Mokou, but she must have figured it out by now. Either way, it's nice to have someone more trustworthy back me up here.`
+.z `"I had the opportunity to test Mokou's strength during the first incident. Certainly, she was strong enough to put down a stray youkai or a delirious human, but nothing much more.`
+.z `If that incident had involved a real enemy, then I would have tried to persuade Marisa to take it up."`
+.z `There's the green idiot, waving her purification rod around in the air, mocking some kind of sword.
+"Hey! What about me?! I'm powerful! You could have asked me for help!"`
+.z `What is she even doing here? Doesn't she have a day job? Let's see...`
+.z `Kasen's voice rung out, confidently. "Well, since we needed to desecrate the shrine to resolve the incident, we couldn't ask a shrine maiden for help." One-hundred percent bullshit. Brilliant.`
+.z `"You know, I thought I might get a break if Mokou started resolving incidents, but I guess I'll still be working three jobs for the near future."
+I feel almost bad for the rabbit. Maybe I should get the princess involved next time. `
+.z `"Wait, wait. I don't understand one thing. Why didn't I hear about this incident? It's my damn shrine!"`
+.z `Kasen's mouth opens. But the next voice is Keine's. `
+.z `"Kasen was planning to talk to you about the incident, but when she got to the shrine, you were suffering from an acute case of food poisoning. So she took you to Eirin's place and asked me and Mokou to resolve the incident in your stead."`
+.z `I smiled. "Exactly."`
+.z `Keine is a brilliant liar too. It would have been an issue if anyone suspected that Kasen was intentionally staying away from the shrine, like myself and Aya. Knowingly or not, Keine has protected Kasen's back with her little fiction.`
+.z `And thus, another lie woven, another promise kept.`
+.z `As for those two...`
+.z `Mima defeated Shinki and became the god of Makai. 
+In title only, for what it's worth. Apparently she has no interest in the world itself.`
+.z `I understand that titles are important, but... does such a title really make a difference? Well, it doesn't really matter to me what titles she takes, as long as she can help us shatter the skies towering imperious over this land.`
+.z `(Extra Stage Complete! Make sure to play the Phantasm Stage!)`
+
+

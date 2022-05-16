@@ -1,0 +1,315 @@
+<#> strict(none)
+pattern { 
+	boss simp.kaguya-fake
+	bgm {
+		2	simp.2.kaguya
+		7	simp.2.stage
+	}
+	set-ui-from(2)
+}
+phase 0
+	paction 0
+		shift-phase-to 7
+	
+	
+!!{ colors { blue purple pink red orange yellow green teal black  }
+!!{ rainbow { red orange yellow green blue pink  }
+!!{ kaguc { blue purple pink red orange yellow green teal  }
+!!{ kaguc1 { blue red yellow green }
+!!{ kaguc2 { purple pink orange teal }
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t red purple
+	witha 0.9 pink
+	1.5 2 0 0.5
+!}
+!{ kingcrimson()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-2
+	witha 0.9 lerp 0 1 t red yellow
+	witha 0.9 green
+	1.4 2 0 0.6
+!}
+!{ power1long()
+sync powerup1 <> powerup x-powerup-1
+	witha 0.9 lerp 0 3.7 t red pink
+	3 5
+!}
+
+##1
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 1
+		dialogue simp.dialogue.2.1
+		shift-phase
+#}
+
+
+##2
+<!> bosscutin
+<!> type non :simp.boss.kaguyaf.sleep #{
+<!> hpi 16000 3
+<!> root 0 1.5
+phase 28
+    paction 0
+		gtr {
+!!{ per 12
+			async (+ 45 cosine $per 20 t) _ <8h>
+			sfx	x-fire-burst-1
+			p	this
+		} {
+			##move-target 0.2 io-sine pxy (* pm1 p brand 0.1 0.25) y
+			async lightning-red/ <.5;:> gcr {
+				clip	not divby $per (+ -1 + / $per 2 p)
+				preloop itr =f pm1 // (+ -1 + / $per 2 p) $per
+				sfx x-lightning
+			} gsr2c * dh 15 {
+				target a Lplayer
+			} pather 3 3 tprot
+				ss 1.5 dcircle * &itr 2 1 t
+				{ hueshift(* 180 t) }
+			async glcircle-*/w <> gcr2 30 1 <;:-5p> {
+				clip	not divby $per (+ -1 + / $per 2 p)
+				sfx	x-fire-burst-2
+			} gsr2c (* 8 ++ dc) {
+				color	$kaguc
+			} s tprot cx 2.3
+			sync shell-*/w <> gsr2c * dl 27 {
+				colorf	$kaguc p1
+				p	add
+			} s :: {
+				t	+ t * (+ 0.2 * 0.1 softmod 5 p1) p2
+			} polar
+				+ 
+					lerpt 0 3 sine 3 0.1 &t 0
+					logsumshiftt -0.8 1.5 * 2 t * lerpd(-2.8, -3.3) t
+				* pm1 p1 +
+					lerpt 0 2 cosine 3 3 &t 0
+					logsumshiftt 0.1 0.6 0 
+						logsumshiftt -0.1 1.5 * 90 t * 8 t
+		}
+#}
+
+
+##3
+<!> type spell :simp.boss.kaguyaf.remote #{
+<!> hpi 15000 6
+<!> root 0 1.5
+phase 33
+    paction 0
+		gtr {
+			wt (/ 120 ^ dl 0.3) _
+			wait-child
+			P this
+		} move-target 4 io-sine pxy * mp1 p (+ 1.2 * 0.1 p) brand 1.4 1.7
+		sync sun-red/b <> loc0 s nroffset Lbeh kaguya
+		bullet-control persist {{ fireball-* }} softcull cwheel-red/b relcirc kaguya circ <0;0;1>
+		async fireball-*/b <> gcr2d dh 90 _ <> {
+			sfx x-fire-burst-3
+			root pxy -10 4
+			color $rainbow
+			preloop rv2.rx =f * 0.4 mod 1 * 1p t
+		} gsr2 50 <0.4;:> {
+		} s tprot py + -0.1 * -1 t
+		async ifairy5 <> gcr2 80p 5 <> {
+			root	cxy -3.5 4
+		} summons nroffset py * -1 softmod 10 * 1.5p t
+			async shell-blue/w <> gcr2d dl 50 _ <> {
+				preloop rv2.ry =f rand -0.6 0.6
+			} s tprot cx 1.6
+		async ifairy5 <> gcr2 80p 5 <> {
+			root	cxy 3.5 -6
+		} summons nroffset py softmod 10 * 1.8p t
+			async shell-red/w <> gcr2d dl 50 _ <> {
+				preloop rv2.ry =f rand -0.6 0.6
+			} s tprot cx -1.6
+		gtr {
+			delay 1s
+			wt	lerpd(240, 0)	_
+			wait-child
+		} saction 0
+			wait 1
+			$power1
+			wait 1.5
+			timer restart ctrl
+			bullet-control persist {{ shell-blue/w }} force _
+				tpnrot
+					lerp3 0 0.2 1.4 1.6 timersec(ctrl) zero pxy -0.9 0.8 zero
+			bullet-control persist {{ shell-red/w }} force _
+				tpnrot
+					lerp3 0 0.2 1.4 1.6 timersec(ctrl) zero pxy 0.9 -0.8 zero
+			~ _ 1.4 
+				sfx x-transform-3
+			wait 1.6
+			pool-control {{ shell-* }} reset
+		
+#}		
+
+
+##4
+<!> type non :simp.boss.kaguyaf.zawarudo #{
+<!> hpi 11000 3
+<!> root 0 2
+phase 32
+    paction 0
+		bullet-control persist { { shell-* } } cull & (| (offscreen loc) relcirc player circ <0;0;0.2> ) (< t 0.2)
+		gtr {
+			wt	(lerpt 240 180 0 3) _
+			wait-child
+			p this
+		} move-target 2 io-sine pxy * pm1 p 1.5 y
+		async _ <;-1:> gir2 0 2 <;2:> { 
+		} gir2 :: {
+			t	mod 6 t
+		} if (< &t 2) 200 lerp 1 5 &t 150 90
+				_ <> { 
+			preloop rv2.rx =f * 0.5 mod 1p t
+			sfx x-fire-burst-1
+			color $rainbow
+		} icacheloc gir {
+			target a Lplayer
+		} {
+			colorr glaser-*/b laser null 1.5 0 { }
+			gcr {
+				colorr shell-*/w 
+				wtd	dl 12 25
+				saoffset bo (rand 0 360) 
+					px logsumshiftt * 1 dl (* 7 dl) 0 * 1.2 tdl
+			} gsr2 2 (angle rand 0 360) {
+			} s tprot lerpt 0.8 2 zero px 1.8
+		}
+		gtr {
+			delay 350
+			wt	lerpd(940, 820) _
+			wait-child
+			timer tf
+		} saction 0 :2
+			bullet-control < timersec(tf) 4 { { shell-* } } slowdown (
+				if (< timersec(tf) 3, 
+					-m 1 * 2 t,
+					- timersec(tf) 3)
+					) _
+			dzawarudo 3
+#}
+
+
+##5
+<!> type spell :simp.boss.kaguyaf.lunarvision #{
+<!> hpi 17000 3
+<!> root 0 2
+phase 30
+    paction 0
+		gtr {
+			wt	lerp 0 2 dc 160 0  _
+			wait-child
+			p	this
+			preloop	lr  =f  z1 t
+		} saction 0 :3
+			async sun-*/ <;2:3.5;:-130> gir2 12 5 <20> { 
+				colorf { pink red } &lr
+				sfx x-metal
+				maxt	5
+				p	mod
+			} { 
+				gcr2 4 19 <-8> {
+					bank <252>
+				} color glaser-*/ gsr {
+					colorf { blue green } &lr
+				} laser null 0.5 1 {
+						hueshift(* 240 t)
+						s 0.4 
+					}
+				gcr2 24 3 <24> {
+					bank <-24>
+					color { gdlaser-*/b glaser-*/ gdlaser-*/b }
+				} { 
+					gsr {
+						colorf { red pink } &lr
+					} laser null lerpd(1.2, 1) 0.5 {
+						sfx2 x-laser-fire x-laser-on
+					}
+				}
+				guideempty .1 p { pl loc pd dir } { }
+					roffset px logsumshiftt 0.8 2 0 * 5 t  {
+						simple nroffset @ pl p { scale  + + 0.6 * 0.05 dc * -0.1 t }
+						color inode summons doffset pl pd p 0
+							paction 0 :1
+								##async shell-*/ <> idelay 2s gcr2 6 6 <> {
+								##	colorf { orange teal } pma _ 5
+								##} target Lplayer s tprot px lerpt 0.3 1 0 1.4
+								async shell-*/w <-0.5;:> gcr2d dl 18 14 <> {
+									colorf { red blue } pma _ 5
+									delay 2s
+									face v
+								} gsr2 2 <> {
+									p this
+								} s tprot lerp3c 0 1 3 t
+									rx 0.1 * pm1 p 90
+									rx 1.2 * pm1 p 80
+									rx 2 * pm1 p 70
+				}
+			}
+			wait 0.5
+			move-target 1 io-sine pxy * pm1 p brand 0.7 1.2 y
+#}
+
+
+##6
+<!> type spell :simp.boss.kaguyaf.expiation #{
+<!> hpi 19000 3
+<!> root 0 1.5
+phase 32
+    paction 0
+		async shell-*/w <> gcr2d (min dh (^ dh 0.2)) 46 _ <6h> {
+			color $rainbow
+			delay 90
+		} gsr2c * (min dh (^ dh 0.4)) 58 {
+			target a Lplayer
+		} s tprot cx 1.7
+		gtr {
+			wt	/i ^ dl 0.3 120 _
+			wait-child
+			p	this
+			##delay	2s
+			timereset
+		} saction 0
+			savef pang 0 if (= p 0) -80 + * pm1 p (+ 16 * 0.8 p) angleto Lplayer
+			sfx x-lockon
+			sync mulaser-pink/b <> safelaser 4 {
+				straight @0 pang
+			}
+			async gdlaser-green/ <> gcr2 10 12 <> {
+				##color $rainbow
+				p this
+				expose  f st
+			} gsr2 2 <> { 
+				p add
+			} laser null 0.5 (- 4.8 * 0.17 p1) {
+				hueshift(* 360 t)
+				high
+				sfx2	x-laser-fire x-laser-on
+				rotate	@0 pang lerpu 0 (- 3.5 * 12f p1) t * pm1 p2 (+ -110 * -7 p1) 0
+			}
+			wait 0.8
+			$kingcrimson
+			wait 1.5
+			bullet-control persist shell-* softcull cwheel-pink/b relcirc player circ <0;0;0.7>
+			zawarudo 0.8 Lplayer 0.5 0.5 8
+			pool-control shell-* reset
+#}
+
+
+##7
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 1
+		dialogue simp.dialogue.2.2
+		sync _ <> 1upitem
+		sync _ <> powerupshiftitem
+		move-target 2 in-sine cy 10
+		shift-phase
+#}
+

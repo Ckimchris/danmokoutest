@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: SiMP.Shinki
+  m_EditorClassIdentifier: 
+  boss: {fileID: 6003014192476353498, guid: 190c48124f089ba45a3452933bdb637d, type: 3}
+  localizationBaseKey: simp.boss.shinki
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 4900000, guid: 2a1193b06701d6b49ab8335b1a00b9c9, type: 3}
+  key: simp.shinki
+  colors: {fileID: 11400000, guid: f4604fa083596e449a093d14a07e723b, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 2800000, guid: 1d1b6286480270b4c9ea525fa1fa3614, type: 3}
+    rightSidebar: {fileID: 2800000, guid: 513819837ea958e46a665e0461b72e25, type: 3}
+  defaultNonBG: {fileID: 5180723301924424041, guid: 4a0a8a5316c330c4189ab06c1ba0018c,
+    type: 3}
+  defaultSpellBG: {fileID: 5180723301924424041, guid: e5b7364a6eea7aa47b0e0aebb7a4e863,
+    type: 3}
+  defaultIntoSpellTransition: {fileID: 11400000, guid: 9b0abf82e07299741a4d64ecd57ff7e6,
+    type: 2}
+  defaultIntoNonTransition: {fileID: 11400000, guid: ee89dae89d15f34418474c82d6d3a3ba,
+    type: 2}
+  bossCutin: {fileID: 2426727079670566650, guid: 7bc7d8102d81a684d8aa9c8768924585,
+    type: 3}
+  spellCutins:
+  - {fileID: 5101881453110368087, guid: 55e4fa769cf4b28479a5503275230561, type: 3}

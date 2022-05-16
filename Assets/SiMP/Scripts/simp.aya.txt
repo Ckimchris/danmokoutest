@@ -1,0 +1,247 @@
+<#> strict(none)
+pattern { 
+	boss simp.aya
+	bgm {
+		1 simp.1.stage
+	}
+}
+phase 0
+	paction 0
+		shift-phase-to 4
+	
+
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t blue red
+	rgba 0.8 0.8 0.8 0.9
+	1.5 2 0 0.5
+!}
+
+!!{ me aya
+
+## 1
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 1
+		dialogue simp.dialogue.1.1
+		shift-phase
+#}
+
+##2
+<!> bosscutin
+<!> type non :simp.boss.aya.ambition #{
+<!> hpi 10000 4
+<!> root 0 2
+phase 30
+	paction 0
+		_ 0.5 $power1
+		async circle-* <180> gir2 2s 2 <> {
+			p this
+			circle
+			color { blue/ red/ }
+			bindItr(color)
+		} gcr {
+			times(_)
+			wait(/ 22 ^(dl, 0.6))
+			rv2incr(angle(+ 28 * 15 &color))
+			p add
+			bindItr(loop)
+			sfx x-fire-burst-1
+		} guideempty2 p { ploc loc pdir dir }
+			tprot px(lerpt(0, 0.6, 0, + 2.2 * 1 &color)) {
+			gsr2c (+ 4 dc) {
+			} s dtpoffset ploc pdir p rx(lerpt(0, 0.3, 0, + 0.5 * 0.3 softmod(3, &loop)), * pm1(&color) * 24 t)
+		}
+		gtr {
+			wait(lerpd(6s, 4s))
+			times(_)
+			delay(3s)
+			bindLR
+		} {
+			move-target 1.4 out-sine pxy(* &lr rand(1.1, 1.6), rand(1.5, 2.8))
+			async gpather-black/ <> gcr2 15 12 <> {
+			} gsr {
+				sfx x-fire-tech-6
+				target a Lplayer
+			} pather 1 0.8 tprot px lerpt 0.3 0.7 3 lerpd(6, 8) { }
+		}
+
+#}
+
+
+## 3
+<!> type spell :simp.boss.aya.rule #{
+<!> hpi 14000 4
+<!> root 0 7
+phase 32
+	paction 0
+		pool-control gcircle-* allowdelete false
+		pool-control {{ gcircle-* sakura-* fireball-* }} allowcull false
+	paction 0
+		position 10 6
+!!{ bc sakura-black/
+		bullet-control persist $bc flipy> ymax _
+		bullet-control persist $bc flipx> 4.3 _
+		bullet-control persist $bc flipx< -4.3 _
+		bullet-control persist $bc batch > t 3 {
+			sfx x-transform-1 _
+			restyleeffect circle-pink/w cwheel-pink/ _
+		}
+		bullet-control persist circle-pink/w force _ 
+			tpnrot rx
+				* brand 1 1.6
+					 lerp3 3.2 4.5 8 10 t 0 lerpd(0.9, 1) 1.3
+				+ -90 brand2 -20 20
+		gtr {
+			wait-child
+			wt	1	_
+			preloop {
+				lr =f pm1 t
+				itr =f t
+			}
+		} saction 0
+			pos pxy * &lr 11 6
+	!!{ wl 12
+	!!{ ww 7
+			sync gcircle-* <> loc0 gsr {
+					tmmod	$ww
+				} gsr {
+					tmmod	$wl
+				} gsr {
+					colorf { blue/b red/b } + t &itr
+					tmmod	2
+				} s nroffset :: {
+					px	pma $ww { $wl 2 }
+					py	pm $wl 2
+					plr	pm1 pm 2 1
+				} + lbeh $me tp qrotate * &lr py 19
+					wings1 $ww $wl 2
+			~ _ 0.5 
+				$power1
+			move-target 2 out-sine pxy * &lr 0.5 2.5
+		!!{ rpt * dl 48
+			~ async $bc <;-1.5:;:90> gcr2 36 (+ 5 d3d1) <> {
+				p this
+				sfx x-fire-burst-2
+			} {
+				gsr2 $rpt angle / 310 $rpt {
+					center
+				}	s tpnrot
+					rotify px lerpt 1 2.5 - 4.8 * 0.38 p 0
+			}
+			async circle-*/ <-1.8;-0.4:;:> gir2 240 3 <> {
+				sfx x-fire-burst-1
+				p this
+				
+			} { 
+				gsr2 2 <3.6;:;:> {
+					color { blue red }
+					p	add
+				} {
+		!!{ rpt * ^ dl 0.8 11
+					gsr2 2 angle / 360h $rpt { 
+						offset(angle(* / 720h $rpt p1))
+						sltarget ra Lplayer
+						pm add p2
+					} gsr2c $rpt {
+						start rv2.nx *=f &lr
+						preloop dir =f [&rv2].a
+					} gsr2c 12 {
+						bank <0.23;:>
+					} s tpnrot rx 
+						* lerpd(0.8, 1) lerp 0.7 1 (+ t * 0.7 p2) 0 + 2.6 * 1 p1
+						&dir
+				}
+			}
+			move-target 1.6 in-sine pxy * &lr 11 4
+			bullet-control once {{ gcircle-*/b } { red blue }} cull _
+#}
+
+
+
+## 4
+<!> dialogue #{
+phase 0
+	saction 0
+		move-target 3 io-sine cy 0
+		dialogue simp.dialogue.1.2
+		sync _ <> powerupshiftitem
+		move-target 3 in-sine cy 8
+		shift-phase
+#}
+
+///
+
+
+##3
+<!> type timeout `Tengu's Rise: Winged Feet of Pheidippides` #{
+<!> root 0 7
+phase 21
+	paction 0
+		pool-control {{ gcircle-* }} allowcull false
+		savef lr 0 1
+		sync gcircle-black/b <> loc0 gsr {
+!!{ wl 10
+!!{ ww 6
+			tmmod	$ww
+		} gsr {
+			tmmod	$wl
+		} gsr {
+			tmmod	2
+		} s nroffset :: {
+			px	pma $ww { $wl 2 }
+			py	pm $wl 2
+			plr	pm1 pm 2 1
+		} + lbeh $me tp qrotate * @0 lr py 24
+			wings1 $ww $wl 1.2
+		gtr {
+			bindLR
+			wt 10 _
+			wait-child
+			preloop itr =f t
+		} saction 0
+			savef lr 0 &lr
+!!{ randy  rand max 0 - 1 * 0.1 &itr min 4.5 + 3.3 * 0.1 &itr
+!!{ movet lerp3 0 2 2 10 &itr 2.1 0.8 lerpd(0.27, 0.12)
+			pos pxy * &lr 10 $randy
+			sfx x-move-anime
+			savev2 next 0 pxy * &lr -10 $randy
+			~ async circle-*/ <0.22;:> gcr {
+				delay * $movet * 1s + 0.5 * 0 rangemodh &itr
+				colorf { red blue } &itr
+			} gsr {
+				root pxy * &lr 0.7 y
+			} gsr2c 12 {
+			} gsr {
+				bank0 <>
+				target ra Lplayer
+			} s tprot px lerpt 0 0.6 1 2.7
+!!{ times * dl lerp 0 12 &itr 30 14
+			sync glaser-*/ <> gsr {
+				clip < &itr 14
+				colorf { blue red } &itr
+				target a @0 next
+			} laser null 0.3 0.4 { length 20 }
+			~ async sakura-black/ <> gcr2 * $movet / 1s $times $times <> {
+				root @0 next
+				start rv2.a =f atan - @0 next loc
+				preloop rv2.rx =f * 20 (-- / t $times)
+			} gsr2c 2 {
+				bank0 <>
+				p this
+			} s tprot rx
+				lerpt 0 0.5 1.4 2.2
+				+ -90 * 25 rangemodh ++ &itr
+			if < &itr 14
+				move-target $movet elinear @0 next
+				wait $movet
+			if = &itr 11
+				bullet-control once gcircle-* cull _
+				noop
+	
+
+#}
+
+

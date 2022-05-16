@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a92301f86b4dd690557658c7243e8b, type: 3}
+  m_Name: BRuH.Kurokoma
+  m_EditorClassIdentifier: 
+  boss: {fileID: 6003014192476353498, guid: ac6fd8ebfe407e047a8193f70de52a48, type: 3}
+  localizationBaseKey: boss.kurokoma
+  m_bossPracticeName:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  challengeNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  replayNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  bottomTrackerNameOverride:
+    useReference: 1
+    reference: 
+    hardcoded:
+      en: 
+      jp: 
+      _showEnOnly: 0
+  stateMachine: {fileID: 4900000, guid: 78ae9e17853d09241af7926e958b6f5d, type: 3}
+  key: bruh.kurokoma
+  colors: {fileID: 11400000, guid: 0bb2e27cab4e47d42bd598238a66d8be, type: 2}
+  cardRotator: 
+  spellRotator: 
+  profile:
+    leftSidebar: {fileID: 2800000, guid: a5074affafdeb2b46a26803fd0cc4277, type: 3}
+    rightSidebar: {fileID: 2800000, guid: 8448726af213ef94fb23568e970f79cb, type: 3}
+  defaultNonBG: {fileID: 0}
+  defaultSpellBG: {fileID: 0}
+  defaultIntoSpellTransition: {fileID: 0}
+  defaultIntoNonTransition: {fileID: 0}
+  bossCutin: {fileID: 0}
+  spellCutins:
+  - {fileID: 160725723660692450, guid: 67d5936ef201a4a48b1cf235bdf569c1, type: 3}

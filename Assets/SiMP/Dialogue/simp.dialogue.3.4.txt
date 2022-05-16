@@ -1,0 +1,35 @@
+script
+place l1 mokou
+place r1 seija
+sl mokou
+sr seija
+srce cry
+. `Owowow...`
+z
+slce _
+. `Continuing our discussion. What's your plan?`
+z
+srce _
+. `It's a simple enough plan. 
+If the orbs are storing up some kind of evil energy, I can simply invert that situation and force them to release it. A trivial task for my power.`
+z
+slce worry
+. `Then why haven't you already made any moves? What am I even here for?`
+z
+src
+. `Are you stupid? 
+You know what the Hakurei god's blessing is, right? It's youkai extermination.`
+z
+. `Until you pacify those orbs, I can't get anywhere near them. 
+You're a human, so you'll be fine. Probably.`
+z
+slce happy
+. `Hmm... I had thought you were an idiot, but you're just a kid occasionally drunk on the power of formal reasoning. There's hope for you yet.`
+z
+slce _
+. `Let's head back and get in contact with Keine. It's almost time to put this plan into motion.`
+z
+src
+re sfx extend-any
+. `(Seija has joined the party!)`
+z

@@ -1,0 +1,164 @@
+<#> strict(none)
+pattern { 
+	boss simp.yukari2
+	bgm {
+		1 simp.ex.stage
+	}
+}
+<!> showlives 4
+phase 0
+	paction 0
+		shift-phase-to 4
+	
+
+!!{ yukac { teal purple pink red orange yellow  }
+!!{ yukac1 { red orange yellow }
+!!{ yukac2 {  teal blue pink  }
+!!{ yukac_4 { blue teal red yellow }
+!{ power1()
+sync powerup1 <> powerup2
+	x-powerup-1 x-powerdown-1
+	witha 0.9 lerp 0 1 t purple pink
+	witha 0.9 yellow
+	1.5 2 0 0.5
+!}
+!{ power1long()
+sync powerup1 <> powerup x-powerup-1
+	witha 0.9 lerp 0 2.5 t purple yellow
+	3 5
+!}
+
+
+##1
+<!> bosscutin
+<!> type non :simp.boss.yukariex.nightmare #{
+<!> root 0 1.5
+<!> showlives 4
+<!> hpi 14000 5
+phase 32
+	paction 0
+		$power1
+		pool-control { { keine-* } } cullrad 10
+		async gem-yellow/ <> gcr2d dl 7 _ angle(+ -20 * 0.7 t) {
+			delay 1.5s
+			sfx x-fire-loop-1
+			##frv2	a sine 7p 1200 timersec(pt)
+		} gsr2c 5 {
+		} s tprot cx 4
+		async _ <> gcr {
+			wt	420 _
+			root	cxy 0 6
+			color	{ pink yellow }
+			p	this
+			sfx	x-crow
+			frv2 rx * pm1 t 1.3
+		} gsr {
+			target rx Lplayer
+		} guideempty .1 p { eloc loc } { } 
+			tprot py * lerpt 0 1 5 1 -1 {
+				color icrow summons nroffset @ eloc p stall
+				colorr keine-*/w gsr2c 4 {
+					preloop rv2a =f [&rv2].a
+				} simple
+!!{ ang * * pm1 p -55 + t * 2h p
+				offset 
+					rx
+						2.5
+						$ang
+					@ eloc p
+                { dir + &rv2a $ang }
+			}
+#}
+
+
+##2
+<!> type spell :simp.boss.yukariex.karyuudogari #{
+<!> root 0 3
+<!> hpi 20000 3
+<!> showlives 4
+phase 36
+	paction 0
+		$power1
+		timer restart pt
+		async gem-yellow/ <> gcr2d ^ dl 0.7 7 _ angle(+ 10 * 0.5 t) {
+			delay 1.5s
+			sfx x-fire-loop-1
+		} gsr2c 4 {
+		} s tprot cx 3.6
+		gtr {
+			wait 8s
+			times _
+			delay 4s
+			rv2incr <360h>
+		} {
+			$power1
+			async lightning-pink/ <> gcr2d ^ dl 0.7 16 _ angle(+ -20 * 0.9p t) {
+				for(6s)
+				delay 1.5s
+				sfx x-lightning
+			} gsr2c 5 {
+			} pather 0.6 0.6 tprot cx 5 { }
+		}
+		
+		sync icrow <> gsr2 4 <> {
+			root cy -1
+			p this
+		} summons
+			polar
+				lerpsmooth out-sine 0 1 t 6 3.5
+				+ * 90 p * pm1 p * 30 t
+			paction 1 :3
+				async _ <> gcr2 1 _ <> {
+					savev2		crowloc p loc
+				} noop
+				async gdlaser-* <> gcr2 /i ^ dl 0.4 (lerpt 0 8 160 80) _ <> {
+					colorf { yellow/ pink/ } p
+					preloop target =v2 Lplayer
+					root zero
+				} gsr {
+					clip neq p mod 4 &pi
+				} laser nroffset @ crowloc p 1 0.2 {
+					dsfx
+					rotate 0 angleto &target
+				}
+				async gem-* <180> gcr2 18 _ <> {
+					delay * 4 p
+					colorf { yellow/b pink/b } p
+					sfx x-fire-loop-1
+					face v
+				} gsr2 7 a * pm1 p 10 {
+				} s tprot px 1.2
+#}
+
+
+##3
+<!> type spell :simp.boss.yukariex.dbf #{
+<!> root 0 1.5
+<!> hpi 40000 2
+<!> showlives 3
+phase 52
+	paction 0
+		$power1long()
+		_ 1 $power1long()
+		_ 1.8 $power1long()
+		_ 2.5 $power1long()
+		_ 3.1 $power1long()
+		_ 3.5 $power1long()
+		draiko 2 8
+		_ 4 shift-phase
+		
+
+#}
+
+
+##4
+<!> dialogue #{
+<!> showlives 3
+phase 0
+	saction 0
+		dialogue simp.dialogue.ex.4
+		move-target 2 in-sine cy 10
+		shift-phase
+#}
+
+

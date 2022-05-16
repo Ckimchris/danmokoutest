@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7768018aff40589017a165e079b3c1, type: 3}
+  m_Name: SiMP References
+  m_EditorClassIdentifier: 
+  gameIdentifier: SiMP
+  gameVersion:
+    major: 4
+    minor: 2
+    patch: 0
+  mainMenu: {fileID: 11400000, guid: 977bd9744ba2d3a42a39a6092cb8e0e5, type: 2}
+  replaySaveMenu: {fileID: 11400000, guid: 4eb8b66bd76d4d94fa90176835284503, type: 2}
+  defaultMenuBackground: {fileID: 6614173089345499342, guid: 56da452ec6a98284295330ef47ecf1c1,
+    type: 3}
+  defaultUIFrame: {fileID: 21300000, guid: fd60a7ae3ce4be640b9b311d9d70969e, type: 3}
+  unitScene: {fileID: 11400000, guid: f6d073d9562719741ac86ec620f65354, type: 2}
+  tutorial: {fileID: 11400000, guid: e027ad7aef4a8f64b9c01607748714d4, type: 2}
+  miniTutorial: {fileID: 11400000, guid: fb36de3b12e94e04d9e76959a8887586, type: 2}
+  endcard: {fileID: 11400000, guid: 8d6f4f35b7d2da942a254e43329ca03c, type: 2}
+  campaign: {fileID: 11400000, guid: 0e12394685828ac44a2b553087a8aec5, type: 2}
+  exCampaign: {fileID: 11400000, guid: 29d8e1b38a50bdc4dbdbafd33095f788, type: 2}
+  dayCampaign: {fileID: 0}
+  defaultTransition: {fileID: 11400000, guid: 3e2a8876c4f618c459cd5149f9ae1964, type: 2}
+  bounds:
+    left: -3.6
+    right: 3.6
+    top: 4.1
+    bot: -4.5
+    center: {x: -1.9, y: 0}
+  achievements: {fileID: 11400000, guid: 49ba1aeadee5a884f902fd0b043fb56a, type: 2}
+  dialogue:
+  - {fileID: 11400000, guid: 61ec3aa170f0d4f4981fc1a306cfe2e6, type: 2}
+  bossMetadata:
+  - {fileID: 11400000, guid: 5d6d4963e0f6b7544a9b64095bb1e76d, type: 2}
+  - {fileID: 11400000, guid: a50fb6bf14fe55c42ae6b1f031c5a69a, type: 2}
+  - {fileID: 11400000, guid: d4227c053899414498c119b794fe3e57, type: 2}
+  - {fileID: 11400000, guid: da15df684a7eec947ac0846219c4461f, type: 2}
+  - {fileID: 11400000, guid: 99cd8b998316e6a4eae1f8894a706193, type: 2}
+  - {fileID: 11400000, guid: 43e8e3031b95bc8498525b35ec31b1c9, type: 2}
+  - {fileID: 11400000, guid: b99d57e36ac55d04e9c979423aeb2fb2, type: 2}
+  - {fileID: 11400000, guid: c1bc569dd2c107245bb9c2f98ab5bcd9, type: 2}
+  - {fileID: 11400000, guid: 83c45aeaab26c764084f505d8ca238cd, type: 2}
+  - {fileID: 11400000, guid: 1a0ddcbc2a436e8438020c8f8384c55a, type: 2}
+  - {fileID: 11400000, guid: 5d20410abda162f4b86c5b5511038e76, type: 2}
+  - {fileID: 11400000, guid: 2f31385c7b8745b498c8cb0cbc5ac0b0, type: 2}
+  - {fileID: 11400000, guid: 4379d9182e52b6a4abe194c7f626f164, type: 2}
+  - {fileID: 11400000, guid: 2a8da76a930486b49aebfdb0e223c0fc, type: 2}
+  - {fileID: 11400000, guid: 214dfc15532abf8488c4daa08ac45624, type: 2}
+  - {fileID: 11400000, guid: 061f122427d8e1e418fbe6a8e4252d31, type: 2}
+  dialogueProfiles: []
+  tracks:
+  - {fileID: 11400000, guid: 7d1138de9ee25e14ea3511ee4271d517, type: 2}
+  - {fileID: 11400000, guid: 2339162d9ceecff4d824aa84b163ef7a, type: 2}
+  - {fileID: 11400000, guid: a6ff62661b444af41a43f397ba8d2779, type: 2}
+  - {fileID: 11400000, guid: 31d3b25ba58c7244aa7bff9a60b9f407, type: 2}
+  - {fileID: 11400000, guid: 747d7e582cbb2364998b53986e7e7685, type: 2}
+  - {fileID: 11400000, guid: e93bd795cdb731647a6c20de3d7ec518, type: 2}
+  - {fileID: 11400000, guid: 489273bb6ef4e3847abc35b4662e4c92, type: 2}
+  - {fileID: 11400000, guid: 25a0de06d5f63ab4a8f1b3495f1b61e0, type: 2}
+  - {fileID: 11400000, guid: 8c797139c4b829843b86c315389cab68, type: 2}
+  - {fileID: 11400000, guid: 62e3302d4e206bb4ba1788332d918205, type: 2}
+  - {fileID: 11400000, guid: 1a7a0f5a8eebce341acbbfccf5b3f8e5, type: 2}
+  - {fileID: 11400000, guid: 209dcf1a453903d41a2fff56885fa33b, type: 2}
+  - {fileID: 11400000, guid: ab1e7964542a5b14ea6113eb50c0f46a, type: 2}
+  items: {fileID: 11400000, guid: 18e6de6e951f4114e8823af9e617bff7, type: 2}
+  prefabReferences: {fileID: 11400000, guid: 842bcc7c616103e4c9880c49f9735bb4, type: 2}
+  suzunoyaReferences: {fileID: 11400000, guid: eb72c7e04aab1d645bef9ba5d2605602, type: 2}
+  uxmlDefaults: {fileID: 11400000, guid: b4213b3830762944fbcb9250a4b73463, type: 2}
+  SFX: []
+  summonables:
+  - {fileID: 11400000, guid: 38afc312ddb0ac242b8cfb301b1b4237, type: 2}
+  - {fileID: 11400000, guid: 0d4a9136117bbb444bb6a20b70a5e613, type: 2}
+  fileStateMachines: []
+  scriptFolders:
+  - Assets/SiMP/Dialogue
+  - Assets/SiMP/Scripts
+  fastParsing: 1

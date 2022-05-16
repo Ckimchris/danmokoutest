@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3d462728373fa4db771cd7986b7536, type: 3}
+  m_Name: simp.5.boss.reimu
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 2cbab5c541a48314694ed4c214fb8a7d, type: 3}
+  key: simp.5.reimu
+  trackPlayLocation: Reimu
+  title: Lazily Evaluated Justice
+  musicRoomDescription:
+    useReference: 1
+    reference: simp.music.stage5boss
+    hardcoded:
+      en: 
+      jp: 
+  volume: 0.17
+  pitch: 1
+  stopOnPause: 0
+  loop: 1
+  loopSeconds: {x: 39.14, y: 164.28}
+  startWithTime: 0
+  musicRoomRequirement: campaigncompleted(simp.main)
+  showInMusicRoom: 1
