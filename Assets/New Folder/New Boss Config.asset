@@ -13,39 +13,39 @@ MonoBehaviour:
   m_Name: New Boss Config
   m_EditorClassIdentifier: 
   boss: {fileID: 2839687353931545823, guid: 567949ea02f82894482d1922e940c492, type: 3}
-  localizationBaseKey: "\u59B9\u7D05"
+  localizationBaseKey: simp.boss.mokou
   m_casualName:
     useReference: 1
-    reference: "\u59B9\u7D05"
+    reference: 
     hardcoded:
       en: 
       jp: 
   m_bossPracticeName:
     useReference: 1
-    reference: "\u59B9\u7D05"
+    reference: 
     hardcoded:
       en: 
       jp: 
   replayNameOverride:
     useReference: 1
-    reference: "\u59B9\u7D05"
+    reference: 
     hardcoded:
       en: 
       jp: 
   bottomTrackerNameOverride:
     useReference: 1
-    reference: "\u59B9\u7D05"
+    reference: 
     hardcoded:
       en: 
       jp: 
   stateMachine: {fileID: 4900000, guid: a3bb0417f9837b0469b369a3ca93a90e, type: 3}
-  key: boss.mynewboss
+  key: simp.mokou
   colors: {fileID: 11400000, guid: 34641e7d6cf8ea94b8f3b99cf198bd87, type: 2}
   cardRotator: 
   spellRotator: 
   profile:
-    leftSidebar: {fileID: 2800000, guid: a3e68d26b33f78b4fa0d6859aaec0020, type: 3}
-    rightSidebar: {fileID: 2800000, guid: f7a7fa958c1ac3945940a2b95c645f96, type: 3}
+    leftSidebar: {fileID: 0}
+    rightSidebar: {fileID: 0}
   defaultNonBG: {fileID: 5180723301924424041, guid: 4a0a8a5316c330c4189ab06c1ba0018c,
     type: 3}
   defaultSpellBG: {fileID: 5180723301924424041, guid: 07cab9910f9f9cf4c9fe48ca50a3ad85,
@@ -54,7 +54,7 @@ MonoBehaviour:
     type: 2}
   defaultIntoNonTransition: {fileID: 11400000, guid: ee89dae89d15f34418474c82d6d3a3ba,
     type: 2}
-  bossCutin: {fileID: 2426727079670566650, guid: ce1ff27263b06dc498849833756d11f7,
+  bossCutin: {fileID: 2426727079670566650, guid: b8e70f0bfb3d14746944f15d22bd3837,
     type: 3}
   spellCutins:
-  - {fileID: 2426727079670566650, guid: cf37679fe9eb4e14abbf2d9aa35dd246, type: 3}
+  - {fileID: 160725723660692450, guid: d7fe74c6c8b744d47a05ae188235337a, type: 3}

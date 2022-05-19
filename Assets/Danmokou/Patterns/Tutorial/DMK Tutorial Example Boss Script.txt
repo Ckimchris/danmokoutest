@@ -1,9 +1,6 @@
 <#> strict(none)
 pattern { 
-	boss simp.mokou
-	bgm {
-		1 simp.ex.stage
-	}
+	boss mokou
 }
 phase 0
 	paction 0
@@ -47,6 +44,3 @@ phase(0)
 			frv2(angle(cosine(8p, 800, timersec(phaset))))
 		} gsr2c 3 {
 		} s(rvelocity(cx(3)))
-
-
-
